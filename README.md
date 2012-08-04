@@ -8,7 +8,7 @@ BNT-SM inputs a data set and a compact XML specification of a Bayes net model hy
 INSTALL
 ======
 
-BNT-SM is implemented in Matlab, so you need to have Matlab installed and running.
+BNT-SM2.0.zip can be downloaded under Downloads. It is implemented in Matlab, so you need to have Matlab installed and running.
 
 TYPICAL USAGE EXAMPLES
 ======
