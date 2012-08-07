@@ -1,0 +1,2486 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>Geodise Compute Toolbox</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<h1><a name="_Toc104279201" id="_Toc104279201">Geodise Compute
+
+Toolbox</a></h1>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h2><a name="_Toc104279202" id=
+
+"_Toc104279202">Introduction</a></h2>
+
+<p class="MsoNormal">The Geodise Compute Toolbox exposes the power
+
+of the Grid to the Matlab technical computing environment. With
+
+this toolbox the engineer can programmatically access Globus GT2
+
+resources which provide the backbone of many computational Grids.
+
+In this manner the Geodise Compute Toolbox promotes the integration
+
+of Grid resources into the complex engineering workflows which can
+
+be described within the Matlab environment.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The Geodise Compute Toolbox provides Matlab
+
+functions which support the job submission, file transfer and
+
+certificate management in a familiar and intuitive syntax.</p>
+
+<ul style='margin-top:0cm' type="disc">
+
+<li class="MsoNormal">Globus GRAM jobs can be submitted, queried
+
+and terminated.</li>
+
+<li class="MsoNormal">File transfer and remote directory management
+
+is supported using the GridFTP protocol.</li>
+
+<li class="MsoNormal">Single sign-on to the Grid is supported with
+
+Globus proxy certificates.</li>
+
+</ul>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The Geodise Compute Toolbox functions for
+
+certificate management are listed in Table 1. Table 2 lists
+
+functions for the submission the computational jobs to a Globus
+
+GRAM service, and Table 3 lists the functions for GridFTP file
+
+transfer. In addition there are a number of functions to define the
+
+availability and performance of a GridFTP server (Table 4).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding=
+
+"0" style=
+
+'margin-left:65.85pt;border-collapse:collapse;border:none'>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_certinfo</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Returns information about the
+
+user's certificate.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_createproxy</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Creates a Globus proxy
+
+certificate.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_proxyinfo</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Returns information about the
+
+user's proxy certificate.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_proxyquery</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Queries whether a valid proxy
+
+certificate exists.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_destroyproxy</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; page-break-after:avoid'>
+
+Destroys the local copy of the user's Globus proxy certificate.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoCaption"><a name="_Ref85869951" id=
+
+"_Ref85869951">Table</a> 1 Certificate management functions</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding=
+
+"0" style=
+
+'margin-left:65.85pt;border-collapse:collapse;border:none'>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_jobstatus</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Gets the status of a Globus
+
+GRAM job.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_jobsubmit</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Submits a compute job to a
+
+Globus GRAM job manager.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_jobpoll</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Queries the status of a
+
+Globus GRAM job until complete.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_jobkill</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Kills a Globus GRAM job
+
+specified by a job handle.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_chmod</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Changes file permissions of a
+
+file on a Globus resource.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_condorsubmit</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Submits a job through a
+
+Globus resource to a Condor pool.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_submitunique</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Submits a GRAM job to a
+
+unique working directory.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoCaption"><a name="_Ref85870001" id=
+
+"_Ref85870001">Table</a> 2 GRAM job submission functions</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding=
+
+"0" style=
+
+'margin-left:65.85pt;border-collapse:collapse;border:none'>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_getfile</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Retrieves a remote file using
+
+GridFTP.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_putfile</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Puts a file on a remote
+
+server using GridFTP.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_transferfile</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Performs a third-party file
+
+transfer using GridFTP.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_makedir</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Creates a remote directory
+
+using GridFTP.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_listdir</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Lists the contents of a
+
+directory on a GridFTP server.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_fileexists</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Tests the existence of files
+
+and directories on a Globus resource.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_rmdir</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Deletes a remote directory
+
+using GridFTP.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_rmfile</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Deletes a remote file using
+
+GridFTP.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_rmuniquedir</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; page-break-after:avoid'>
+
+Deletes a remote directory and its contents.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoCaption"><a name="_Ref85870009" id=
+
+"_Ref85870009">Table</a> 3 GridFTP file transfer functions</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding=
+
+"0" style=
+
+'margin-left:65.85pt;border-collapse:collapse;border:none'>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_servermetrics</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Performs a number of tests
+
+upon a list of Globus resources.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_testauthentication</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Tests authentication with a
+
+Globus resource.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_testfiletransfer</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Tests file transfer to a
+
+Globus resource.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_testjobsubmission</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Tests the job submission to a
+
+Globus resource.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_timeauthentication</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Times authentication to a
+
+Globus resource.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_timefiletransfer</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Times file transfer to a
+
+Globus resource.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_timejobsubmission</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Times a job submission to a
+
+Globus resource.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoCaption"><a name="_Ref85870246" id=
+
+"_Ref85870246">Table</a> 4 Globus resource testing functions</p>
+
+<b><span style='font-size:14.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b>
+
+<h2><a name="_Tutorial" id="_Tutorial"></a><a name="_Toc104279203"
+
+id="_Toc104279203">Tutorial</a></h2>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4><a name="_Grid_Certificates" id="_Grid_Certificates"></a>Grid
+
+Certificates</h4>
+
+<p class="MsoNormal">To access Globus compute resources all users
+
+must be authenticated, and must also be authorised to access the
+
+resource. Authentication under the Globus toolkit is based upon
+
+X.509 certificates. X.509 certificates are digital tokens that have
+
+been cryptographically signed by a trusted third party, the
+
+Certificate Authority (CA). Using X.509 certificates the identity
+
+of a user or server can be verified.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal" align="center" style=
+
+'text-align:center;page-break-after:avoid'><img width="323" height=
+
+"281" src="GeodiseManual_files/image002.jpg" /></p>
+
+<p class="MsoCaption">Figure 1 - Hierarchy of trust for user
+
+credentials</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">It is necessary to obtain a Grid certificate
+
+from a Certificate Authority that is acceptable to the
+
+administrators of the Globus resources that you wish to use. For
+
+step-by-step instructions about how to apply for an X.509
+
+certificate, and how to export it into the format required by
+
+Compute Toolbox, a tutorial is available from the Geodise web-site
+
+(<a href=
+
+"http://www.geodise.org/files/tutorials/Obtaining_Certificates.pdf">
+
+http://www.geodise.org/files/tutorials/Obtaining_Certificates.pdf</a>).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The Globus toolkit authorises users to access
+
+resources by mapping their certificate to a user account on the
+
+resource. Therefore to use a Globus resource to run computational
+
+jobs you must be in possession of an X.509 certificate signed by a
+
+CA that is trusted by the administrators of the resource that you
+
+wish to access. You must then apply for permission to access the
+
+resource by having the subject line of your certificate mapped to a
+
+user account on that machine.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To enable users to delegate their identity,
+
+allowing Grid processes to submit jobs and transfer files on their
+
+behalf, the Globus toolkit also uses a technology called
+
+&lsquo;proxy certificates&rsquo;. Proxy certificates are
+
+temporarily limited credentials that can be used to devolve the
+
+user&rsquo;s identity across the Grid. In practice proxy
+
+certificates also provide a convenient single sign-on to the Grid;
+
+users enter the passphrase to the private key of their X.509
+
+certificate just once when generating the proxy certificate.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Before accessing a Globus resource you should
+
+generate a valid proxy certificate, which will typically expire
+
+after 12 hours. The Geodise Compute Toolbox provides Matlab
+
+functions that allow the user to create, examine and destroy Globus
+
+proxy certificates within the Matlab environment.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Before using the Geodise Compute Toolbox you
+
+should configure the location of the credentials on your machine.
+
+Your X.509 certificate and corresponding private key should be
+
+separately encoded in PEM format (see the obtaining certificates
+
+tutorial for details). To do this create a file called
+
+&lsquo;cog.properties&rsquo; located in a directory
+
+&lsquo;.globus&rsquo; of the home directory on your workstation.
+
+Then configure the location of your X.509 certificate and private
+
+key, in addition to the certificates of trusted CA.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">For example the &lsquo;cog.properties&rsquo;
+
+file on a Windows PC would contain the following lines:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>
+
+cacert=C\:\\Documents and
+
+Settings\\&lt;USER&gt;\\.globus\\01621954.0</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>
+
+proxy=C\:\\DOCUME~1\\&lt;USER&gt;\\LOCALS~1\\Temp\\509up_u_&lt;USER&gt;</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>
+
+usercert=C\:\\Documents and
+
+Settings\\&lt;USER&gt;\\.globus\\usercert.pem</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>
+
+userkey=C\:\\Documents and
+
+Settings\\&lt;USER&gt;\\.globus\\userkey.pem</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>
+
+proxy.strength=512</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>
+
+proxy.lifetime=12</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Please note that throughout this manual the
+
+term &lt;USER&gt; represents your username on any given
+
+machine.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The properties &lsquo;usercert&rsquo; and
+
+&lsquo;userkey&rsquo; refer to locations of the PEM encoded user
+
+certificate and corresponding private key. The file
+
+&lsquo;cacert&rsquo; contains the certificate of the CA which
+
+signed the user&rsquo;s X.509 certificate (in PEM format). Where
+
+&lsquo;proxy&rsquo; will be the location of the user&rsquo;s proxy
+
+certificate once it has been generated by <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_createproxy</span></span>. The properties
+
+&lsquo;proxy.strength&rsquo; and &lsquo;proxy.lifetime&rsquo;
+
+contain default settings for the cryptographic strength and
+
+lifetime of the proxy certificate. Note that the file separator on
+
+a Windows PC must be defined with double backslashes,
+
+&ldquo;\\&rdquo;.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Once the user&rsquo;s credentials have been
+
+configured in the &lsquo;cog.properties&rsquo; file they are
+
+accessible to the Geodise Compute Toolbox. To verify the
+
+configuration from within the Matlab environment query the X.509
+
+certificate:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; subject = gd_certinfo</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>subject:
+
+C=UK,O=eScience,OU=Southampton,L=SeSC,CN=some user</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>issuer:
+
+C=UK,O=eScience,OU=Authority,CN=CA,E=ca-operator@grid-support.ac.uk</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>start
+
+date: Tue Oct 07 13:00:31 BST 2003</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>end date:
+
+Wed Oct 06 13:00:31 BST 2004</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>subject =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+/C=UK/O=eScience/OU=Southampton/L=SeSC/CN=some user</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The details of the user&rsquo;s certificate
+
+are printed to the screen. The subject line returned by
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_certinfo</span></span> is in the Globus
+
+format and can be used to apply for access to a Globus resource. By
+
+supplying this subject line to the administrator of a Globus
+
+resource your credentials can be mapped to a user account on that
+
+machine.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To create a proxy certificate the <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_createproxy</span></span> command is
+
+used:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_createproxy</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">When this command is entered a GUI will prompt
+
+the user for the passphrase to their private key. The details of
+
+the proxy certificate can be configured using the 'Options' button.
+
+The proxy certificate is generated by pressing the 'Create' button.
+
+After the proxy has been generated, click 'Cancel' to dismiss the
+
+GUI, and press 'Enter' at the Matlab prompt.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Now you may query the details of the proxy
+
+certificate:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_proxyinfo;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>Subject:
+
+C=UK,O=eScience,OU=Southampton,L=SeSC,CN=some user,CN=proxy</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>issuer:
+
+C=UK,O=eScience,OU=Southampton,L=SeSC,CN=some user</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>type: full
+
+legacy globus proxy</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>strength:
+
+512 bits</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>timeleft:
+
+11 h, 59 min, 39 sec</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The details printed to the screen indicate
+
+that the proxy certificate will remain valid for almost 12 hours.
+
+We may also query the validity of the proxy certificate
+
+programmatically, for example:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; isvalid =
+
+gd_proxyquery('time',11)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>isvalid =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 1</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">This indicates that our proxy certificate will
+
+remain valid for at least 11 hours.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Job submission and file transfer</h4>
+
+<p class="MsoNormal">The primary services offered by Globus GT2
+
+resources are GRAM job submission and GridFTP file transfer.
+
+Typically Globus resources can simply be specified by the machine
+
+name, for example:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; host = 'server1.domain.com';</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">However some Globus computational resources
+
+may offer GRAM job submission to a number of alternative job
+
+managers or non-default ports. These can be specified as
+
+follows:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; GRAM1 =
+
+'server1.domain.com/jobmanager-fork';</p>
+
+<p class="codeexample">&gt;&gt; GRAM2 =
+
+'server1.domain.com/jobmanager-pbs';</p>
+
+<p class="codeexample">&gt;&gt; GRAM3 =
+
+'server1.domain.com:2119/jobmanager';</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Globus resources offering GridFTP will
+
+typically listen on the default port (2811), however a non-default
+
+port can be specified as follows:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; GridFTP1 =
+
+'server1.domain.com:2812';</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">For all examples in this tutorial we will
+
+assume that a single Globus resource (<span class=
+
+"codeinline"><span style='font-size:11.0pt'>host</span></span>) is
+
+used offering GRAM and GridFTP services on default ports, and using
+
+the default job manager.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To submit a job to a computational resource
+
+via a Globus GRAM service you must describe the attributes of the
+
+job using a Resource Specification Language (RSL) string. An RSL
+
+string is a list of property/values pairs each enclosed by brackets
+
+(see the example below). The most frequently used GRAM RSL
+
+parameters are listed in Table 5, these and other GRAM RSL
+
+parameters are further documented on the Globus website (<a href=
+
+"http://www.globus.org/">http://www.globus.org/</a>).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding=
+
+"0" style=
+
+'margin-left:38.85pt;border-collapse:collapse;border:none'>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>executable</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The name of the
+
+executable file to be run. This is the only required parameter.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>directory</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The name of the
+
+default working directory.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>arguments</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The arguments to
+
+be passed to the executable.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>stdin</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The name of the
+
+file containing the standard input for the executable.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>stdout</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The name of the
+
+file that will contain the standard output from the executable.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>stderr</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The name of the
+
+file that will contain the standard error from the executable.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>count</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The number of
+
+times that the executable should be executed.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>environment</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The environment
+
+variables to be set. A list of name/value pairs each enclosed by
+
+brackets.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>maxTime</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The maximum
+
+execution time in minutes.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>jobType</span></span></p>
+
+</td>
+
+<td width="386" valign="top" style=
+
+'width:289.3pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-right:2.85pt;page-break-after:avoid'>A string specifying
+
+the job types. Possible values include &ldquo;single&rdquo;,
+
+&ldquo;multiple&rdquo;, &ldquo;mpi&rdquo; and
+
+&ldquo;condor&rdquo;.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoCaption"><a name="_Ref84302583" id=
+
+"_Ref84302583"></a><a name="_Ref84302595" id=
+
+"_Ref84302595">Table</a> 5 GRAM RSL parameters</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">This example demonstrates the submission of a
+
+simple job to the Globus GRAM service on <span class=
+
+"codeinline"><span style='font-size:11.0pt'>host</span></span>. The
+
+first argument to <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_jobsubmit</span></span> is an RSL string that
+
+specifies the file name of the executable to be run,
+
+&lsquo;sleep&rsquo;, and the argument to be passed to that
+
+executable which specifies that the process will sleep for 1
+
+minute.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; jobhandle = gd_jobsubmit(
+
+'&amp;(executable="/bin/sleep")(arguments="1m")',host)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>jobhandle
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+https://server1.domain.com:30001/27531/1096385757/</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The function <span class=
+
+"codeinline"><span style=
+
+'font-size: 11.0pt'>gd_jobsubmit</span></span> returns a GRAM job
+
+handle that can be used to check the status of the job, and if
+
+necessary to kill the job. In the following example we use the job
+
+handle returned by <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_jobsubmit</span></span> to query the status
+
+of the job. The integer returned by <span class=
+
+"codeinline"><span style=
+
+'font-size: 11.0pt'>gd_jobstatus</span></span> indicates the state
+
+of the job, where &ldquo;2&rdquo; indicates that the job is active
+
+and &ldquo;3&rdquo; indicates that the job has completed.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; status =
+
+gd_jobstatus(jobhandle)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>status =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 2</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">We can also poll the status of the job until
+
+the job has completed.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_jobpoll(jobhandle)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">In addition to high-performance, high-volume
+
+file transfer GridFTP offers all of the standard FTP file
+
+operations. We can use GridFTP to create a working directory on the
+
+Globus resource.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_makedir(host,'/home/&lt;USER&gt;/demo')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">We will now run a second job, piping the
+
+output to a file &lsquo;date.out&rsquo; in our working directory on
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span>. We will then use the GridFTP
+
+command <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_getfile</span></span> to retrieve the output
+
+to a temporary file on the local machine, and print the
+
+results.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; rsl =
+
+'&amp;(executable="/bin/date")(arguments="-u")
+
+(directory="/home/&lt;USER&gt;/demo")(stdout="date.out")';</p>
+
+<p class="codeexample">&gt;&gt; jobhandle =
+
+gd_jobsubmit(rsl,host)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>jobhandle
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+https://server1.domain.com:30001/27531/1096385757/</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_jobpoll(jobhandle);</p>
+
+<p class="codeexample">&gt;&gt; localfile = tempname;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_getfile(host,'/home/&lt;USER&gt;/demo/date.out',localfile);</p>
+
+<p class="codeexample">&gt;&gt; type(localfile)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>Tue Sep 28
+
+16:46:25 BST 2004</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">We can now use the GridFTP commands
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_rmfile</span></span> and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>gd_rmdir</span></span>
+
+to clean-up the file and directory on the server:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_rmfile(host,'/home/&lt;USER&gt;/demo/date.out')</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_rmdir(host,'/home/&lt;USER&gt;/demo/')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Frequently an engineer may wish to submit and
+
+run several jobs independently upon a Globus resource, for example
+
+when conducting a parameter sweep. To prevent conflicts between the
+
+input and output parameters of the different jobs it is convenient
+
+to run the jobs in separate directories. The function <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_submitunique</span></span> handles the
+
+submission of compute jobs into unique directories, returning a job
+
+handle and the path of the unique directory. In the following
+
+example we use the function <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_submitunique</span></span> to submit two
+
+concurrent jobs, we will then retrieve the results and delete
+
+unique directories and their contents using <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_rmuniquedir</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; rsl =
+
+'&amp;(executable="/bin/date")(arguments="-u")
+
+(stdout="date.out")';</p>
+
+<p class="codeexample">&gt;&gt; [jobhandle1,uniquedir1] =
+
+gd_submitunique(rsl,host,[],'/home/&lt;USER&gt;/')</p>
+
+<p class="codeexample">&gt;&gt; [jobhandle2,uniquedir2] =
+
+gd_submitunique(rsl,host,[],'/home/&lt;USER&gt;/')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>jobhandle1 =
+
+https://server1.domain.com:30002/27658/1096386586/</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>uniquedir1
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+/home/&lt;USER&gt;/20040928T164946_176266/</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>jobhandle2
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+https://server1.domain.com:30002/27671/1096386587/</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>uniquedir2
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+/home/&lt;USER&gt;/20040928T164947_405706/</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_jobpoll(jobhandle1);</p>
+
+<p class="codeexample">&gt;&gt; localfile = tempname;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_getfile(host,[uniquedir1,'date.out'],localfile);</p>
+
+<p class="codeexample">&gt;&gt; type(localfile)</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_rmuniquedir(host,uniquedir1);</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>Wed Sep 29
+
+12:12:21 UTC 2004</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_jobpoll(jobhandle2);</p>
+
+<p class="codeexample">&gt;&gt; localfile = tempname;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_getfile(host,[uniquedir2,'date.out'],localfile);</p>
+
+<p class="codeexample">&gt;&gt; type(localfile)</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_rmuniquedir(host,uniquedir2);</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>Wed Sep 29
+
+12:12:23 UTC 2004</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Scripting the Grid</h4>
+
+<p class="MsoNormal">The Geodise Compute Toolbox allows engineers
+
+to script Grid processes in the Matlab environment. Unfortunately
+
+due to the dynamic nature of the Grid the resources that you wish
+
+to use may become unavailable, or may be more or less reliable. In
+
+these situations, when a function in the Geodise Compute Toolbox is
+
+unable to complete its operation, the function will typically throw
+
+an error with a diagnostic message.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_getfile(host,'\tmp\fileDoesNotExist.txt','demo.txt')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+<b><span style='color:red'>??? Error using ==&gt;
+
+gd_getfile</span></b></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+<b><span style='color:red'>Server Exception: No such file or
+
+directory.</span></b></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">If a Matlab function throws an error, this
+
+will cause the Matlab script or function which invoked it to stop
+
+executing. Therefore it is important if you wish to write a robust
+
+Matlab script or function that communicates with the Grid that you
+
+use Matlab exception handling to deal with errors appropriately if
+
+and when they occur.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Matlab exception handling is based upon
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>try</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>catch</span></span>
+
+statements. By placing a block of code between a pair of
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>try</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>catch</span></span>
+
+statements means that if an error occurs when Matlab evaluates this
+
+code the script will not stop executing. Instead the code inside
+
+the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>catch</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>end</span></span> block
+
+is evaluated and the script continues. This behaviour is
+
+demonstrated by the example below.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; try</p>
+
+<p class="codeexample">&nbsp;&nbsp;
+
+&nbsp;&nbsp;&nbsp;&nbsp;gd_getfile(host,'\tmp\fileDoesNotExist.txt','demo.txt')&nbsp;&nbsp;&nbsp;</p>
+
+<p class="codeexample">&nbsp;&nbsp; catch</p>
+
+<p class="codeexample">&nbsp;&nbsp;
+
+&nbsp;&nbsp;&nbsp;&nbsp;disp('An error has occurred with the
+
+following message:')</p>
+
+<p class="codeexample">&nbsp;&nbsp;&nbsp;
+
+&nbsp;&nbsp;&nbsp;disp(lasterr)</p>
+
+<p class="codeexample">&nbsp;&nbsp; end</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>An error
+
+has occurred with the following message:</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>Error
+
+using ==&gt; gd_getfile</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>Server
+
+Exception: No such file or directory.</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">In this way errors that occur when
+
+communicating with the Grid can be &lsquo;caught&rsquo; by the
+
+script and dealt with appropriately. The diagnostic error message
+
+can be examined with the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>lasterr</span></span> function, and if
+
+appropriate the script can continue, or stopped by throwing another
+
+error (using <span class="codeinline"><span style=
+
+'font-size:11.0pt'>error</span></span> or <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>rethrow</span></span>).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">We recommend that when writing a script or
+
+function that communicates with the Grid that you enclose all Grid
+
+functions with <span class="codeinline"><span style=
+
+'font-size:11.0pt'>try</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>catch</span></span>
+
+statements. You should also consider how the script should behave
+
+if an error occurs; should it tidy up and exit, or should it
+
+continue? This way you will be prepared for the unexpected, and
+
+your Matlab scripts and functions will be more robust as a
+
+result.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Testing Grid resources</h4>
+
+<p class="MsoNormal">The unpredictability of Grid resources mean
+
+that is often wise to determine whether a resource is functioning
+
+and responsive before attempting to use it. The Geodise Compute
+
+Toolbox provides a suite of functions to test the availability and
+
+responsiveness of the Globus services running on a resource.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To determine whether a resource is responding,
+
+and whether or not you are authorised to access it, the following
+
+commands may be used:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; success =
+
+gd_testauthentication(host)</p>
+
+<p class="codeexample">&gt;&gt; time =
+
+gd_timeauthentication(host)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>success =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 1</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>time =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;&nbsp;
+
+171</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To test the availability of the GRAM job
+
+submission service, the following commands will submit a small job
+
+to the job manager specified by <span class=
+
+"codeinline"><span style='font-size:11.0pt'>host</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; success =
+
+gd_testjobsubmission(host)</p>
+
+<p class="codeexample">&gt;&gt; time =
+
+gd_timejobsubmission(host)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>success =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 1</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>time =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;&nbsp;
+
+610</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To test the availability and speed of GridFTP
+
+file transfers to a Globus resource the following commands will
+
+transfer a small file to the specified directory on <span class=
+
+"codeinline"><span style='font-size:11.0pt'>host</span></span>:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; success =
+
+gd_testfiletransfer(host)</p>
+
+<p class="codeexample">&gt;&gt; time =
+
+gd_timefiletransfer(host)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>success =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 1</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>time =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;&nbsp;
+
+890</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<b><span style='font-size:14.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b><br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"functionarguments.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+functionarguments</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_certinfo.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_certinfo</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

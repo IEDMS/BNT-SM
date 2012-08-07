@@ -1,0 +1,1904 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_query</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279247" id="_Toc104279247"></a><a name=
+
+"_gd_query_1" id="_gd_query_1"></a>gd_query</h3>
+
+</div>
+
+<p class="MsoNormal">Performs queries over metadata or Matlab
+
+structures stored in the archive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax&nbsp;</h4>
+
+<p class="codesyntax">gd_query</p>
+
+<p class="codesyntax">qresults = gd_query(query)</p>
+
+<p class="codesyntax">qresults = gd_query(query,datasource)</p>
+
+<p class="codesyntax">qresults =
+
+gd_query(query,datasource,resultfields)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_query</span></span> with no input arguments
+
+starts the query GUI, a Graphical User Interface for querying
+
+metadata and structures which also allows hyperlink browsing
+
+between related data. See the Geodise Database Toolbox Tutorial for
+
+more details.</p>
+
+<h4>&nbsp;</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>qresults = gd_query(query)</span></span> sends a
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>query</span></span> string to the database
+
+requesting all file metadata that meets the criteria specified in
+
+the string. A query takes the form <span class=
+
+"codeinline"><span style='font-size:11.0pt'>'field =
+
+value'</span></span>, where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>=</span></span> can be replaced by other
+
+comparison operators. More than one query condition can be included
+
+in the string using <span class="codeinline"><span style=
+
+'font-size:11.0pt'>&amp;</span></span> to join them together. The
+
+function returns a cell array of metadata structures, one for each
+
+matching result.</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>qresults =
+
+gd_query(query,datasource)</span></span> sends a <span class=
+
+"codeinline"><span style='font-size:11.0pt'>query</span></span>
+
+string to the database requesting matching archived structures or
+
+metadata of a certain type, depending on the value of the
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>datasource</span></span> string. To query
+
+metadata set<span class="codeinline"><span style=
+
+'font-size:11.0pt'>datasource</span></span> to &lsquo;file&rsquo;
+
+(default), &lsquo;varmeta&rsquo; (metadata about variables),
+
+&lsquo;datagroup&rsquo; or &lsquo;monitor&rsquo;. A cell array of
+
+matching structures is returned, one for each result. To query
+
+variables stored in the database set <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datasource</span></span> to &lsquo;var&rsquo;.
+
+In this case the function will return a cell array of matching
+
+variables. The only variables that can be queried in this way are
+
+structures, because they contain named fields that can be searched
+
+for.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>qresults =
+
+gd_query(query,datasource,resultfields)</span></span> sends a
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>query</span></span> string to the database as
+
+above but only returns selected fields for each matching result.
+
+The <span class="codeinline"><span style=
+
+'font-size:11.0pt'>resultfields</span></span> string is a comma
+
+separated list indicating which fields should be returned for each
+
+result, for example just the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span> fields. The default,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>*</span></span>, returns all fields. To view the
+
+query results, use function <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_display.htm#_gd_display_2">gd_display</a></span></span>.</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<h4>Input Arguments</h4>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>query</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+A query takes the form <span class="codeinline"><span style=
+
+'font-size:11.0pt'>'field = value'</span></span> where <span class=
+
+"codeinline"><span style='font-size: 11.0pt'>field</span></span> is
+
+the name of a field in the archived metadata/variable structure,
+
+for example <span class="codeinline"><span style=
+
+'font-size:11.0pt'>iterations</span></span> or <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span> &nbsp;(dot notation is
+
+used to access the subfields of a structure). The <span class=
+
+"codeinline"><span style='font-size:11.0pt'>value</span></span> is
+
+an alphanumeric value the field should contain. The operator
+
+<span class="codeinline"><span style=
+
+'font-size: 11.0pt'>&amp;</span></span> (meaning &lsquo;and&rsquo;)
+
+can be used to specify more than one search condition.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;<br />
+
+The following operators can be used to compare fields with
+
+values:</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;</p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="456" style=
+
+'width:342.0pt;margin-left:77.4pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>=</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Equal to</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>!=</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Not equal to</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>&gt;&nbsp;</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Greater than</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>&lt;&nbsp;</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Less than</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>&gt;=</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Greater than or equal to</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>&lt;=</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Less than or equal to</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>like</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Similar to</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style='font-size:11.0pt'>not
+
+like</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Not similar to</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'><br />
+
+Similarity matches with <span class="codeinline"><span style=
+
+'font-size:11.0pt'>like</span></span> and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>not like</span></span>
+
+use the following wildcards:<br />
+
+<br /></p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="456" style=
+
+'width:342.0pt;margin-left:74.85pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>_</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.85pt'>Matches
+
+any single character.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="81" valign="top" style=
+
+'width:61.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="center" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:center; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>%</span></span></p>
+
+</td>
+
+<td width="375" valign="top" style=
+
+'width:281.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.85pt'>Matches
+
+any string of any length (including 0).</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'><br />
+
+For example, <span class="codeinline"><span style=
+
+'font-size:11.0pt'>'standard.localName like %dat%'</span></span>
+
+will match strings containing the phrase &lsquo;dat&rsquo;, and
+
+<span class="codeinline"><span style='font-size:11.0pt'>'model.name
+
+like _est%'</span></span><br />
+
+will match strings starting with any character followed by
+
+&lsquo;est&rsquo; and then any string. To search for the characters
+
+_ and %, precede them with the \ escape character.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'><br />
+
+The operators do case sensitive comparison when used with string
+
+values. To make an operator case insensitive surround it with two #
+
+characters. For example, #=#, #!=#, #like#, #not like#.<br />
+
+<br />
+
+Another wildcard, *, provides flexibility in describing the field
+
+path. For example, <span class="codeinline"><span style=
+
+'font-size:11.0pt'>model.name</span></span>&nbsp; can be replaced
+
+by <span class="codeinline"><span style=
+
+'font-size:11.0pt'>*.name</span></span> for a less specific
+
+search.</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:72.0pt;text-align:left; text-indent:-72.0pt'>
+
+&nbsp;</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:72.0pt;text-align:left; text-indent:-72.0pt'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+In addition to user defined metadata fields, the following standard
+
+metadata fields can be queried:<br />
+
+<br /></p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="456" style=
+
+'width:342.0pt;margin-left:74.85pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>ID that
+
+uniquely identifies a file, variable or datagroup.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.datagroupname</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Name of
+
+datagroup. Only used when querying datagroups.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.localName</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Name of a
+
+local file before it was archived.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.byteSize</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Size in
+
+bytes of a file.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.format</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Format of
+
+file (default is its extension).</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.createDate</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Date the
+
+file was created/modified.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.archiveDate</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Date the
+
+file or variable was archived, or the datagroup was created.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.userID</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>ID of the
+
+user who archived the data or created the datagroup.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.comment</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Comment
+
+about the file, variable or datagroup.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.version</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>User
+
+defined version number for the file, variable or datagroup.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.tree</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>String
+
+representing a user defined data hierarchy, similar to a directory
+
+path.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.files.fileID</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Each file
+
+in a datagroup.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.vars.varID</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Each
+
+variable in a datagroup.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.</span></span></p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>subdatagroups.</span></span></p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Each
+
+subdatagroup in a datagroup.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.datagroups.</span></span></p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID</span></span></p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Each
+
+datagroup a file, variable or subdatagroup belongs to.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:72.0pt;text-align:left; text-indent:-72.0pt'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+
+
+
+Datagroups are collections that can contain files, variables or
+
+other datagroups, see <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_datagroup.htm#_gd_datagroup_1">gd_datagroup</a></span></span>
+
+and <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_datagroupadd.htm#_gd_datagroupadd_1">gd_datagroupadd</a></span></span>.<br />
+
+
+
+<br />
+
+The fields in an archived structure variable can also be queried in
+
+conjunction with the standard metadata fields for that
+
+variable.</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:72.0pt;text-align:left; text-indent:-72.0pt'>
+
+&nbsp;</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datasource</span></span>&nbsp; The data source
+
+indicates which type of data to query, and can be specified by one
+
+of the following strings (the default <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datasource</span></span> value is 'file'):</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;</p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="456" style=
+
+'width:342.0pt;margin-left:74.85pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+&lsquo;file&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>Metadata about
+
+files.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+&lsquo;datagroup&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Metadata about
+
+datagroups.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+&lsquo;monitor&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Metadata about monitorable
+
+datagroups.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+&lsquo;varmeta&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>Metadata about
+
+Matlab variables.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+&lsquo;var&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Matlab variables.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'><br />
+
+A datagroup that was created with the &lsquo;monitor&rsquo; flag
+
+can be queried as an ordinary datagroup, or as a collection of data
+
+about a computational job, by setting <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datasource</span></span> to
+
+&lsquo;monitor&rsquo;. This provides a quick and easy query
+
+mechanism for finding a user&rsquo;s most recent job, or the latest
+
+job meeting certain other metadata criteria. It is provided for
+
+convenience so that the user does not have to remember any
+
+particular field names, values, or what time the datagroup was
+
+created. In addition to <span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span>, <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>standard.userID</span></span> and user defined
+
+metadata, the following standard metadata can be used together with
+
+&lsquo;monitor&rsquo; to query a job monitoring datagroup.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;</p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="456" style=
+
+'width:342.0pt;margin-left:74.85pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="192" valign="top" style=
+
+'width:144.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.jobIndex</span></span></p>
+
+</td>
+
+<td width="264" valign="top" style=
+
+'width:198.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Job index.
+
+Special query syntax <span class="codeinline"><span style=
+
+'font-size:11.0pt'>jobIndex = max</span></span> gets the highest
+
+index (most recent job).</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="192" valign="top" style=
+
+'width:144.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.jobName</span></span></p>
+
+</td>
+
+<td width="264" valign="top" style=
+
+'width:198.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Name of
+
+job (same as datagroupname).</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="192" valign="top" style=
+
+'width:144.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:72.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.startDate</span></span></p>
+
+</td>
+
+<td width="264" valign="top" style=
+
+'width:198.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; text-indent:.35pt'>Start date
+
+of job (when the datagroup was created).</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" style=
+
+'margin-left:108.0pt;text-indent:-108.0pt'>&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">Query file metadata to find files archived on
+
+or after 1<sup>st</sup> September 2004 where iterations = 9000. A
+
+datasource argument is not required because &lsquo;file&rsquo; is
+
+the default.</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="codeexample">q = 'standard.archiveDate&gt;=2004-09-01
+
+&amp; iterations=9000';</p>
+
+<p class="codeexample">qresults = gd_query(q)</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>qresults
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; [1x1 struct]&nbsp;&nbsp;&nbsp; [1x1 struct]</p>
+
+</div>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="codeexample">disp(qresults{1});</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; standard: [1x1 struct]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model: [1x1
+
+struct]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params: [1 4.7000
+
+5.3000]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; iterations: 9000</p>
+
+</div>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="codeexample">disp(qresults{1}.standard.archiveDate);</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>2004-09-03
+
+15:25:45</p>
+
+</div>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="MsoNormal">See <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_display.htm#_gd_display_2">gd_display</a></span></span> for an
+
+example of displaying the full contents of query results.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Query to find files which have a name field
+
+equal to &lsquo;test_design&rsquo; in their metadata and only
+
+return the fields standard.ID and params.</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="codeexample">q = '*.name = test_design';</p>
+
+<p class="codeexample">qresults = gd_query(q,'file','standard.ID,
+
+params');</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="codeexample">disp(qresults{1})</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; standard: [1x1 struct]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params: [1 4.7000 5.3000]</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Query to find datagroups with comments
+
+containing the text &lsquo;experiment&rsquo;.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">q = 'standard.comment like
+
+%experiment%';</p>
+
+<p class="codeexample">gd_query(q,'datagroup');</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="MsoNormal">Query variable metadata to find the metadata
+
+for all variables that are in a particular datagroup.</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="codeexample">q = 'standard.datagroups.datagroupID=
+
+dg_ce868f40-8ds0-455...';</p>
+
+<p class="codeexample">gd_query(q,'varmeta');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Query variables to find structures where field
+
+width is between 9 and 14 inclusive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">gd_query('width &gt;= 9 &amp; width &lt;=
+
+14', 'var');</p>
+
+<p class="MsoNormal"><br />
+
+Find files that have a comment in their metadata, using "" (two
+
+double quotes) to indicate an empty value.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">gd_query('standard.comment != ""');</p>
+
+<p class="codeexample" style='margin-left:0cm'>&nbsp;</p>
+
+<p class="MsoNormal">Find the latest job monitoring datagroup then
+
+find the latest job monitoring datagroup which matches some other
+
+criteria.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">m.modelver = 0.6; m2.modelver = 0.71;</p>
+
+<p class="codeexample">gd_datagroup('design model job
+
+xyz',m,'monitor');</p>
+
+<p class="codeexample">gd_datagroup('design model job
+
+abc',m,'monitor');</p>
+
+<p class="codeexample">gd_datagroup('design model job
+
+999',m2,'monitor');</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">r1 = gd_query('standard.jobIndex =
+
+max','monitor');</p>
+
+<p class="codeexample">r1{1}.standard.jobName</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>ans =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>design model
+
+job 999</p>
+
+</div>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">r2 = gd_query('standard.jobIndex = max &amp;
+
+modelver &lt;= 0.6', 'monitor');</p>
+
+<p class="codeexample">r2{1}.standard.jobName</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>ans =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>design model
+
+job abc</p>
+
+</div>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">When querying standard date information
+
+(<span class="codeinline"><span style=
+
+'font-size:11.0pt'>archiveDate</span></span> or <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>createDate</span></span>), specify the date/time
+
+using the International Standard Date and Time Notation (ISO 8601)
+
+which is: "YYYY-MM-DD hh:mm:ss" (hh:mm:ss is optional).</p>
+
+<h4>&nbsp;</h4>
+
+<p class="MsoNormal">Only results for data you are authorised to
+
+access will be returned. Function <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_addusers.htm#_gd_addusers_2">gd_addusers</a></span></span> can
+
+be used to grant access to others.</p>
+
+<h4>&nbsp;</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to query
+
+the database (see <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>
+
+from the Geodise Compute Toolbox).</p>
+
+<h4>&nbsp;</h4>
+
+<p class="MsoNormal">Your certificate subject must have been added
+
+to the authorisation database.</p>
+
+<h4>&nbsp;</h4>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_display.htm#_gd_display_2">gd_display</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_archive.htm#_gd_archive_1">gd_archive</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_retrieve.htm#_gd_retrieve_1">gd_retrieve</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_datagroup.htm#_gd_datagroup_1">gd_datagroup</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_datagroupadd.htm#_gd_datagroupadd_1">gd_datagroupadd</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_addusers.htm#_gd_addusers_2">gd_addusers</a></span></span></p>
+
+<p class="codeHyperlinkpara">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_markfordeletion.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_markfordeletion</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_querydeleted.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_querydeleted</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

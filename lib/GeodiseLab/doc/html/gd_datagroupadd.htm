@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_datagroupadd</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279241" id="_Toc104279241"></a><a name=
+
+"_gd_datagroupadd_1" id=
+
+"_gd_datagroupadd_1"></a>gd_datagroupadd</h3>
+
+</div>
+
+<p class="MsoNormal">Adds an archived file, variable or
+
+subdatagroup to a datagroup.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">success = gd_datagroupadd(datagroupID,ID)</p>
+
+<p class="codesyntax">success =
+
+gd_datagroupadd(datagroupID,subdatagroupID)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>success =
+
+gd_datagroupadd(datagroupID,ID)</span></span> adds a file or
+
+variable to a datagroup. The datagroup is specified by its unique
+
+identifier <span class="codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID</span></span> and the identifier of
+
+the file or variable to add is specified with <span class=
+
+"codeinline"><span style='font-size:11.0pt'>ID</span></span>. The
+
+datagroup must have been created with <span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_datagroup.htm#_gd_datagroup_1">gd_datagroup</a></span></span>
+
+and the file or variable must have been archived using <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_archive.htm#_gd_archive_1">gd_archive</a></span></span>. The
+
+function returns 1 if successful, or 0 if failed (for example if
+
+the datagroup does not exist).</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>success =
+
+gd_datagroupadd(datagroupID,subdatagroupID)</span></span> adds a
+
+datagroup (<span class="codeinline"><span style=
+
+'font-size:11.0pt'>subdatagroupID</span></span>) to another
+
+datagroup (<span class="codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID</span></span>). The datagroup to be
+
+added is known as a subdatagroup. Both datagroups must have been
+
+created with <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_datagroup.htm#_gd_datagroup_1">gd_datagroup</a></span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">Add a file and a variable to a datagroup after
+
+they have been archived.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">datagroupID = gd_datagroup('design opt
+
+2004-09-03');</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">fileID = gd_archive('C:\file.dat');</p>
+
+<p class="codeexample">gd_datagroupadd(datagroupID,fileID);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">v.width = 12;</p>
+
+<p class="codeexample">varID = gd_archive(v);</p>
+
+<p class="codeexample">gd_datagroupadd(datagroupID,varID);</p>
+
+<p class="codeexample"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="MsoNormal">Add a datagroup to another datagroup</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">datagroupID = gd_datagroup('parent
+
+datagroup');</p>
+
+<p class="codeexample">subdatagroupID = gd_datagroup('child
+
+datagroup');</p>
+
+<p class="codeexample">
+
+gd_datagroupadd(datagroupID,subdatagroupID);</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">Only the owner of a datagroup can add data to
+
+it.</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>&nbsp;</p>
+
+<p class="MsoNormal">Attempting to add a file, variable or
+
+subdatagroup twice to the same datagroup will cause an error.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Attempting to add a datagroup to another
+
+datagroup that it is already the parent or ancestor of will cause
+
+an error. E.g. If datagroup <span class="codeinline"><span style=
+
+'font-size:11.0pt'>b</span></span> is added to datagroup
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>a</span></span>, and datagroup <span class=
+
+"codeinline"><span style='font-size:11.0pt'>c</span></span> is
+
+added to <span class="codeinline"><span style=
+
+'font-size:11.0pt'>b</span></span>, then <span class=
+
+"codeinline"><span style='font-size:11.0pt'>a</span></span> cannot
+
+be added to <span class="codeinline"><span style=
+
+'font-size:11.0pt'>b</span></span> or <span class=
+
+"codeinline"><span style='font-size:11.0pt'>c</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">A valid proxy certificate is required (see
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>
+
+from the Geodise Compute Toolbox).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Your certificate subject must have been added
+
+to the authorisation database.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_datagroup.htm#_gd_datagroup_1">gd_datagroup</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_archive.htm#_gd_archive_1">gd_archive</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_retrieve.htm#_gd_retrieve_1">gd_retrieve</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>, <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_datagroup.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_datagroup</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_dbsetup.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+gd_dbsetup</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

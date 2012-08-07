@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_listdir</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279217" id="_Toc104279217"></a><a name=
+
+"_gd_listdir" id="_gd_listdir"></a>gd_listdir</h3>
+
+</div>
+
+<p class="MsoNormal">Lists the contents of a directory on a GridFTP
+
+server.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">files = gd_listdir(host)</p>
+
+<p class="codesyntax">files = gd_listdir(host,remotedir)</p>
+
+<p class="codesyntax">files =
+
+gd_listdir(host,remotedir,listhidden)</p>
+
+<p class="codesyntax">[files,details] = gd_listdir(...)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>files = gd_listdir(host)</span></span> where
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>files</span></span> is a cell array containing
+
+the filenames of files in the user's home directory on the GridFTP
+
+server <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span>.</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>files = gd_listdir(host,remotedir)</span></span>
+
+where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>files</span></span> is a cell array containing
+
+the filenames of files in the directory <span class=
+
+"codeinline"><span style='font-size:11.0pt'>remotedir</span></span>
+
+on the GridFTP server <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span> (if <span class=
+
+"codeinline"><span style='font-size:11.0pt'>remotedir</span></span>
+
+is empty the contents of the user's home directory will be
+
+listed).</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>files =
+
+gd_listdir(host,remotedir,listhidden)</span></span> the list of
+
+filenames will include hidden files if the argument <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>listhidden</span></span> is true (equal to 1).
+
+Otherwise the names of hidden files will not be returned (default
+
+behaviour).</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>[files,details] = gd_listdir(host)</span></span>
+
+as above where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>details</span></span> is a cell array containing
+
+structures that describe the details of the files and directories
+
+contained in the remote directory.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to use
+
+GridFTP. &nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_putfile.htm#_gd_putfile">gd_putfile</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_getfile.htm#_gd_getfile_1">gd_getfile</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_jobsubmit.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_jobsubmit</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_makedir.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+gd_makedir</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

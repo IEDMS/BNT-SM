@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_markfordeletion</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279246" id="_Toc104279246"></a><a name=
+
+"_gd_markfordeletion" id=
+
+"_gd_markfordeletion"></a>gd_markfordeletion</h3>
+
+</div>
+
+<p class="MsoNormal">Marks data for deletion from the archive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax&nbsp;</h4>
+
+<p class="codesyntax">marktotal = gd_markfordeletion(ID)</p>
+
+<p class="codesyntax">marktotal = gd_markfordeletion(IDs)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>marktotal = gd_markfordeletion(ID)</span></span>
+
+takes an ID string and marks the corresponding file, variable or
+
+datagroup for deletion from the archive. The function returns 1 if
+
+successful or 0 if failed, in which case the reason is displayed in
+
+a warning message (for example the ID does not exist). Once data is
+
+marked for deletion it is no longer visible using <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>, <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_retrieve.htm#_gd_retrieve_1">gd_retrieve</a></span></span> or
+
+any other Database Toolbox functions (apart from <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_unmarkfordeletion.htm#_gd_unmarkfordeletion">gd_unmarkfordeletion</a></span></span>
+
+or <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_querydeleted.htm#_gd_querydeleted">gd_querydeleted</a></span></span>).
+
+The data is then eligible for permanent deletion by an
+
+administrator.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>marktotal =
+
+gd_markfordeletion(IDs)</span></span> is similar but takes a cell
+
+of ID strings and marks the corresponding files, variables and
+
+datagroups for deletion from the archive. The function returns
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>marktotal</span></span>, the total number of IDs
+
+successfully marked for deletion, and displays warning messages for
+
+those that were unsuccessful.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">Mark a single file for deletion from the
+
+archive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">ID = gd_archive('C:\file.dat');</p>
+
+<p class="codeexample">marktotal = gd_markfordeletion(ID)</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>marktotal
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 1</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Query variable metadata, and then mark the
+
+corresponding variables for deletion from the archive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">q = 'standard.archiveDate &gt; 2004-12-01
+
+&amp; a.b &lt; -500';</p>
+
+<p class="codeexample">qresults = gd_query(q, 'varmeta');</p>
+
+<p class="codeexample">for i=1:size(qresults,2)</p>
+
+<p class="codeexample">&nbsp;&nbsp;&nbsp; IDs{i} =
+
+qresults{i}.standard.ID;</p>
+
+<p class="codeexample">end</p>
+
+<p class="codeexample">marktotal = gd_markfordeletion(IDs)</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>marktotal
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 5</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">Only the owner of the data (the person who
+
+archived it) can mark it for deletion.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">A valid proxy certificate is required (see
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>
+
+from the Geodise Compute Toolbox).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="MsoNormal"><span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_unmarkfordeletion.htm#_gd_unmarkfordeletion">gd_unmarkfordeletion</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_querydeleted.htm#_gd_querydeleted">gd_querydeleted</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_display.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+gd_display</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_query.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+gd_query</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

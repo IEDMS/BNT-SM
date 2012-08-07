@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>xml_parse</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279259" id="_Toc104279259"></a><a name=
+
+"_Toc81196951" id="_Toc81196951"></a><a name="_xml_parse_1" id=
+
+"_xml_parse_1"></a>xml_parse</h3>
+
+</div>
+
+<p class="MsoNormal">Parses an XML string, xmlstr, and returns the
+
+corresponding Matlab structure v.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">v = xml_parse(xmlstr)</p>
+
+<p class="codesyntax">v = xml_parse(xmlstr,attswitch)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="MsoNormal">This is a non-validating parser. XML
+
+processing entries or comments starting with '&lt;?' or '&lt;!',
+
+are ignored by the parser.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Input Arguments</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+xmlstr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+XML string, for example read from a file with<br />
+
+<span class="codeinline"><span style='font-size:11.0pt'>xmlstr =
+
+fileread(filename)</span></span></p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+&nbsp;</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+attswitch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; optional,
+
+default='on':<br />
+
+'on' reads XML header attributes <span class=
+
+"codeinline"><span style='font-size: 11.0pt'>idx</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>size</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>type</span></span> if
+
+present and interprets these to create the correct Matlab data
+
+types.<br />
+
+'off' ignores XML element header attributes and interprets contents
+
+as strings.<br />
+
+<br /></p>
+
+<h4>Output Arguments</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Matlab variable or structure.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left; text-indent:-36.0pt'>
+
+&nbsp;</p>
+
+<p class="MsoNormal">This example shows how to define a simple XML
+
+string and parse it into a Matlab variable. As the <span class=
+
+"codeinline"><span style='font-size:11.0pt'>idx</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>type</span></span>, and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>size</span></span>
+
+attributes are defined, the resulting Matlab data type conforms to
+
+these specifications (class double vector of size [1x2]).</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left; text-indent:-36.0pt'>
+
+&nbsp;</p>
+
+<p class="codeexample">xmlstr = ...</p>
+
+<p class="codeexample">'&lt;root idx="1" type="double" size="1
+
+2"&gt;3.1416 1.4142&lt;/root&gt;';</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">V1 = xml_parse(xmlstr)</p>
+
+<p class="code">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>V1 =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; [3.1416, 1.4142]&nbsp; % (class
+
+double)</p>
+
+</div>
+
+<p class="code">&nbsp;</p>
+
+<p class="NormalDescription">Again, setting the <span class=
+
+"codeinline"><span style='font-size:11.0pt'>attswitch</span></span>
+
+parameter to 'off' lets the parser ignore the attributes and the
+
+returned variable is interpreted as a string.</p>
+
+<p class="code">&nbsp;</p>
+
+<p class="codeexample">V2 = xml_parse(xmlstr,'off')</p>
+
+<p class="code">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>V2 =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; '3.1416 1.4142'&nbsp;&nbsp; % (class
+
+char)</p>
+
+</div>
+
+<p class="code">&nbsp;</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left; text-indent:-36.0pt'>Let's
+
+define a more complex data set in XML:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>xmlstr =</p>
+
+<p class="codeexample" style='line-height:normal'>'&lt;root&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;
+
+&lt;project&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;name&gt;myProjectName&lt;/name&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;date&gt;2004-09-13&lt;/date&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;bytes&gt;10472&lt;/bytes&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;
+
+&lt;/project&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;
+
+&lt;project&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;name&gt;myProject Two&lt;/name&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;date&gt;2004-09-13&lt;/date&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;bytes&gt;9851&lt;/bytes&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;
+
+&lt;/project&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&lt;/root&gt;'</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">v = xml_parse(xmlstr);</p>
+
+<p class="code">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>v:&nbsp; 1x2
+
+struct array with fields:</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; project</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+v(1).project:</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; name: 'myProjectName'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; date: '2004-09-13'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; bytes: '10472'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+v(2).project:</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; name: 'myProject Two'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; date: '2004-09-13'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; bytes: '9851'</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:10.0pt'><a href=
+
+"xml_parseany.htm#_xml_parseany">xml_parseany</a>, <a href=
+
+"xml_formatany.htm#_xml_formatany">xml_formatany</a>, <a href=
+
+"xml_format.htm#_xml_format_1">xml_format</a>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_load.htm#_xml_load_1">xml_load</a></span></span><span class=
+
+"codeinline"><span style='font-size:10.0pt'>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_save.htm#_xml_save_1">xml_save</a></span></span><span class=
+
+"codeinline"><span style='font-size:10.0pt'>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_help.htm#_xml_help_1">xml_help</a></span></span></p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"xml_load.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+xml_load</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"xml_parseany.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+xml_parseany</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

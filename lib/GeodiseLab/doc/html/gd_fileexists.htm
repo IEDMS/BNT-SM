@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_fileexists</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279211" id="_Toc104279211"></a><a name=
+
+"_gd_fileExists" id="_gd_fileExists"></a>gd_fileexists</h3>
+
+</div>
+
+<p class="MsoNormal">Tests the existence of files and directories
+
+on a Globus resource.</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">exists = gd_fileexists(host,remotefile)</p>
+
+<p class="codesyntax">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>exists =
+
+gd_fileexists(host,remotefile)</span></span> returns an integer
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>exists</span></span> indicating whether the file
+
+or directory specified by <span class="codeinline"><span style=
+
+'font-size:11.0pt'>remotefile</span></span> exists on the Globus
+
+server specified by the string <span class=
+
+"codeinline"><span style='font-size:11.0pt'>host</span></span>. The
+
+argument <span class="codeinline"><span style=
+
+'font-size:11.0pt'>exists</span></span> will equal 1 is the file
+
+exists on <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span>, otherwise it will equal
+
+0.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Example</h4>
+
+<p class="codeexample">result =
+
+gd_fileexists('server.domain.com','/home/&lt;USER&gt;/test.dat');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to use
+
+this function.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4><a name="_gd_getfile" id="_gd_getfile"></a>See also</h4>
+
+<p class="codeHyperlinkpara"><code><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_listdir.htm#_gd_listdir">gd_listdir</a></span></code></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_destroyproxy.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_destroyproxy</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_getfile.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+gd_getfile</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

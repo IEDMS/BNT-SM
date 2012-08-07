@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_jobpoll</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279214" id="_Toc104279214">gd_jobpoll</a></h3>
+
+</div>
+
+<p class="MsoNormal">Queries the status of a Globus GRAM job until
+
+complete.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">gd_jobpoll(jobhandle)</p>
+
+<p class="codesyntax">gd_jobpoll(jobhandle,interval)</p>
+
+<p class="codesyntax">isdone =
+
+gd_jobpoll(jobhandle,interval,maxtime)</p>
+
+<p class="codesyntax">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="MsoNormal">This command polls the status of a Globus GRAM
+
+job specified by the job handle until the job is complete. This
+
+function can be used to block the process of a Matlab script until
+
+a job has finished. If the job fails an error is thrown.</p>
+
+<p class="MsoNormal"><code><span style=
+
+'font-size:11.0pt'>&nbsp;</span></code></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_jobpoll(jobhandle)</span></span>where
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>jobhandle</span></span> is the handle to a
+
+Globus GRAM job.</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_jobpoll(jobhandle,interval)</span></span>
+
+where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>jobhandle</span></span> is the handle to a
+
+Globus GRAM job and <span class="codeinline"><span style=
+
+'font-size:11.0pt'>interval</span></span> is the interval (in
+
+seconds) between polling the job handle.</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>isdone =
+
+gd_jobpoll(jobhandle,interval,maxtime)</span></span> as above. The
+
+argument <span class="codeinline"><span style=
+
+'font-size:11.0pt'>maxtime</span></span> allows an upper limit (in
+
+seconds) to be placed on the period over which the job is polled.
+
+The return value <span class="codeinline"><span style=
+
+'font-size:11.0pt'>isdone</span></span> indicates whether the job
+
+handle returned the DONE state (1), or whether polling was aborted
+
+(0).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">The state DONE returned by job handle does not
+
+necessarily indicate that the job completed successfully.&nbsp; A
+
+valid proxy certificate is required to query a GRAM job.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_jobstatus.htm#_gd_jobstatus">gd_jobstatus</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_jobsubmit.htm#_gd_jobsubmit">gd_jobsubmit</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_jobkill.htm#_gd_jobkill">gd_jobkill</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_jobkill.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+gd_jobkill</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_jobstatus.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_jobstatus</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

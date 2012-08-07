@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_addusers</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3 style='page-break-before:auto;background:#CCECFF'><a name=
+
+"_Toc104279238" id="_Toc104279238"></a><a name="_Toc82943623" id=
+
+"_Toc82943623"></a><a name="_gd_addusers_2" id=
+
+"_gd_addusers_2"></a>gd_addusers</h3>
+
+</div>
+
+<p class="MsoNormal">Grants an array of users or user groups
+
+permission to access some data (file, variable or datagroup).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">success = gd_addusers(ID,users)</p>
+
+<p class="codesyntax">success = gd_addusers(datagroupID,users)</p>
+
+<p class="codesyntax">success = gd_addusers(ID,groups,'groups')</p>
+
+<p class="codesyntax">success =
+
+gd_addusers(datagroupID,groups,'groups')</p>
+
+<p class="codesyntax"><span class="codeinline">&nbsp;</span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>success = gd_addusers(ID,users)</span></span>
+
+grants other users permission to query or retrieve a file or
+
+variable, specified by its ID. A userID for each user should be
+
+provided in the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>users</span></span> cell array.
+
+&nbsp;Alternatively a single user can be specified as a string.</p>
+
+<p class="NormalDescription"><b>&nbsp;</b></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>success =
+
+gd_addusers(datagroupID,users)</span></span> is similar but grants
+
+other users permission to query a datagroup, specified by its
+
+ID.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>success =
+
+gd_addusers(ID,groups,'groups')</span></span> grants a group of
+
+users permission to query or retrieve a file or variable, specified
+
+by its ID. A groupID for each user group should be provided in the
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>groups</span></span> cell array. Alternatively a
+
+single group can be specified as a string. Every registered user is
+
+a member of the built in group 'allusers' and other user groups can
+
+be set up by the database administrator.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>success =
+
+gd_addusers(datagroupID,groups,'groups')</span></span> is similar
+
+but grants a group of users permission to query a datagroup,
+
+specified by its ID.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The function returns 1 if successful, or 0 if
+
+failed (for example if one of the users already has access
+
+permission or does not exist). All valid userIDs or groupsIDs in
+
+the array will be granted permission, and a warning message will be
+
+displayed for any that fail.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Example</h4>
+
+<p class="MsoNormal">Grant users with user IDs <span class=
+
+"codeinline"><span style='font-size:11.0pt'>user1</span></span> and
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>user2</span></span> access to an archived
+
+file.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">fileID = gd_archive('C:\file.dat');</p>
+
+<p class="codeexample">users = {'user1','user2'};</p>
+
+<p class="codeexample">gd_addusers(fileID,users);</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Grant all registered users access to an
+
+archived file.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">gd_addusers(fileID,'allusers','groups');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">You must be the owner of the data to give
+
+others permission to access it.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">A valid proxy certificate is required (see
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>
+
+from the Geodise Compute Toolbox).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Your certificate subject must have been added
+
+to the authorisation database.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_archive.htm#_gd_archive_1">gd_archive</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_datagroup.htm#_gd_datagroup_1">gd_datagroup</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>, <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span></p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"dbtoolbox.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+dbtoolbox</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_archive.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+gd_archive</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

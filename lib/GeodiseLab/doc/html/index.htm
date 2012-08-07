@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content=
+
+"text/html; charset=us-ascii" />
+
+<meta name="Generator" content="Microsoft Word 11 (filtered)" />
+
+<title>The Geodise Toolboxes</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding=
+
+"0" style='border-collapse:collapse;border:none'>
+
+<tr>
+
+<td width="568" valign="top" style=
+
+'width:426.1pt;border:none;border-bottom:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoTitle" style='margin-right:2.85pt'><a name=
+
+"_Toc104279194" id="_Toc104279194"></a><a name="_Toc83109324" id=
+
+"_Toc83109324"></a><a name="_Toc81196898" id=
+
+"_Toc81196898"></a><a name="_Toc81196771" id=
+
+"_Toc81196771"><span style='font-size:34.0pt'>The Geodise
+
+Toolboxes</span></a></p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="568" valign="top" style=
+
+'width:426.1pt;border:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="right" style=
+
+'margin-right:2.85pt;text-align:right'><b><span style=
+
+'font-size:22.0pt;font-family:Arial'>A User&rsquo;s
+
+Guide</span></b></p>
+
+</td>
+
+</tr>
+
+</table>
+
+		<table ><tr><td width=568 ><p class=MsoNormal>
+		  <a href="http://www.geodise.org/">
+		  <img align=right width=248 height=108 src="GeodiseManual_files/image001.jpg" alt=''/>
+		  </a>
+		</p></td></tr></table><br/><br/>
+		<h1>Credits</h1>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">
+
+Release:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+GeodiseLab v.1.1</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Version:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+GeodiseManual 1.2</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">
+
+Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+The Geodise Toolboxes &ndash; A User's Guide</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">
+
+Authors:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Dr Graeme Pound, g.e.pound@soton.ac.uk</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Dr Jasmin Wason, j.l.wason@soton.ac.uk</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Dr Marc Molinari, m.molinari@soton.ac.uk</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Dr Hakki Eres, hakki.eres@soton.ac.uk</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Dr Zhuoan Jiao, z.jiao@soton.ac.uk</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">
+
+PI:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Prof Simon Cox, s.j.cox@soton.ac.uk</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">
+
+Web:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://www.geodise.org/">http://www.geodise.org</a>/</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>Legal
+
+notice:&nbsp;&nbsp;&nbsp;&nbsp; Matlab<sup>&reg;</sup> is a
+
+registered trademark of The Mathworks, Inc.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+http://www.mathworks.com</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">
+
+Copyright:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright
+
+&copy; 2004, The Geodise Project, University of Southampton</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Acknowledgement:</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+The development of the Geodise toolboxes for public release has
+
+been supported by the managed programme of Open Middleware
+
+Infrastructure Institute (<a href=
+
+"http://www.omii.ac.uk/">http://www.omii.ac.uk/</a>).</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b>
+
+<h1><a name="_Toc104279195" id="_Toc104279195">Contents</a></h1>
+
+<p class="MsoToc1"><span class="MsoHyperlink"><a href=
+
+"index.htm#_Toc104279194">The Geodise Toolboxes<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class="MsoToc1"><span class="MsoHyperlink"><a href=
+
+"index.htm#_Toc104279195">Contents<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>3</span></a></span></p>
+
+<p class="MsoToc1"><span class="MsoHyperlink"><a href=
+
+"introduction.htm#_Toc104279196">Introduction<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>5</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"introduction.htm#_Toc104279197">Use Cases<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>6</span></a></span></p>
+
+<p class="MsoToc1"><span class="MsoHyperlink"><a href=
+
+"functionarguments.htm#_Toc104279198">Function
+
+Arguments<span style='color:windowtext;display:none;text-decoration:none'>
+
+.</span> <span style=
+
+'color:windowtext;display:none;text-decoration:none'>9</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"functionarguments.htm#_Toc104279199">Input Arguments<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>9</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"functionarguments.htm#_Toc104279200">Output Arguments<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>14</span></a></span></p>
+
+<p class="MsoToc1"><span class="MsoHyperlink"><a href=
+
+"computetoolbox.htm#_Toc104279201">Geodise Compute
+
+Toolbox<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>16</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"computetoolbox.htm#_Toc104279202">Introduction<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>16</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"computetoolbox.htm#_Toc104279203">Tutorial <span style=
+
+'color:windowtext;display:none;text-decoration:none'>19</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"computetoolbox.htm#_Toc104279204">Function Reference<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>30</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_certinfo.htm#_Toc104279205">gd_certinfo<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>30</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_chmod.htm#_Toc104279206">gd_chmod<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>31</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_condorsubmit.htm#_Toc104279207">gd_condorsubmit <span style=
+
+'color:windowtext;display:none;text-decoration:none'>33</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_compute_version.htm#_Toc104279208">gd_compute_version<span style='color:windowtext;display:none;text-decoration:none'>
+
+.</span> <span style=
+
+'color:windowtext;display:none;text-decoration:none'>37</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_createproxy.htm#_Toc104279209">gd_createproxy<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>38</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_destroyproxy.htm#_Toc104279210">gd_destroyproxy<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>39</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_fileexists.htm#_Toc104279211">gd_fileexists<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>40</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_getfile.htm#_Toc104279212">gd_getfile<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>41</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_jobkill.htm#_Toc104279213">gd_jobkill <span style=
+
+'color:windowtext;display:none;text-decoration:none'>43</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_jobpoll.htm#_Toc104279214">gd_jobpoll <span style=
+
+'color:windowtext;display:none;text-decoration:none'>44</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_jobstatus.htm#_Toc104279215">gd_jobstatus<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>45</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_jobsubmit.htm#_Toc104279216">gd_jobsubmit <span style=
+
+'color:windowtext;display:none;text-decoration:none'>46</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_listdir.htm#_Toc104279217">gd_listdir <span style=
+
+'color:windowtext;display:none;text-decoration:none'>47</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_makedir.htm#_Toc104279218">gd_makedir <span style=
+
+'color:windowtext;display:none;text-decoration:none'>48</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_proxyinfo.htm#_Toc104279219">gd_proxyinfo<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>49</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_proxyquery.htm#_Toc104279220">gd_proxyquery<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>50</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_putfile.htm#_Toc104279221">gd_putfile<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>51</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_rmdir.htm#_Toc104279222">gd_rmdir <span style=
+
+'color:windowtext;display:none;text-decoration:none'>53</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_rmfile.htm#_Toc104279223">gd_rmfile<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>54</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_rmuniquedir.htm#_Toc104279224">gd_rmuniquedir <span style=
+
+'color:windowtext;display:none;text-decoration:none'>55</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_servermetrics.htm#_Toc104279225">gd_servermetrics<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>56</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_submitunique.htm#_Toc104279226">gd_submitunique<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>58</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_testauthentication.htm#_Toc104279227">gd_testauthentication<span style='color:windowtext;display:none;text-decoration:none'>
+
+.</span> <span style=
+
+'color:windowtext;display:none;text-decoration:none'>60</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_testfiletransfer.htm#_Toc104279228">gd_testfiletransfer
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>61</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_testjobsubmission.htm#_Toc104279229">gd_testjobsubmission<span style='color:windowtext;display:none;text-decoration:none'>
+
+.</span> <span style=
+
+'color:windowtext;display:none;text-decoration:none'>62</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_timeauthentication.htm#_Toc104279230">gd_timeauthentication<span style='color:windowtext;display:none;text-decoration:none'>
+
+.</span> <span style=
+
+'color:windowtext;display:none;text-decoration:none'>63</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_timefiletransfer.htm#_Toc104279231">gd_timefiletransfer
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>64</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_timejobsubmission.htm#_Toc104279232">gd_timejobsubmission<span style='color:windowtext;display:none;text-decoration:none'>
+
+.</span> <span style=
+
+'color:windowtext;display:none;text-decoration:none'>65</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_transferfile.htm#_Toc104279233">gd_transferfile<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>66</span></a></span></p>
+
+<p class="MsoToc1"><span class="MsoHyperlink"><a href=
+
+"dbtoolbox.htm#_Toc104279234">Geodise Database Toolbox<span style=
+
+'color:windowtext;display:none;text-decoration: none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>67</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"dbtoolbox.htm#_Toc104279235">Introduction<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>67</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"dbtoolbox.htm#_Toc104279236">Tutorial <span style=
+
+'color:windowtext;display:none;text-decoration:none'>68</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"dbtoolbox.htm#_Toc104279237">Function Reference<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>80</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_addusers.htm#_Toc104279238">gd_addusers<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>80</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_archive.htm#_Toc104279239">gd_archive<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>82</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_datagroup.htm#_Toc104279240">gd_datagroup<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>86</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_datagroupadd.htm#_Toc104279241">gd_datagroupadd<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>89</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_dbsetup.htm#_Toc104279242">gd_dbsetup<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>91</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_db_help.htm#_Toc104279243">gd_db_help<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>92</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_db_.htm#_Toc104279244">gd_db_version<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>93</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_display.htm#_Toc104279245">gd_display<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>94</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_markfordeletion.htm#_Toc104279246">gd_markfordeletion<span style='color:windowtext;display:none;text-decoration:none'>
+
+.</span> <span style=
+
+'color:windowtext;display:none;text-decoration:none'>96</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_query.htm#_Toc104279247">gd_query<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>98</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_querydeleted.htm#_Toc104279248">gd_querydeleted<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>105</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_retrieve.htm#_Toc104279249">gd_retrieve<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>108</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"gd_unmarkfordeletion.htm#_Toc104279250">gd_unmarkfordeletion<span style='color:windowtext;display:none;text-decoration:none'>
+
+.</span> <span style=
+
+'color:windowtext;display:none;text-decoration:none'>111</span></a></span></p>
+
+<p class="MsoToc1"><span class="MsoHyperlink"><a href=
+
+"xmltoolbox.htm#_Toc104279251">XML Toolbox<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>113</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"xmltoolbox.htm#_Toc104279252">Introduction<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>113</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"xmltoolbox.htm#_Toc104279253">Tutorial <span style=
+
+'color:windowtext;display:none;text-decoration:none'>115</span></a></span></p>
+
+<p class="MsoToc2"><span class="MsoHyperlink"><a href=
+
+"xmltoolbox.htm#_Toc104279254">Function Reference<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>121</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"xml_format.htm#_Toc104279255">xml_format <span style=
+
+'color:windowtext;display:none;text-decoration:none'>121</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"xml_formatany.htm#_Toc104279256">xml_formatany<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>124</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"xml_help.htm#_Toc104279257">xml_help<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>126</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"xml_load.htm#_Toc104279258">xml_load<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>127</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"xml_parse.htm#_Toc104279259">xml_parse<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>129</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"xml_parseany.htm#_Toc104279260">xml_parseany<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>131</span></a></span></p>
+
+<p class="MsoToc3"><span class="MsoHyperlink"><a href=
+
+"xml_save.htm#_Toc104279261">xml_save<span style=
+
+'color:windowtext;display:none;text-decoration:none'>.</span>
+
+<span style=
+
+'color:windowtext;display:none;text-decoration:none'>134</span></a></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b><br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="right" valign="middle"><b><a href=
+
+"introduction.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+introduction</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

@@ -1,0 +1,1550 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>Geodise Database Toolbox</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<h1><a name="_Toc104279234" id="_Toc104279234"></a><a name=
+
+"_Toc82943620" id="_Toc82943620">Geodise Database Toolbox</a></h1>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h2><a name="_Toc104279235" id="_Toc104279235"></a><a name=
+
+"_Toc82943621" id="_Toc82943621">Introduction</a></h2>
+
+<p class="MsoNormal">The Geodise Database Toolbox consists of
+
+client and server tools which enable distributed users to easily
+
+manage, share and reuse their data from within the Matlab
+
+environment. Users with no database experience can integrate data
+
+management into their applications by calling the archive, query
+
+and retrieve functions provided by the toolbox. Any data files or
+
+Matlab variables can be stored in the Geodise archive. User defined
+
+Matlab structures specify additional descriptive information
+
+(metadata), which can be queried to easily locate data of interest.
+
+The Geodise Database Toolbox allows you to:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:18.0pt;text-indent:-18.0pt'><span style=
+
+'font-family:Symbol'>&middot;<span style=
+
+'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+
+Manage data from the local Matlab environment or remotely in
+
+scripts.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:18.0pt;text-indent:-18.0pt'><span style=
+
+'font-family:Symbol'>&middot;<span style=
+
+'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+
+Store files and variables with customized descriptive metadata.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:18.0pt;text-indent:-18.0pt'><span style=
+
+'font-family:Symbol'>&middot;<span style=
+
+'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+
+Organise related data into datagroups.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:18.0pt;text-indent:-18.0pt'><span style=
+
+'font-family:Symbol'>&middot;<span style=
+
+'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+
+Query over metadata to easily locate required data using functions
+
+or a GUI.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:18.0pt;text-indent:-18.0pt'><span style=
+
+'font-family:Symbol'>&middot;<span style=
+
+'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+
+Retrieve data based on logical data identities, no need to remember
+
+file locations.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:18.0pt;text-indent:-18.0pt'><span style=
+
+'font-family:Symbol'>&middot;<span style=
+
+'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+
+Share data with other distributed users by granting them access
+
+permissions.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">There are a separate set of server side tools
+
+for the Geodise Database Toolbox. Variables and metadata are stored
+
+in an Oracle 9i and 10g database as XML, converted using the XML
+
+Toolbox. The Geodise Database Toolbox functions call data
+
+management services which utilise Grid, Web Service and database
+
+technologies with certificate based authentication and
+
+authorisation. The server side tools are not described in any
+
+detail in this document.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<b><span style='font-size:14.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b>
+
+<h2><a name="_Toc104279236" id="_Toc104279236"></a><a name=
+
+"_Ref103310090" id="_Ref103310090">Tutorial</a></h2>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Getting started</h4>
+
+<p class="MsoNormal">Before using the Geodise Database Toolbox you
+
+need to register your details in the database by providing your
+
+certificate subject to an administrator, who will then assign you a
+
+username. To get your certificate subject call <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_certinfo</span></span> from the Compute
+
+Toolbox.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; subject = gd_certinfo</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>subject:
+
+C=UK,O=eScience,OU=Southampton,L=SeSC,CN=some user</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>issuer:
+
+C=UK,O=eScience,OU=Authority,CN=CA,E=ca-operator@grid-support.ac.uk</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>start
+
+date: Tue Oct 07 13:00:31 BST 2003</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>end date:
+
+Wed Oct 06 13:00:31 BST 2004</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>subject =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><span style=
+
+'background:silver'>/C=UK/O=eScience/OU=Southampton/L=SeSC/CN=some
+
+user</span></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To setup the Database Toolbox call
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_dbsetup</span></span> which will create a
+
+.geodise directory in your home directory and copy the necessary
+
+configuration files into it.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_dbsetup</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">You will be prompted for details of your file
+
+store host (where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_archive</span></span> will store your files).
+
+Set <span class="codeinline"><span style=
+
+'font-size:11.0pt'>hostname</span></span> to a Globus enabled
+
+server you have GridFTP permission on, and set <span class=
+
+"codeinline"><span style='font-size:11.0pt'>hostdir</span></span>
+
+to an existing directory on that server where files can be stored.
+
+These settings will be saved in
+
+<i>&lt;home_dir&gt;/.geodise/ClientConfig.xml</i>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">A valid proxy certificate is required to use
+
+the Database Toolbox functions, and this can be created using the
+
+function <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_createproxy</span></span> from the Compute
+
+Toolbox.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_createproxy</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">A GUI will appear and prompt you for your
+
+certificate passphrase. Click the &lsquo;Create&rsquo; button to
+
+generate the proxy certificate. When this is finished click
+
+&lsquo;Cancel&rsquo; to close the GUI and press 'Enter' at the
+
+Matlab prompt.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">See the <a href=
+
+"computetoolbox.htm#_Grid_Certificates">Compute Toolbox
+
+Tutorial</a> for more information on certificates and proxy
+
+certificates.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Archiving files</h4>
+
+<p class="MsoNormal">To archive a file from the local filesystem,
+
+first create a metadata structure containing some information that
+
+describes your file. This can be any combination of doubles,
+
+strings, arrays, cell arrays, complex numbers and
+
+substructures.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; m.model.name = 'test_design';</p>
+
+<p class="codeexample">&gt;&gt; m.model.params = [1 4.7 5.3];</p>
+
+<p class="codeexample">&gt;&gt; m.product = 25.5431;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Add some standard information (<span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>localName</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>format</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>comment</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>version</span></span>
+
+or <span class="codeinline"><span style=
+
+'font-size:11.0pt'>tree</span></span>) about the file.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; m.standard.comment = 'Test design
+
+model file';</p>
+
+<p class="codeexample">&gt;&gt; m.standard.version = '1.2.0';</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The file can then be archived with the
+
+metadata.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; fileID =
+
+gd_archive('C:\file.dat',m)</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>fileID =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+file_dat_c6afa4b4-03cb-49a4-8c4e-008c38aae413</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">In addition to the optional metadata
+
+structure, <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_archive</span></span> takes a string
+
+representing the path and filename of a local file. It stores this
+
+file on a remote file store (specified in <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&lt;user_home&gt;/.geodise/ClientConfig.xml</span></span>).
+
+An ID is returned which is a unique handle that can be used to
+
+retrieve the file.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The metadata is stored in a database and can
+
+be queried to help you find relevant files. When the file is
+
+archived some additional metadata is automatically generated and
+
+stored in the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard</span></span> substructure, regardless
+
+of whether user defined metadata was also provided. This consists
+
+of <span class="codeinline"><span style=
+
+'font-size:11.0pt'>localName</span></span> (the original name of
+
+the file), <span class="codeinline"><span style=
+
+'font-size:11.0pt'>byteSize</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>format</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>archiveDate</span></span>, <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>createDate</span></span> (when the original file
+
+was created/modified) and <span class="codeinline"><span style=
+
+'font-size:11.0pt'>userID</span></span>. See <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span> for further
+
+information on these fields. You can specify your own overriding
+
+values for <span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.localName</span></span> and
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.format</span></span> if you prefer. You
+
+can also include the optional user defined metadata fields
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>comment</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>version</span></span>
+
+and <span class="codeinline"><span style=
+
+'font-size:11.0pt'>tree</span></span>. To help data organisation
+
+the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>tree</span></span> field can be assigned a
+
+hierarchy string, similar to a directory path, e.g. <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>'myuserID/designs/testmodel'</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Querying file metadata</h4>
+
+<p class="MsoNormal">To query file metadata pass a query string to
+
+the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_query</span></span> function. A query takes
+
+the form <span class="codeinline"><span style=
+
+'font-size: 11.0pt'>'field = value'</span></span>, where
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>=</span></span> can be replaced by other
+
+comparison operators. More than one query condition can be included
+
+in the string using <span class="codeinline"><span style=
+
+'font-size:11.0pt'>&amp;</span></span> to join them together. A
+
+call to <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_query</span></span> returns a cell array of
+
+structures, one for each matching result.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; result =
+
+gd_query('standard.version=1.2.0 &amp; product&gt;25.4')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>result =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; [1x1 struct]</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; result{1}</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>ans =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; standard: [1x1 struct]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model: [1x1 struct]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; product: 25.5431</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_display</span></span> is a convenient way to
+
+view your query results.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_display(result)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>***
+
+Content of the structure result{1} (Total structures: 1)</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.ID: file_dat_c6afa4b4-03cb-49a4-8c4e-008c38aae413</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.localName: file.dat</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.byteSize: 24</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.format: dat</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.createDate: 2004-09-15 15:25:33</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.archiveDate: 2004-10-07 11:03:10</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.userID: jlw</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.comment: Test design model file</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.version: 1.2.0</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.datagroups:</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+model.name: test_design</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+model.params:</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+<i>&nbsp;&nbsp;&nbsp; 1.0000&nbsp;&nbsp;&nbsp;
+
+4.7000&nbsp;&nbsp;&nbsp; 5.3000</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+product: 25.5431</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>*** No
+
+more results. ***</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">It is possible to select which metadata fields
+
+are returned in the query results. This is done by passing a string
+
+containing a comma separated list of these fields as the third
+
+argument to <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_query</span></span>. The second argument
+
+specifies that we want to query files, but is normally omitted
+
+because it is the default.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; r =
+
+gd_query('product&gt;25','file','standard.ID, model.*');</p>
+
+<p class="codeexample">&gt;&gt; gd_display(r)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>***
+
+Content of the structure&nbsp; ***</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.ID: file_dat_c6afa4b4-03cb-49a4-8c4e-008c38aae413</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+model.name: test_design</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+model.params:</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+<i>&nbsp;&nbsp;&nbsp; 1.0000&nbsp;&nbsp;&nbsp;
+
+4.7000&nbsp;&nbsp;&nbsp; 5.3000</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To search for some text within a metadata
+
+value use the 'like' operator together with % to specify any
+
+characters, or _ to specify one character.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_query('standard.comment like
+
+%design m_del%');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The * wildcard can be used to represent an
+
+anonymous subfield, or any number of subfields if it appears at the
+
+beginning.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_query('*.name =
+
+test_design');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Use <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_query</span></span> without any input
+
+arguments to start the Query Graphical User Interface (GUI), see
+
+Figure 2. You can set query conditions for standard metadata by
+
+selecting an operator (=, &gt; etc) from the drop down list next to
+
+the relevant metadata item and typing in a value. Further query
+
+conditions for user defined metadata can be entered in the
+
+&lsquo;Query custom metadata or variables&rsquo; text field. In the
+
+following text field you can enter a comma separated list to
+
+specify which metadata items are returned for each matching query
+
+result.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Click the &lsquo;Submit Query&rsquo; button to
+
+run your query. The corresponding <span class=
+
+"codeinline"><span style='font-size:11.0pt'>gd_query</span></span>
+
+script command is displayed, followed by the results of the
+
+query.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal"><img border="0" width="553" height="549" src=
+
+"GeodiseManual_files/image003.jpg" /></p>
+
+<p class="MsoCaption"><a name="_Ref84745630" id=
+
+"_Ref84745630">Figure</a> 2 The Query GUI can be used to submit
+
+queries and view results.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Hyperlinks are provided in the query results
+
+for downloading and browsing data. Figure 3 demonstrates that a
+
+file can be downloaded by clicking on its standard.ID hyperlink. In
+
+the Save dialog box you can use the default file name value
+
+(original name of file) or specify a new file name. Browsing data
+
+is further discussed in the <i>Grouping data</i> section.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal"><img border="0" width="554" height="513" src=
+
+"GeodiseManual_files/image004.jpg" /></p>
+
+<p class="MsoCaption"><a name="_Ref84915930" id=
+
+"_Ref84915930">Figure</a> 3 Click on a file's standard.ID link to
+
+download that file.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Retrieving files</h4>
+
+<p class="MsoNormal">A file can be retrieved to the local
+
+filesystem by specifying its unique ID. This string is returned by
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_archive</span></span> when the file is
+
+archived, and also appears in the metadata query results as
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; ID = result{1}.standard.ID</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>ID =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+file_dat_c6afa4b4-03cb-49a4-8c4e-008c38aae413</p>
+
+</div>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">The file can be retrieved to a specific file
+
+location.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_retrieve(ID,'C:\filesdir\myfile.dat')</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>ans =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+C:\filesdir\myfile.dat</p>
+
+</div>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Alternatively the file can be retrieved to a
+
+specified directory (the original file name is used).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; gd_retrieve(ID,'C:\filesdir')</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>ans =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+C:\filesdir\file.dat</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Archiving, querying and retrieving Matlab variables</h4>
+
+<p class="MsoNormal">To archive a variable simply pass it to
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_archive</span></span> with an optional
+
+metadata structure.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; v.width = 12;</p>
+
+<p class="codeexample">&gt;&gt; v.height = 6;</p>
+
+<p class="codeexample">&gt;&gt; metadata.standard.comment =
+
+'measurements variable';</p>
+
+<p class="codeexample">&gt;&gt; varID = gd_archive(v,metadata);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">It is possible to query the contents of an
+
+archived structure. Including &lsquo;var&rsquo; as the second
+
+argument indicates that you want to query the contents of a
+
+variable (as opposed to the metadata of the variable).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; result =
+
+gd_query('height=6','var');</p>
+
+<p class="codeexample">&gt;&gt; gd_display(result{1})</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>***
+
+Content of the structure&nbsp; ***</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.varID: var_7c73ac04-cb90-4b28-988c-1e0562e4659d</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.datagroups:</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+width: 12</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+height: 6</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The contents of the variable are returned
+
+along with a small subset of its metadata (<span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>standard.varID</span></span> and <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>standard.datagroups</span></span>) which may be
+
+required for further queries. You can also query a variable's full
+
+metadata by including &lsquo;varmeta&rsquo; as the second
+
+argument.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample" style='page-break-after:avoid'>&gt;&gt; r =
+
+gd_query('standard.comment like measure%','varmeta');</p>
+
+<p class="codeexample" style='page-break-after:avoid'>&gt;&gt;
+
+gd_display(r{1})</p>
+
+<p class="codeexample" style='page-break-after:avoid'>&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>***
+
+Content of the structure&nbsp; ***</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.ID: var_7c73ac04-cb90-4b28-988c-1e0562e4659d</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.archiveDate: 2004-10-07 11:35:19</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.userID: jlw</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.comment: measurements variable</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.datagroups:</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">A variable can be retrieved into the local
+
+Matlab workspace by specifying its unique ID. This string is
+
+returned when the variable is archived (e.g. <span class=
+
+"codeinline"><span style='font-size:11.0pt'>varID</span></span>)
+
+and also appears in the variable query results as <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>standard.varID</span></span> and in the metadata
+
+query results as <span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span>.</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; <span class="codeinline">v2</span>
+
+= gd_retrieve(varID)</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>v2 =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; width: 12</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; height: 6</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4><a name="_Ref84916215" id="_Ref84916215">Grouping data</a></h4>
+
+<p class="MsoNormal">Related data can be logically grouped together
+
+using a datagroup as follows:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Specify metadata that applies to the whole
+
+group.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; dgmetadata.standard.comment =
+
+'Group for experiment 123';</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Call <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_datagroup</span></span> to create a
+
+datagroup, giving it a name.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt;
+
+datagroupID=gd_datagroup('Experiment 123',dgmetadata);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Add archived files or variables to the
+
+datagroup.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_datagroupadd(datagroupID,fileID);</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_datagroupadd(datagroupID,varID);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Archive a new file (with no metadata this
+
+time) and add it to the datagroup.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_archive('C:\anotherfile.txt',[],datagroupID);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">The datagroup metadata now contains references
+
+to the files and variables it contains. Datagroup metadata can be
+
+queried by including &lsquo;datagroup&rsquo; as the second
+
+argument.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; r =
+
+gd_query('standard.datagroupname=Experiment 123', 'datagroup');</p>
+
+<p class="codeexample">&gt;&gt; gd_display(r)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>***
+
+Content of the structure r{1} (Total structures: 1) ***</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.ID: dg_111385dd-44b8-4ac4-9ec3-f7f19af85e6e</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.datagroupname: Experiment 123</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.archiveDate: 2004-10-07 11:42:03</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.userID: jlw</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.comment: Group for experiment 123</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.datagroups:</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.subdatagroups:</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.files.fileID: file_dat_c6afa4b4-03cb-49a4-8c4e...</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.files.fileID: anotherfile_txt_8886aa7a-5464-48...</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>&nbsp;
+
+standard.vars.varID: var_7c73ac04-cb90-4b28-988c-1e0562...</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'><i>*** No
+
+more results. ***</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Metadata for the files and variables also
+
+contain references to the datagroup(s) that they belong to, with a
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.datagroups.datagroupID</span></span>
+
+field for each datagroup.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Datagroups can be added to other datagroups to
+
+create a hierarchy as follows:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; parentDatagroupID =
+
+datagroupID;</p>
+
+<p class="codeexample">&gt;&gt; childDatagroupID =
+
+gd_datagroup('child datagroup');</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Add the child datagroup (also called a
+
+subdatagroup) to the parent datagroup.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt;
+
+gd_datagroupadd(parentDatagroupID,childDatagroupID);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Find all the datagroups that are in the parent
+
+datagroup.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; children =
+
+gd_query(['standard.datagroups.datagroupID='
+
+parentDatagroupID],'datagroup');</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Find all the datagroups that contain the child
+
+datagroup.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; parents =
+
+gd_query(['standard.subdatagroups.datagroupID='
+
+childDatagroupID],'datagroup');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoCaption"><a name="_Ref84918192" id=
+
+"_Ref84918192"><i><span style=
+
+'font-size:12.0pt; font-weight:normal'><img border="0" width="554"
+
+height="574" src=
+
+"GeodiseManual_files/image005.jpg" /></span></i></a></p>
+
+<p class="MsoCaption"><a name="_Ref85279496" id=
+
+"_Ref85279496">Figure</a> 4 Using hyperlinks to browse between
+
+related data in the&nbsp; query GUI.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Using the Query GUI you can browse between
+
+related datagroups, files and variables by clicking on hyperlinks.
+
+In Figure 4 a query on datagroup metadata has been made by
+
+selecting datagroup from the drop down list at the top of the
+
+window, then specifying the query conditions. The matching
+
+datagroup shown in the figure has related subdatagroups, files and
+
+variables which are displayed as hyperlinks. Clicking on the
+
+standard.vars.varID link brings up a new window containing the
+
+metadata for that variable. Clicking on standard.ID in this window
+
+will display the contents of the variable itself.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Granting access to data.</h4>
+
+<p class="MsoNormal">The <span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_addusers</span></span> function allows you to
+
+grant other users permission to query particular files, variables
+
+and datagroups that you own. These users may also retrieve the
+
+variables to their local Matlab workspace and the files to their
+
+local filesystem (providing they have read permission for the
+
+appropriate directory on the Globus file server).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">In the following example the user with
+
+username &lsquo;bob&rsquo; is given access to an archived
+
+variable.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; users = {'bob'};</p>
+
+<p class="codeexample">&gt;&gt; gd_addusers(varID, users);</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Access may also be granted as part of the
+
+metadata when a file or variable is archived, or when a datagroup
+
+is created.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; m.access.users = {'bob'};</p>
+
+<p class="codeexample">&gt;&gt; gd_archive('C:\file.dat',m);</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Further information.</h4>
+
+<p class="MsoNormal">All of these functions have help information
+
+which can be viewed by using the help command in Matlab.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; help gd_display</p>
+
+<p class="codeexample" style='margin-left:45.0pt'>gd_display
+
+Displays the results of a query (a cell of structures), or a single
+
+structure.</p>
+
+<p class="codeexample" style='margin-left:45.0pt'>&nbsp;</p>
+
+<p class="codeexample" style='margin-left:45.0pt'>
+
+gd_display(qresults) can be used to display a cell array of
+
+structures, e.g. the results of a call to the gd_query function.
+
+This is a convenient way of viewing structures to get an overview
+
+of their contents.</p>
+
+<p class="codeexample" style='margin-left:45.0pt'>&nbsp;</p>
+
+<p class="codeexample" style='margin-left:45.0pt'>
+
+gd_display(qresults{i}) displays the contents of a structure, e.g.
+
+a single result from a query, where i is the index of a structure
+
+in the cell array.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Further descriptions and examples for each
+
+function are available in the next section of this document.</p>
+
+<b><span style='font-size:14.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b><br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_transferfile.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_transferfile</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_addusers.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_addusers</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

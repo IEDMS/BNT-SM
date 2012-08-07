@@ -1,0 +1,1992 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>XML Compute Toolbox</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<h1><a name="_Toc104279251" id="_Toc104279251"></a><a name=
+
+"_gd_addusers_1" id="_gd_addusers_1"></a><a name="_gd_display_1"
+
+id="_gd_display_1"></a><a name="_gd_addusers" id=
+
+"_gd_addusers"></a><a name="_gd_archive" id=
+
+"_gd_archive"></a><a name="_gd_datagroup" id=
+
+"_gd_datagroup"></a><a name="_gd_datagroupadd" id=
+
+"_gd_datagroupadd"></a><a name="_gd_display" id=
+
+"_gd_display"></a><a name="_gd_query" id="_gd_query"></a><a name=
+
+"_gd_retrieve" id="_gd_retrieve"></a>XML Toolbox</h1>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h2><a name="_Toc104279252" id="_Toc104279252"></a><a name=
+
+"_Toc81196946" id="_Toc81196946">Introduction</a></h2>
+
+<p class="MsoNormal">The XML Toolbox for Matlab allows users to
+
+convert and store variables and structures from the Matlab
+
+workspace into the plain text XML format, and vice versa. This XML
+
+format can be used to store parameter structures, variables and
+
+results from engineering applications in non-proprietary files, or
+
+XML-capable databases, and can be used for the transfer of data
+
+across the Grid. The toolbox contains bi-directional conversion
+
+routines implemented as four small intuitive and easy-to-use Matlab
+
+functions. As an additional feature, this toolbox allows the
+
+comparison of internal Matlab structures by comparing their XML
+
+representation, which was not previously possible.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<ul style='margin-top:0cm' type="disc">
+
+<li class="MsoNormal">Almost any type of XML document can be read
+
+and converted into Matlab's struct format or cell data type.</li>
+
+<li class="MsoNormal">Matlab structures and variables can be stored
+
+in a non-proprietary format and used by other tools.</li>
+
+<li class="MsoNormal">XML representations can be stored and queried
+
+using the functions provided by the Geodise Database Toolbox.</li>
+
+<li class="MsoNormal">The ability to leverage XML and database
+
+technologies makes the data available beyond the Matlab
+
+environment, and facilitates data sharing and reuse between
+
+users.</li>
+
+<li class="MsoNormal">Access to XML data-driven tools such as Web
+
+Services becomes more transparent to engineering users.</li>
+
+</ul>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The following definitions are valid for XML
+
+Toolbox Version <span style='font-family:Symbol'>&sup3;</span> 2.0
+
+(2.0, 2.1, 2.2, 3.0a, 3.1). The size of data structures the XML
+
+Toolbox can deal with is only limited by the available memory; as
+
+an indication, 60MB large data structures can be easily converted
+
+on a 256MB PC running Matlab.</p>
+
+<p class="MsoNormal" style='page-break-after:avoid'>&nbsp;</p>
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding=
+
+"0" style=
+
+'margin-left:65.85pt;border-collapse:collapse;border:none'>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-right:2.85pt;line-height:normal;page-break-after: avoid'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_format</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; line-height:normal;page-break-after:avoid'>
+
+Converts Matlab data to an XML string</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-right:2.85pt;line-height:normal;page-break-after: avoid'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_formatany</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; line-height:normal;page-break-after:avoid'>
+
+Converts Matlab data to an XML string with user-defined
+
+attributes</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-right:2.85pt;line-height:normal;page-break-after: avoid'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_parse</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; line-height:normal;page-break-after:avoid'>
+
+Converts an XML string into Matlab data</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-right:2.85pt;line-height:normal;page-break-after: avoid'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_parseany</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; line-height:normal;page-break-after:avoid'>
+
+Converts an XML string with attributes into Matlab data</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-right:2.85pt;line-height:normal;page-break-after: avoid'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_load</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; line-height:normal;page-break-after:avoid'>
+
+Loads an XML file and returns Matlab data</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-right:2.85pt;line-height:normal;page-break-after: avoid'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_save</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; line-height:normal;page-break-after:avoid'>
+
+Saves Matlab data into an XML file</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="191" valign="top" style=
+
+'width:143.25pt;border:solid windowtext 1.0pt; border-top:none;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-right:2.85pt;line-height:normal;page-break-after: avoid'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_help</span></span></p>
+
+</td>
+
+<td width="279" valign="top" style=
+
+'width:209.05pt;border-top:none;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left; line-height:normal;page-break-after:avoid'>
+
+Displays help for each xml_ function</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoCaption">Table 6 XML Toolbox functions</p>
+
+<p class="MsoNormal"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></p>
+
+<p class="MsoNormal"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<b><span style='font-size:14.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b>
+
+<h2><a name="_Toc81196947" id="_Toc81196947"></a><a name=
+
+"_xml_format" id="_xml_format"></a><a name="_xml_help" id=
+
+"_xml_help"></a><a name="_xml_load" id="_xml_load"></a><a name=
+
+"_xml_parse" id="_xml_parse"></a><a name="_xml_save" id=
+
+"_xml_save"></a><a name="_Toc104279253" id=
+
+"_Toc104279253">Tutorial</a></h2>
+
+<p class="MsoNormal">The XML Toolbox for Matlab can be used
+
+independently of the Compute and Database Toolboxes. No proxy
+
+certificate is required to make use of its functionality.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Converting Matlab data types to XML</h4>
+
+<p class="MsoNormal">All common Matlab data types can be converted
+
+into XML with the simple-to-use commands <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>xml_format</span></span> (with or without
+
+attributes) or <span class="codeinline"><span style=
+
+'font-size: 11.0pt'>xml_formatany</span></span>. We highlight the
+
+differences in XML output structure in the following three
+
+examples.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample" style=
+
+'margin-left:0cm;text-indent:36.0pt;line-height: normal'>&gt;&gt;
+
+v.a = 1.2345</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; v.b = [1
+
+2 3 4; 5 6 7 8]</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; v.c =
+
+'This is a string.'</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; v.d =
+
+{'alpha','beta'}</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; v.e =
+
+(1==2)</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt;
+
+v.f.sub1.subsub1 = 1</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt;
+
+v.f.sub1.subsub2 = 2</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt;
+
+v.g(1).aa(1) = {'g1aa1'}</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt;
+
+v.g(1).aa(2) = {'g1aa2'}</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt;
+
+v.g(2).aa(1) = {'g2aa1'}</p>
+
+<p class="MsoNormal" style='line-height:normal'>&nbsp;</p>
+
+<p class="MsoNormal">This first example shows the formatting of the
+
+Matlab variable with no additional input parameters specified. The
+
+XML is formatted in such a way that any subsequent parsing of the
+
+created XML string with <span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_parse</span></span> reconstructs an exact
+
+copy of the original Matlab variable.</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; xmlstr =
+
+xml_format(v)</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>xmlstr =</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&lt;root xml_tb_version="3.1" idx="1"
+
+type="struct" size="1 1"&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;a idx="1" type="double"
+
+size="1 1"&gt;1.2345&lt;/a&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;b idx="1" type="double"
+
+size="2 4"&gt;1 5 2 6 3 7 4 8&lt;/b&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;c idx="1" type="char"
+
+size="1 17"&gt;This is a string.&lt;/c&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;d idx="1" type="cell"
+
+size="1 2"&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp; &lt;item idx="1"
+
+type="char" size="1 5"&gt;alpha&lt;/item&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp; &lt;item idx="2"
+
+type="char" size="1 4"&gt;beta&lt;/item&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;/d&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;e idx="1" type="boolean"
+
+size="1 1"&gt;0&lt;/e&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;f idx="1" type="struct"
+
+size="1 1"&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp; &lt;sub1 idx="1"
+
+type="struct" size="1 1"&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&lt;subsub1 idx="1" type="double" size="1
+
+1"&gt;1&lt;/subsub1&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&lt;subsub2 idx="1" type="double" size="1
+
+1"&gt;2&lt;/subsub2&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp;
+
+&lt;/sub1&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;/f&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;g idx="1" type="struct"
+
+size="1 2"&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp; &lt;aa idx="1"
+
+type="cell" size="1 2"&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&lt;item idx="1" type="char" size="1
+
+5"&gt;g1aa1&lt;/item&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&lt;item idx="2" type="char" size="1
+
+5"&gt;g1aa2&lt;/item&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp;
+
+&lt;/aa&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp; &lt;aa idx="2"
+
+type="cell" size="1 1"&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&lt;item idx="1" type="char" size="1
+
+5"&gt;g2aa1&lt;/item&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp;
+
+&lt;/aa&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+<span style='font-size:9.0pt'>&nbsp; &lt;/g&gt;</span></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; page-break-after:auto;background:#F3F3F3'>
+
+<span style='font-size:9.0pt'>&lt;/root&gt;</span></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The Matlab-specific attributes <span class=
+
+"codeinline"><span style='font-size:11.0pt'>idx</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>type</span></span> and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>size</span></span>,
+
+which allow the exact reconstruction of the Matlab data types, can
+
+be turned off by specifying the second parameter in the
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_format</span></span> function call as 'off'.
+
+This results in a more generic formatting of the structure,
+
+however, the XML contents are now interpreted purely as strings
+
+when parsed back into Matlab as type and size information are
+
+lost:</p>
+
+<p class="codeexample" style='margin-left:0cm'>&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; xmlstr =
+
+xml_format(v,'off')</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+xmlstr =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&lt;root&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;a&gt;1.2345&lt;/a&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;b&gt;1 5 2 6 3 7 4 8&lt;/b&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;c&gt;This is a string.&lt;/c&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp; &lt;d&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp; &lt;item&gt;alpha&lt;/item&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp; &lt;item&gt;beta&lt;/item&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp; &lt;/d&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;e&gt;0&lt;/e&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;f&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;sub1&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;subsub1&gt;1&lt;/subsub1&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;subsub2&gt;2&lt;/subsub2&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;/sub1&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;/f&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp; &lt;g&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;item&gt;g1aa1&lt;/item&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;item&gt;g1aa2&lt;/item&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp; &lt;/aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;item&gt;g2aa1&lt;/item&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp; &lt;/aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp; &lt;/g&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&lt;/root&gt;</p>
+
+</div>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<p class="MsoNormal">The user can write the XML representation of a
+
+Matlab variable immediately into a XML file using the command
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_save</span></span>. This command uses the
+
+same XML format as the function <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>xml_format</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">If the user wishes to define XML attributes
+
+other than the default <span class="codeinline"><span style=
+
+'font-size:11.0pt'>idx</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>type</span></span> and
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>size</span></span> parameters, these can be
+
+added using a substructure called 'ATTRIBUTE' in the Matlab
+
+structure and performing the formatting with the command
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_formatany</span></span>.</p>
+
+<p class="MsoNormal">This command converts Matlab cell data vectors
+
+into several XML elements with the same name tag without using the
+
+'item' tag as in the previous example.</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_formatany</span></span> may be preferable to
+
+xml_format when converting Matlab data into XML which is processed
+
+in other applications, however, some of the information about the
+
+original data types may be lost when converting the XML back into
+
+Matlab using <span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_parseany</span></span>:</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; xmlstr =
+
+xml_formatany(v)</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+xmlstr =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&lt;root&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;a&gt;1.2345&lt;/a&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;b&gt;1 5 2 6 3 7 4 8&lt;/b&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;c&gt;This is a string.&lt;/c&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp; &lt;d&gt;alpha&lt;/d&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp; &lt;d&gt;beta&lt;/d&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;e&gt;0&lt;/e&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;f&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;sub1&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;subsub1&gt;1&lt;/subsub1&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;subsub2&gt;2&lt;/subsub2&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;/sub1&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;/f&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp; &lt;g&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa&gt;g1aa1&lt;/aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa&gt;g1aa2&lt;/aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;text-indent:12.0pt; line-height:normal;background:aqua'>
+
+&lt;/g&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;text-indent:12.0pt; line-height:normal;background:aqua'>
+
+&lt;g&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa&gt;g2aa1&lt;/aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:aqua'>
+
+&nbsp; &lt;/g&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&lt;/root&gt;</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal" style='line-height:normal'>We can specify
+
+additional attributes for the subfields <span class=
+
+"codeinline"><span style='font-size: 11.0pt'>f.sub1</span></span>
+
+and <span class="codeinline"><span style=
+
+'font-size: 11.0pt'>g(2)</span></span></p>
+
+<p class="MsoNormal" style='line-height:normal'>&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt;
+
+v.f.sub1.ATTRIBUTE.fontname = 'Helvetica'</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt;
+
+v.g(2).ATTRIUTE.fontname = 'Helvetica2'</p>
+
+<p class="MsoNormal" style='line-height:normal'>&nbsp;</p>
+
+<p class="MsoNormal" style='line-height:normal'>which then results
+
+in the following XML string:</p>
+
+<p class="MsoNormal" style='line-height:normal'>&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; xmlstr =
+
+xml_formatany(v)</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+xmlstr =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&lt;root&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;[...]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;f&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;sub1 <span style=
+
+'background:aqua'>fontname="Helvetica"</span>&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;subsub1&gt;1&lt;/subsub1&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;subsub2&gt;2&lt;/subsub2&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;/sub1&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;/f&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;g&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa&gt;g1aa1&lt;/aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa&gt;g1aa2&lt;/aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;/g&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;g <span style=
+
+'background:aqua'>fontname="Helvetica2"</span>&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa&gt;g2aa1&lt;/aa&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp; &lt;/g&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; page-break-after:auto;background:#F3F3F3'>
+
+&lt;/root&gt;</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Converting XML to Matlab data types</h4>
+
+<p class="MsoNormal">As XML can contain any arbitrary contents as
+
+long as they follow the W3C XML Recommendation (www.w3.org),
+
+parsing and translating of these constructs into a Matlab-specific
+
+environment can be complex. The functions <span class=
+
+"codeinline"><span style='font-size:11.0pt'>xml_parse</span></span>
+
+and <span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_parseany</span></span> allow the conversion
+
+of XML strings into Matlab data structures in a sensible way.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">There are three distinct ways of importing XML
+
+into Matlab data structures. These correspond to the techniques
+
+shown above for <span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_format</span></span> and <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>xml_formatany</span></span>. (There are actually
+
+four ways; however, we no longer support the old method from
+
+version 1.x).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">If the XML contains Matlab specific
+
+descriptors, such as created by <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>xml_format</span></span> with attributes
+
+switched on (i.e. the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>idx</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>type</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>size</span></span> attributes), the XML Toolbox
+
+will be able to re-create exactly the Matlab data type and content
+
+described by the XML string.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">For example,</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; xmlstr =
+
+...</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>&lt;root
+
+xml_tb_version="3.1" idx="1" type="struct" size="1 1"&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp; &lt;a
+
+idx="1" type="double" size="1 1"&gt;1.2345&lt;/a&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp; &lt;b
+
+idx="1" type="double" size="2 4"&gt;1 5 2 6 3 7 4 8&lt;/b&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp; &lt;c
+
+idx="1" type="char" size="1 17"&gt;This is a string.&lt;/c&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp; &lt;d
+
+idx="1" type="cell" size="1 2"&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;item idx="1" type="char" size="1
+
+5"&gt;alpha&lt;/item&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;item idx="2" type="char" size="1
+
+4"&gt;beta&lt;/item&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;
+
+&lt;/d&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp; &lt;e
+
+idx="1" type="boolean" size="1 1"&gt;0&lt;/e&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp; &lt;f
+
+idx="1" type="struct" size="1 1"&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;sub1 idx="1" type="struct" size="1
+
+1"&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;subsub1 idx="1" type="double"
+
+size="1 1"&gt;1&lt;/subsub1&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;subsub2 idx="1" type="double"
+
+size="1 1"&gt;2&lt;/subsub2&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;/sub1&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;
+
+&lt;/f&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp; &lt;g
+
+idx="1" type="struct" size="1 2"&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa idx="1" type="cell" size="1 2"&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;item idx="1" type="char" size="1
+
+5"&gt;g1aa1&lt;/item&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;item idx="2" type="char" size="1
+
+5"&gt;g1aa2&lt;/item&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;/aa&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;aa idx="2" type="cell" size="1 1"&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;item idx="1" type="char" size="1
+
+5"&gt;g2aa1&lt;/item&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>
+
+&nbsp;&nbsp;&nbsp; &lt;/aa&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;
+
+&lt;/g&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&lt;/root&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<p class="MsoNormal">can be parsed using the command</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; v = xml_parse(xmlstr)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">and returns the structure</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>v =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; a: 1.2345</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; b: [2x4 double]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; c: 'This is a string.'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; d: {'alpha'&nbsp; 'beta'}</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; e: 0</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; f: [1x1 struct]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; g: [1x2 struct]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">which corresponds exactly to the Matlab
+
+variable used in <span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_format</span></span> to create the XML
+
+string.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">If we use the same command, <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>xml_parse</span></span>, but tell the parser to
+
+ignore the attributes with the command</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">&gt;&gt; v_wo_att =
+
+xml_parse(xmlstr,'off')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">we obtain a structure where types and sizes of
+
+the data will not be adapted to match standard Matlab data types,
+
+that means that all alphanumeric content will be returned as
+
+strings.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>v_wo_att
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; a: '1.2345'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; b: '1 5 2 6 3 7 4 8'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; c: 'This is a string.'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; d: {'alpha'&nbsp; 'beta'}</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; e: '0'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; f: [1x1 struct]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; g: [1x2 struct]</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The structural information (in fields
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>f</span></span> and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>g</span></span>) is
+
+still preserved, although matrix contents, such as in field
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>b</span></span>, and numeric values, such as in
+
+fields <span class="codeinline"><span style=
+
+'font-size:11.0pt'>a</span></span> and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>e</span></span>, are
+
+returned as pure strings.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The third possibility is to use <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>xml_parseany</span></span> which is able to
+
+convert most XML strings to Matlab data structures while taking
+
+care of namespaces and attributes. As the structure in XML strings
+
+can be very complex (for example in WSDL documents), the variable
+
+returned is a struct variable with sub-structures defined as
+
+cells.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal" style='line-height:normal'>If we parse, for
+
+example,</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>&gt;&gt; xmlstr =
+
+...</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;
+
+&lt;gem:project name="MyProject"&gt;</p>
+
+<p class="codeexample" style=
+
+'text-indent:12.0pt;line-height:normal'>&nbsp; &lt;username
+
+type="string"&gt;Me&lt;/username&gt;</p>
+
+<p class="codeexample" style=
+
+'text-indent:12.0pt;line-height:normal'>&nbsp; &lt;date_created
+
+type="date"&gt;2004-10-12&lt;/date_created&gt;</p>
+
+<p class="codeexample" style=
+
+'text-indent:12.0pt;line-height:normal'>&nbsp; &lt;description
+
+fontsize="10"&gt; cool! &lt;/description&gt;</p>
+
+<p class="codeexample" style=
+
+'text-indent:12.0pt;line-height:normal'>&nbsp; &lt;parameters
+
+n="4"&gt;</p>
+
+<p class="codeexample" style=
+
+'text-indent:12.0pt;line-height:normal'>&nbsp; &nbsp;&nbsp;&lt;eps1
+
+type="dielectric" units="1"&gt; 8.92 &lt;/eps1&gt;</p>
+
+<p class="codeexample" style=
+
+'text-indent:12.0pt;line-height:normal'>&nbsp; &nbsp;&nbsp;&lt;eps2
+
+type="dielectric" units="1"&gt; 1.00 &lt;/eps2&gt;</p>
+
+<p class="codeexample" style=
+
+'text-indent:12.0pt;line-height:normal'>&nbsp;
+
+&nbsp;&nbsp;&lt;StT&nbsp; type="structuretype"&gt; rod
+
+&lt;/StT&gt;</p>
+
+<p class="codeexample" style=
+
+'text-indent:12.0pt;line-height:normal'>&nbsp;
+
+&nbsp;&nbsp;&lt;nofEV&gt; 47 &lt;/nofEV&gt;</p>
+
+<p class="codeexample" style=
+
+'text-indent:12.0pt;line-height:normal'>&nbsp;
+
+&lt;/parameters&gt;</p>
+
+<p class="codeexample" style='line-height:normal'>&nbsp;
+
+&lt;/project&gt;</p>
+
+<p class="MsoNormal" style='line-height:normal'>with</p>
+
+<p class="codeexample">&gt;&gt; v = xml_parseany( xmlstr )</p>
+
+<p class="MsoNormal" style='line-height:normal'>&nbsp;</p>
+
+<p class="MsoNormal" style='line-height:normal'>we obtain the
+
+variable</p>
+
+<p class="MsoNormal" style='line-height:normal'>&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ATTRIBUTE: [1x1 struct]</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; username: {[1x1
+
+struct]}</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; date_created: {[1x1 struct]}</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; description: {[1x1 struct]}</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parameters: {[1x1 struct]}</p>
+
+</div>
+
+<p class="MsoNormal" style='line-height:normal'>&nbsp;</p>
+
+<p class="MsoNormal" style='line-height:normal'>with the following
+
+variable structure</p>
+
+<p class="MsoNormal" style='line-height:normal'>&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.ATTRIBUTE(1).name
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+MyProject</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; page-break-after:auto;background:#F3F3F3'>
+
+v.ATTRIBUTE(1).NAMESPACE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+gem</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.username{1}.ATTRIBUTE.type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+string</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.username{1}.CONTENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Me</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.date_created{1}.ATTRIBUTE.type
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+date</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.date_created{1}.CONTENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+2004-10-12</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.description{1}.ATTRIBUTE.fontsize
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.description{1}.CONTENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+cool!</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.eps1{1}.ATTRIBUTE.type &nbsp;&nbsp;&nbsp;&nbsp;
+
+dielectric</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.eps1{1}.ATTRIBUTE.units &nbsp;&nbsp;&nbsp; 1</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.eps1{1}.CONTENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+8.92</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.eps2{1}.ATTRIBUTE.type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+dielectric</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.eps2{1}.ATTRIBUTE.units&nbsp;&nbsp;&nbsp;&nbsp;
+
+1</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.eps2{1}.CONTENT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+1.00</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.StT{1}.ATTRIBUTE.type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+structuretype</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.StT{1}.CONTENT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+rod</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.nofEV{1}.ATTRIBUTE.type&nbsp;&nbsp;&nbsp;&nbsp;
+
+numeric</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.nofEV{1}.CONTENT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 47</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;line-height:normal; background:#F3F3F3'>
+
+v.parameters{1}.ATTRIBUTE.n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+4</p>
+
+</div>
+
+<b><span style='font-size:14.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_unmarkfordeletion.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_unmarkfordeletion</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"xml_format.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+xml_format</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

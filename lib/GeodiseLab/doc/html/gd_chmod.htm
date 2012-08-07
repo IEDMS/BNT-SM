@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_chmod</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279206" id="_Toc104279206">gd_chmod</a></h3>
+
+</div>
+
+<p class="MsoNormal">Changes file permissions of a file on a Globus
+
+resource.</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">gd_chmod(host,remotefile,mode)</p>
+
+<p class="codesyntax">
+
+gd_chmod(host,remotefile,mode,command)&nbsp;&nbsp;&nbsp;</p>
+
+<p class="codesyntax">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_chmod(host,remotefile,mode)</span></span>
+
+where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span> is a string describing the
+
+resource. It could be in one of the following formats:</p>
+
+<p class="NormalDescription" style='margin-left:36.0pt'>-
+
+hostname</p>
+
+<p class="NormalDescription" style='margin-left:36.0pt'>-
+
+hostname:port</p>
+
+<p class="NormalDescription" style='margin-left:36.0pt'>-
+
+hostname/service</p>
+
+<p class="NormalDescription" style='margin-left:36.0pt'>-
+
+hostname:port/service</p>
+
+<p class="MsoNormal">The second argument <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>remotefile</span></span> is a string describing
+
+the full name of the file starting from root '/'. The final
+
+argument <span class="codeinline"><span style=
+
+'font-size:11.0pt'>mode</span></span> is a string describing the
+
+permissions of the file. The permission of a file can be either a
+
+symbolic representation of changes to make, or an octal number
+
+representing the bit pattern for the new permissions (see
+
+below).</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_chmod(host,remotefile,mode,command)</span></span>
+
+as above, except the argument <span class="codeinline"><span style=
+
+'font-size: 11.0pt'>command</span></span> is a string specifying
+
+the absolute path of the chmod command on the Globus resource.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Input arguments</h4>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>mode</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+The argument <span class="codeinline"><span style=
+
+'font-size:11.0pt'>mode</span></span> may have two alternative
+
+forms:</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;</p>
+
+<p class="MsoNormal" style='margin-left:72.0pt'>1. Symbolic
+
+representation:</p>
+
+<p class="MsoNormal" style='margin-left:72.0pt'>A combination of
+
+the letters `ugoa' controls which users' access to the file will be
+
+changed: the user who owns it (u), other users in the file's group
+
+(g), other users not in the file's group (o), or all users (a).</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;</p>
+
+<p class="MsoNormal" style='margin-left:72.0pt'>The operator '+'
+
+causes the permissions selected to be added to the existing
+
+permissions of each file; '-' causes them to be removed; and '='
+
+causes them to be the only permissions that the file has.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;</p>
+
+<p class="MsoNormal" style='margin-left:72.0pt'>The letters
+
+'rwxXstugo' select the new permissions for the affected users: read
+
+(r), write (w), execute (or access for directories) (x), execute
+
+only if the file is a directory or already has execute permission
+
+for some user (X), set user or group ID on execution (s), sticky
+
+(t), the permissions granted to the user who owns the file (u), the
+
+permissions granted to other users who are members of the file's
+
+group (g), and the permissions granted to users that are in neither
+
+of the two preceding categories (o).</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;</p>
+
+<p class="MsoNormal" style='margin-left:72.0pt'>2. Octal number
+
+representation:</p>
+
+<p class="MsoNormal" style='margin-left:72.0pt'>A numeric mode is
+
+from one to four octal digits (0-7), derived by adding up the bits
+
+with values 4, 2, and 1. Any omitted digits are assumed to be
+
+leading zeros.&nbsp; The first digit selects the set user ID (4)
+
+and set group ID (2) and sticky (1) attributes. The second digit
+
+selects permissions for the user who owns the file: read (4), write
+
+(2), and execute (1); the third selects permissions for other users
+
+in the file's group, with the same values; and the fourth for other
+
+users not in the file's group, with the same values.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;</p>
+
+<p class="MsoNormal" style='margin-left:72.0pt'>For example, 0750
+
+gives rwx permissions to the owner and rx permissions to the
+
+group.</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">To give read/write/execute permissions to the
+
+owner and read/execute permissions to the group of a file named
+
+'/tmp/foo' which is on a Globus resource called
+
+'server.domain.com', you can use:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">
+
+gd_chmod('server.domain.com','/tmp/foo','0750');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To remove group execute permissions from of
+
+the same file you can use:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">
+
+gd_chmod('server.domain.com','/tmp/foo','g-x');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal"><b>Notes</b></p>
+
+<p class="MsoNormal">A valid proxy certificate is required to use
+
+this function.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_fileexists.htm#_gd_fileExists">gd_fileexists</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_listdir.htm#_gd_listdir">gd_listdir</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_certinfo.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+gd_certinfo</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_condorsubmit.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_condorsubmit</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

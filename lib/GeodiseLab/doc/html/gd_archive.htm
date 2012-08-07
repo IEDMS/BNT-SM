@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_archive</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279239" id="_Toc104279239"></a><a name=
+
+"_gd_archive_1" id="_gd_archive_1"></a>gd_archive</h3>
+
+</div>
+
+<p class="MsoNormal">Stores a file or variable with some metadata
+
+into the archive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">ID = gd_archive(filename)</p>
+
+<p class="codesyntax">ID = gd_archive(filename,metadata)</p>
+
+<p class="codesyntax">ID =
+
+gd_archive(filename,metadata,datagroupID)</p>
+
+<p class="codesyntax">ID = gd_archive(v)</p>
+
+<p class="codesyntax">ID = gd_archive(v,metadata)</p>
+
+<p class="codesyntax">ID = gd_archive(v,metadata,datagroupID)</p>
+
+<p class="codesyntax">ID =
+
+gd_archive(v,metadata,datagroupID,'var')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID = gd_archive(filename)</span></span> takes a
+
+string representing a filename and archives that file in a file
+
+store (specified in the ClientConfig.xml file). Some standard
+
+information about the file (metadata) is automatically generated
+
+and can be later queried with <span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>. A unique
+
+identifier (<span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID</span></span>) for the archived file is
+
+returned which can be used to retrieve the file with <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_retrieve.htm#_gd_retrieve_1">gd_retrieve</a></span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID = gd_archive(filename,metadata)</span></span>
+
+archives a file with some user defined <span class=
+
+"codeinline"><span style='font-size:11.0pt'>metadata</span></span>
+
+which can later be queried with <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>. Standard
+
+metadata about the file is also generated.</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID =
+
+gd_archive(filename,metadata,datagroupID)</span></span> archives a
+
+file and adds it to a datagroup specified by <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID</span></span>.&nbsp; A datagroup is
+
+used to group together a collection of related files, variables and
+
+other datagroups, see <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_datagroup.htm#_gd_datagroup_1">gd_datagroup</a></span></span>
+
+and <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_datagroupadd.htm#_gd_datagroupadd_1">gd_datagroupadd</a></span></span>.
+
+To specify a <span class="codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID</span></span> without including user
+
+defined file metadata, set <span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span> to empty [].</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID = gd_archive(v)</span></span> takes a
+
+variable and archives it in a database (accessible via the
+
+webservices specified in the ClientConfig.xml file). <span class=
+
+"codeinline"><span style='font-size:11.0pt'>v</span></span> can be
+
+of type char, double, complex, struct, sparse, cell array, or
+
+logical. Some standard metadata about the variable is generated
+
+automatically and can be later queried with <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>. A unique
+
+identifier (<span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID</span></span>) for the archived variable is
+
+returned which can be used to retrieve the variable to the
+
+workspace with <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_retrieve.htm#_gd_retrieve_1">gd_retrieve</a></span></span>. A
+
+variable can also be assigned user defined <span class=
+
+"codeinline"><span style='font-size:11.0pt'>metadata</span></span>
+
+and added to a datagroup by supplying a <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID</span></span> in the same way as a
+
+file.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID =
+
+gd_archive(v,metadata,datagroupID,'var')</span></span> should be
+
+used when archiving a variable that is a string (char). If
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>v</span></span> has any other type it will be
+
+automatically detected, but when it is a string &lsquo;var&rsquo;
+
+must be specified to indicate it is a variable and not a filename.
+
+If there is no user defined <span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span> or <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID</span></span>, set them to empty
+
+[].</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Input Arguments</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:72.0pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+The <span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span> structure can contain any
+
+combination of named variables, matrices and substructures (char,
+
+double, complex, struct, sparse, cell or logical) necessary to
+
+describe the data. However, there are two special substructures,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard</span></span> and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>access</span></span>,
+
+which may only contain certain values.<br />
+
+<br />
+
+Some metadata is automatically generated (even when no metadata is
+
+passed to the function) and stored in the <span class=
+
+"codeinline"><span style='font-size: 11.0pt'>standard</span></span>
+
+substructure of<span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span>. For files and variables
+
+this consists of <span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>userID</span></span>
+
+and <span class="codeinline"><span style=
+
+'font-size:11.0pt'>archiveDate</span></span>, and for files only:
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>byteSize</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>format</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>localName</span></span> (the original name of
+
+the file) and <span class="codeinline"><span style=
+
+'font-size: 11.0pt'>createDate</span></span> (when the original
+
+file was created/modified). Optional <span class=
+
+"codeinline"><span style='font-size:11.0pt'>comment</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>version</span></span> and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>tree</span></span>
+
+fields can be added to <span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard</span></span> and overriding values for
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.localName</span></span> and
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.format</span></span> can also be
+
+specified. The <span class="codeinline"><span style=
+
+'font-size:11.0pt'>tree</span></span> field is a string which can
+
+be used to represent a user defined hierarchy for the data, similar
+
+to a directory path, e.g. <span class="codeinline"><span style=
+
+'font-size:11.0pt'>'myuserID/designs/testmodel'</span></span>. See
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span> for further
+
+information on these fields. Any other fields set in the
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard</span></span> substructure will be
+
+overwritten or removed.<br />
+
+<br />
+
+The <span class="codeinline"><span style=
+
+'font-size:11.0pt'>access</span></span> substructure of
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span> controls who may query
+
+and retrieve the data. The person who archived the data
+
+automatically has access to it and does not need to be added.
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>access</span></span> can contain two fields,
+
+each of which can be a single string or a cell array of
+
+strings:<br />
+
+<br /></p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" style='margin-left:77.4pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="90" valign="top" style=
+
+'width:67.35pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>users</span></span></p>
+
+</td>
+
+<td width="368" valign="top" style=
+
+'width:275.95pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>User ID strings specifying
+
+which users may access the data.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="90" valign="top" style=
+
+'width:67.35pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>groups</span></span></p>
+
+</td>
+
+<td width="368" valign="top" style=
+
+'width:275.95pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Group ID strings specifying
+
+which groups of users may access the data (currently a group must
+
+be created in the database by an administrator).</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" align="left" style='text-align:left'>
+
+&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">Archive a file with no user defined
+
+metadata.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">ID = gd_archive ('C:\file.dat')</p>
+
+<p class="codeexample"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>ID =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+file_dat_ce868f40-8de0-445e-8ae5-36c05eec25a9</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Archive a file with some metadata,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>m</span></span> (user defined metadata and a
+
+standard comment), and give access permission to user1 and
+
+user2.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">m.model.name = 'test_design';</p>
+
+<p class="codeexample">m.params = [1 4.7 5.3];</p>
+
+<p class="codeexample">m.iterations = 9000;&nbsp;</p>
+
+<p class="codeexample">m.standard.comment = 'Comment about
+
+file';</p>
+
+<p class="codeexample">m.access.users = {'user1','user2'};</p>
+
+<p class="codeexample">gd_archive('C:\file.dat',m);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Archive a file and add it to a datagroup,
+
+using [] to indicate no user defined metadata.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">datagroupID = gd_datagroup('design opt
+
+2004-09-03');</p>
+
+<p class="codeexample">
+
+gd_archive('C:\file.dat',[],datagroupID);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="MsoNormal">Archive a structure with some user defined
+
+metadata.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">v.width = 12;</p>
+
+<p class="codeexample">v.height = 6;</p>
+
+<p class="codeexample">m.standard.comment = 'measurement
+
+variables';</p>
+
+<p class="codeexample">gd_archive(v,m);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to
+
+archive a file or variable (see <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>
+
+from the Geodise Compute Toolbox).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">You must have access to the host machine the
+
+files will be archived on. Your certificate subject must be added
+
+to the gridmap file on the host and to the authorisation
+
+database.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_addusers.htm#_gd_addusers_2">gd_addusers</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_retrieve.htm#_gd_retrieve_1">gd_retrieve</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>, <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_datagroup.htm#_gd_datagroup_1">gd_datagroup</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_datagroupadd.htm#_gd_datagroupadd_1">gd_datagroupadd</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_addusers.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+gd_addusers</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_datagroup.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_datagroup</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

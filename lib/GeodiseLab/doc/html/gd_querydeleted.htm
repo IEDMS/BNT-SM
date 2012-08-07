@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_querydeleted</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279248" id="_Toc104279248"></a><a name=
+
+"_gd_querydeleted" id="_gd_querydeleted"></a>gd_querydeleted</h3>
+
+</div>
+
+<p class="MsoNormal">Performs queries over metadata or Matlab
+
+structures marked for deletion in the archive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax&nbsp;</h4>
+
+<p class="codesyntax">qresults = gd_querydeleted(query)</p>
+
+<p class="codesyntax">qresults =
+
+gd_querydeleted(query,datasource)</p>
+
+<p class="codesyntax">qresults =
+
+gd_querydeleted(query,datasource,resultfields)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>qresults =
+
+gd_query(query,datasource,resultfields)</span></span> <a name=
+
+"_Toc82943631" id="_Toc82943631"></a><a name="_gd_retrieve_2" id=
+
+"_gd_retrieve_2"></a>has exactly the same functionality as <a href=
+
+"gd_query.htm#_gd_query_1"><span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'>gd_query</span></span></a> but performs the
+
+queries over data that has been marked for deletion using the
+
+<a href="gd_markfordeletion.htm#_gd_markfordeletion"><span class=
+
+"codeHyperlink"><span style=
+
+'font-size: 11.0pt'>gd_markfordeletion</span></span></a> function.
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_querydeleted</span></span> returns a cell
+
+array of metadata structures, one for each matching result. The
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span> field in each result
+
+can be passed to the <a href=
+
+"gd_unmarkfordeletion.htm#_gd_unmarkfordeletion"><span class=
+
+"codeHyperlink"><span style=
+
+'font-size:11.0pt'>gd_unmarkfordeletion</span></span></a> function,
+
+which can recover data that was mistakenly marked for deletion.
+
+This function will only return results for data that has not
+
+already been permanently deleted from the archive by an
+
+administrator.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">A brief description of the input arguments is
+
+given here, see <a href="gd_query.htm#_gd_query_1"><span class=
+
+"codeHyperlink"><span style=
+
+'font-size: 11.0pt'>gd_query</span></span></a> for further
+
+information. To view the query results, use function <a href=
+
+"gd_display.htm#_gd_display_2"><span class=
+
+"codeHyperlink"><span style=
+
+'font-size:11.0pt'>gd_display</span></span></a>.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<h4>Input Arguments</h4>
+
+<p class="MsoNormal" style=
+
+'margin-left:90.0pt;text-indent:-90.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>query</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+A query takes the form <span class="codeinline"><span style=
+
+'font-size:11.0pt'>'field = value'</span></span> where <span class=
+
+"codeinline"><span style='font-size: 11.0pt'>field</span></span> is
+
+the name of a field in the archived metadata/variable structure,
+
+for example <span class="codeinline"><span style=
+
+'font-size:11.0pt'>iterations</span></span> or <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span> &nbsp;(dot notation is
+
+used to access the subfields of a structure). The <span class=
+
+"codeinline"><span style='font-size:11.0pt'>value</span></span> is
+
+an alphanumeric value the field should contain. The operator
+
+<span class="codeinline"><span style=
+
+'font-size: 11.0pt'>&amp;</span></span> (meaning &lsquo;and&rsquo;)
+
+can be used to specify more than one search condition.</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:90.0pt;text-align:left; text-indent:-90.0pt'>
+
+&nbsp;</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:90.0pt;text-indent:-90.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datasource</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+The data source indicates which type of data to query, and can be
+
+specified by one of the following strings (the default <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datasource</span></span> value is 'file'):</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:90.0pt;text-indent:-90.0pt'>&nbsp;</p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="456" style=
+
+'width:342.0pt;margin-left:92.85pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-90.0pt'>
+
+&lsquo;file&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-top:0cm;margin-right:2.85pt;margin-bottom: 0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-indent:-90.0pt'>
+
+Metadata about files.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-90.0pt'>
+
+&lsquo;datagroup&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-90.0pt'>
+
+Metadata about datagroups.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-90.0pt'>
+
+&lsquo;monitor&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-90.0pt'>
+
+Metadata about monitorable datagroups.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-90.0pt'>
+
+&lsquo;varmeta&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style=
+
+'margin-top:0cm;margin-right:2.85pt;margin-bottom: 0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-indent:-90.0pt'>
+
+Metadata about Matlab variables.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="189" valign="top" style=
+
+'width:141.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-90.0pt'>
+
+&lsquo;var&rsquo;</p>
+
+</td>
+
+<td width="267" valign="top" style=
+
+'width:200.5pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-top:0cm;margin-right:2.85pt; margin-bottom:0cm;margin-left:90.0pt;margin-bottom:.0001pt;text-align:left; text-indent:-90.0pt'>
+
+Matlab variables.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" style=
+
+'margin-left:90.0pt;text-indent:-90.0pt'>&nbsp;</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:90.0pt;text-indent:-90.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>resultfields</span></span> The resultfields
+
+string is a comma separated list indicating which fields should be
+
+returned for each result, for example just the <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span> fields. The default,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>*</span></span>, returns all fields.</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:90.0pt;text-indent:-90.0pt'>&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">Query variable metadata that has been marked
+
+for deletion, and then unmark the corresponding variables so that
+
+they are no longer eligible for deletion from the archive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">q = 'standard.archiveDate &gt; 2004-12-01
+
+&amp; a.b &lt; -500';</p>
+
+<p class="codeexample">qresults = gd_querydeleted(q,
+
+'varmeta');</p>
+
+<p class="codeexample">for i=1:size(qresults,2)</p>
+
+<p class="codeexample">&nbsp;&nbsp;&nbsp; IDs{i} =
+
+qresults{i}.standard.ID;</p>
+
+<p class="codeexample">end</p>
+
+<p class="codeexample">unmarktotal = gd_unmarkfordeletion(IDs)</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>unmarktotal
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 5</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">When querying standard date information
+
+(<span class="codeinline"><span style=
+
+'font-size:11.0pt'>archiveDate</span></span> or <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>createDate</span></span>), specify the date/time
+
+using the International Standard Date and Time Notation (ISO 8601)
+
+which is: "YYYY-MM-DD hh:mm:ss" (hh:mm:ss is optional).</p>
+
+<h4>&nbsp;</h4>
+
+<p class="MsoNormal">Only results for data marked for deletion and
+
+owned by the user (i.e. data the user archived/created) will be
+
+returned.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">If the marked data has been permanently
+
+deleted from the archive by an administrator it cannot be
+
+queried.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">A valid proxy certificate is required (see
+
+<a href="gd_createproxy.htm#_gd_createproxy_1"><span class=
+
+"codeHyperlink"><span style=
+
+'font-size: 11.0pt'>gd_createproxy</span></span></a> from the
+
+Geodise Compute Toolbox).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Your certificate subject must have been added
+
+to the authorisation database.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="NormalLeft"><a href=
+
+"gd_unmarkfordeletion.htm#_gd_unmarkfordeletion"><span class=
+
+"codeHyperlink"><span style=
+
+'font-size:11.0pt'>gd_unmarkfordeletion</span></span></a>, <a href=
+
+"gd_markfordeletion.htm#_gd_markfordeletion"><span style=
+
+'font-size:11.0pt;font-family:"Courier New"'>gd_markfordeletion</span></a>,
+
+<a href="gd_display.htm#_gd_display_2"><span class=
+
+"codeHyperlink"><span style=
+
+'font-size:11.0pt'>gd_display</span></span></a>, <a href=
+
+"gd_query.htm#_gd_query_1"><span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'>gd_query</span></span></a>, <a href=
+
+"gd_createproxy.htm#_gd_createproxy_1"><span class=
+
+"codeHyperlink"><span style=
+
+'font-size: 11.0pt'>gd_createproxy</span></span></a></p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_query.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+gd_query</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_retrieve.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_retrieve</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

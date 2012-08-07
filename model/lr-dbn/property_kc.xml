@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+
+<property>
+
+        <input>
+                <evidence_train>evidence.train.xls</evidence_train>
+                <evidence_test>evidence.test.xls</evidence_test>
+        </input>
+
+        <multi_subskill>yes</multi_subskill>
+
+        <output>
+                <param_table>param_table.xls</param_table>
+                <inference_result>inference_result.xls</inference_result>
+                <inference_result_header>inference_result.xls</inference_result_header>
+                <log>log.txt</log>
+        </output>
+
+        <structure>
+                <var>F = 1; T = 2;</var>
+
+                <nodes>
+                        <node>
+                        				<id>1</id>
+                                <name>kc</name>
+                                <type>multi</type>
+                                <values>6</values>
+                                <latent>no</latent>
+                                <field>kc</field>
+                                <within>
+                                        <transition>knowledge</transition>
+                                </within>
+                                <between></between>
+                        </node>
+                        <node>
+                                <id>2</id>
+                                <name>knowledge</name>
+                                <type>discrete</type>
+                                <values>2</values>
+                                <latent>yes</latent>
+                                <field>knowledge</field>
+                                <within>
+                                        <transition>fluent</transition>
+                                </within>
+                                <between>
+                                        <transition>knowledge</transition>
+                                </between>
+                        </node>
+
+                        <node>
+                                <id>3</id>
+                                <name>fluent</name>
+                                <type>discrete</type>
+                                <values>2</values>
+                                <latent>no</latent>
+                                <field>fluent</field>
+                                <within></within>
+                                <between></between>
+                        </node>
+                </nodes>
+
+                <eclasses>
+                				<eclass>
+                                <id>1</id>
+                                <formula>P1(kc)</formula>
+                                <type>root</type>
+                                <clamp>no</clamp>
+                        </eclass>
+                        <eclass>
+                                <id>2</id>
+                                <formula>P2(knowledge)</formula>
+                                <type>softmax</type>
+                                <clamp>no</clamp>
+                                <cpd>
+                                		<eq>P2(T)</eq><init>0.68</init><param>L0</param>
+                                    <eq>P2(F)</eq><init>1-P1(T)</init><param>null</param>
+                                </cpd>
+                        </eclass>
+
+                        <eclass>
+                                <id>3</id>
+                                <formula>P3(fluent|knowledge)</formula>
+                                <type>discrete</type>
+                                <clamp>no</clamp>
+                                <cpd>
+                                        <eq>P3(T|F)</eq><init>0.64</init><param>guess</param>
+                                        <eq>P3(F|T)</eq><init>0.07</init><param>slip</param>
+                                        <eq>P3(F|F)</eq><init>1-P3(T|F)</init><param>null</param>
+                                        <eq>P3(T|T)</eq><init>1-P3(F|T)</init><param>null</param>
+                                </cpd>
+                        </eclass>
+
+                        <eclass>
+                                <id>4</id>
+                                <formula>P4(knowledge|knowledge)</formula>
+                                <type>softmax</type>
+                                <clamp>no</clamp>
+                                <cpd>
+                                        <eq>P4(T|F)</eq><init>0.14</init><param>learn</param>
+                                        <eq>P4(F|T)</eq><init>0.00</init><param>forget</param>
+                                        <eq>P4(F|F)</eq><init>1-P4(T|F)</init><param>null</param>
+                                        <eq>P4(T|T)</eq><init>1-P4(F|T)</init><param>null</param>
+                                </cpd>
+                        </eclass>
+                </eclasses>
+        </structure>
+</property>

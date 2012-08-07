@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_unmarkfordeletion</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279250" id="_Toc104279250"></a><a name=
+
+"_gd_unmarkfordeletion" id=
+
+"_gd_unmarkfordeletion"></a>gd_unmarkfordeletion</h3>
+
+</div>
+
+<p class="MsoNormal">Recovers data marked for deletion, if it has
+
+not been permanently deleted by an administrator.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax&nbsp;</h4>
+
+<p class="codesyntax">unmarktotal = gd_unmarkfordeletion(ID)</p>
+
+<p class="codesyntax">unmarktotal = gd_unmarkfordeletion(IDs)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>unmarktotal =
+
+gd_unmarkfordeletion(ID)</span></span> takes an ID string and
+
+unmarks the corresponding file, variable or datagroup so it is no
+
+longer marked for deletion from the archive. This is a safety
+
+measure to recover data that was mistakenly marked for deletion.
+
+This function is only applicable for data that has not already been
+
+permanently deleted from the archive by an administrator. The
+
+function returns 1 if successful or 0 if failed, in which case the
+
+reason is displayed in a warning message (for example the ID does
+
+not exist). If data is successfully unmarked it is visible again to
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>, <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_retrieve.htm#_gd_retrieve_1">gd_retrieve</a></span></span> and
+
+other Database Toolbox functions.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>unmarktotal =
+
+gd_unmarkfordeletion(IDs)</span></span> is similar but takes a cell
+
+of ID strings and unmarks the corresponding files, variables and
+
+datagroups so they are no longer marked for deletion from the
+
+archive. The function returns <span class="codeinline"><span style=
+
+'font-size:11.0pt'>unmarktotal</span></span>, the total number of
+
+IDs successfully unmarked for deletion, and displays warning
+
+messages for those that were unsuccessful.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">Unmark a single file so that it is no longer
+
+eligible for deletion from the archive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">ID = gd_archive('C:\file.dat');</p>
+
+<p class="codeexample">gd_markfordeletion(ID);</p>
+
+<p class="codeexample">unmarktotal = gd_unmarkfordeletion(ID)</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>unmarktotal
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 1</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Query variable metadata that has been marked
+
+for deletion, and then unmark the corresponding variables so that
+
+they are no longer eligible for deletion from the archive.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">q = 'standard.archiveDate &gt; 2004-12-01
+
+&amp; a.b &lt; -500';</p>
+
+<p class="codeexample">qresults = gd_querydeleted(q,
+
+'varmeta');</p>
+
+<p class="codeexample">for i=1:size(qresults,2)</p>
+
+<p class="codeexample">&nbsp;&nbsp;&nbsp; IDs{i} =
+
+qresults{i}.standard.ID;</p>
+
+<p class="codeexample">end</p>
+
+<p class="codeexample">unmarktotal = gd_unmarkfordeletion(IDs)</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>unmarktotal
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 5</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">Only the owner of the data (the person who
+
+archived it) can unmark it for deletion.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">If the marked data has been permanently
+
+deleted from the archive by an administrator it cannot be
+
+recovered.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">A valid proxy certificate is required (see
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>
+
+from the Geodise Compute Toolbox).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="MsoNormal"><span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_markfordeletion.htm#_gd_markfordeletion">gd_markfordeletion</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_querydeleted.htm#_gd_querydeleted">gd_querydeleted</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span></p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b><br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_retrieve.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+gd_retrieve</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"xmltoolbox.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+xmltoolbox</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

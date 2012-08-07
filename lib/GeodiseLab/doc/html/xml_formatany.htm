@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>xml_formatany</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279256" id="_Toc104279256"></a><a name=
+
+"_xml_format_att_1" id="_xml_format_att_1"></a><a name=
+
+"_xml_formatany__(Version_3.1)"></a><a name="_xml_formatany" id=
+
+"_xml_formatany"></a>xml_formatany</h3>
+
+</div>
+
+<p class="MsoNormal">Converts a Matlab variable into an XML string
+
+with user-defined attributes.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">xmlstr = xml_formatany(v)</p>
+
+<p class="codesyntax">xmlstr = xml_formatany(v,attswitch)</p>
+
+<p class="codesyntax">xmlstr = xml_formatany(v,attswitch,name)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_formatany</span></span> converts Matlab
+
+variables and structures (including deeply nested structures) into
+
+an XML string. The user can specify attributes for each XML element
+
+in substructures of the struct variable, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>v</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Input Arguments</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>v</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Matlab variable of type "struct", "char", "double"(numeric),
+
+"complex", "sparse", "cell", or "logical"(boolean).<br />
+
+<br /></p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>attswitch</span></span> optional,
+
+default='on':<br />
+
+'on' writes header attributes <span class="codeinline"><span style=
+
+'font-size: 11.0pt'>idx</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>size</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>type</span></span> for identification by Matlab
+
+when parsing the XML later;<br />
+
+'off' writes "plain" XML without header attributes.<br />
+
+<br /></p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>name</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+optional, give root element a specific name, eg. 'project'.</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+&nbsp;</p>
+
+<h4>Output Arguments</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xmlstr</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+string, containing XML description of the variable <span class=
+
+"codeinline"><span style='font-size:11.0pt'>v</span></span>.</p>
+
+<p class="MsoNormal" style='text-indent:18.0pt'>&nbsp;</p>
+
+<p class="MsoNormal" align="left" style='text-align:left'>The root
+
+element of the created XML string is called 'root' by default but
+
+this can be overwritten with the <span class=
+
+"codeinline"><span style='font-size:11.0pt'>name</span></span>
+
+input parameter. A default <span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_tb_version</span></span> attribute is added
+
+to the root element unless <span class="codeinline"><span style=
+
+'font-size:11.0pt'>attswitch</span></span> is set to 'off'.</p>
+
+<p class="MsoNormal" align="left" style='text-align:left'>
+
+&nbsp;</p>
+
+<p class="MsoNormal">If <span class="codeinline"><span style=
+
+'font-size:11.0pt'>attswitch</span></span> is left empty, [], or
+
+set to 'on', the default attributes idx, type, and size will be
+
+added to the XML element headers. This allows xml_parse to parse
+
+and convert the XML string correctly back into the original Matlab
+
+variable or data structure.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">If <span class="codeinline"><span style=
+
+'font-size:11.0pt'>attswitch</span></span> is set to 'off', some of
+
+the information is lost and subsequently the contents of XML
+
+elements will be read in as strings when converting back using
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_parse</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">In this example, we define a data structure in
+
+Matlab and add attributes to it before converting it into an XML
+
+string.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">v.project.name = 'my Project no. 002';<br />
+
+v.project.date = datestr(now, 31);<br />
+
+v.project.uid&nbsp; = '2004-0909-1618-29af-04c7';</p>
+
+<p class="codeexample">v.project.ATTRIBUTE.id =
+
+'AA5119278466';<br />
+
+v.comment.CONTENT = 'This is a new project';</p>
+
+<p class="codeexample">v.comment.ATTRIBUTE.fontname = 'Times New
+
+Roman';<br />
+
+<br /></p>
+
+<p class="codeexample">xmlstr = xml_formatany(v);</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>xmlstr
+
+=<br />
+
+&lt;root&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;
+
+&lt;project id="AA5119278466"&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;name&gt;my Project no. 002&lt;/name&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; &lt;date&gt;2004-09-09 16:18:29&lt;/date&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;
+
+&lt;uid&gt;2004-0909-1618-29af-04c7&lt;/uid&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;
+
+&lt;/project&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;
+
+&lt;comment fontname="Times New Roman"&gt;This is a new<br />
+
+&nbsp;&nbsp;&nbsp; project&lt;/comment&gt;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&lt;/root&gt;</p>
+
+</div>
+
+<h4>&nbsp;</h4>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">If attributes are required for string data,
+
+the string must be explicitly assigned to a CONTENT field of the
+
+Matlab structure. In the above example, the comment field is
+
+defined as</p>
+
+<p class="codeexample">comment.ATTRIBUTE.fontname = 'Times New
+
+Roman'</p>
+
+<p class="codeexample">comment.CONTENT = 'This is a new
+
+project';</p>
+
+<p class="MsoNormal">This is due to the ATTRIBUTE field overwriting
+
+the contents otherwise.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="MsoNormal" align="left" style='text-align:left'>
+
+<span class="codeinline"><span style='font-size:10.0pt'><a href=
+
+"xml_parseany.htm#_xml_parseany">xml_parseany</a>, <a href=
+
+"xml_format.htm#_xml_format_1">xml_format</a>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_parse.htm#_xml_parse_1">xml_parse</a></span></span><span class="codeinline">
+
+<span style='font-size:10.0pt'>,</span></span> <span class=
+
+"codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_load.htm#_xml_load_1">xml_load</a></span></span><span class=
+
+"codeinline"><span style='font-size:10.0pt'>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_save.htm#_xml_save_1">xml_save</a></span></span><span class=
+
+"codeinline"><span style='font-size:10.0pt'>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_help.htm#_xml_help_1">xml_help</a></span></span></p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"xml_format.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+xml_format</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"xml_help.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+xml_help</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<property>
+
+	<input>
+		<evidence_train>evidence.train.xls</evidence_train>
+		<evidence_test>evidence.test.xls</evidence_test>
+	</input>
+
+	<output>
+		<param_table>param_table.xls</param_table>
+		<inference_result>inference_result.xls</inference_result>
+		<inference_result_header>inference_result_header.xls</inference_result_header>
+		<log>log.txt</log>
+	</output>
+
+	<structure>
+		<var>F = 1; T = 2;</var>
+
+		<nodes>
+			<node>
+				<id>1</id>
+				<name>help</name>
+				<type>discrete</type>
+				<values>2</values>
+				<latent>no</latent>
+				<field>help</field>
+				<within>
+					<transition>knowledge</transition>
+					<transition>asr_accept</transition>
+				</within>
+				<between></between>
+			</node>
+
+			<node>
+				<id>2</id>
+				<name>knowledge</name>
+				<type>discrete</type>
+				<values>2</values>
+				<latent>yes</latent>
+				<field>knowledge</field>
+				<within>
+					<transition>asr_accept</transition>
+				</within>
+				<between>
+					<transition>knowledge</transition>
+				</between>
+			</node>
+
+			<node>
+				<id>3</id>
+				<name>asr_accept</name>
+				<type>discrete</type>
+				<values>2</values>
+				<latent>no</latent>
+				<field>asr_accept</field>
+				<within></within>
+				<between></between>
+			</node>
+		</nodes>
+
+		<eclasses>
+			<eclass>
+				<id>1</id>
+				<formula>P1(help)</formula>
+				<type>discrete</type>
+				<clamp>no</clamp>
+				<cpd>
+					<eq>P1(T)</eq><init>0.0242</init><param>help</param>
+					<eq>P1(F)</eq><init>1-P1(T)</init><param>null</param>
+				</cpd>
+			</eclass>
+
+			<eclass>
+				<id>2</id>
+				<formula>P2(knowledge|help)</formula>
+				<type>discrete</type>
+				<clamp>no</clamp>
+				<cpd>
+					<eq>P2(T|F)</eq><init>0.6601</init><param>L0_N</param>
+					<eq>P2(T|T)</eq><init>0.2775</init><param>L0_Y</param>
+					<eq>P2(F|F)</eq><init>1-P2(T|F)</init><param>null</param>
+					<eq>P2(F|T)</eq><init>1-P2(T|T)</init><param>null</param>
+				</cpd>
+			</eclass>
+
+			<eclass>
+				<id>3</id>
+				<formula>P3(asr_accept|help,knowledge)</formula>
+				<type>discrete</type>
+				<clamp>no</clamp>
+				<cpd>
+					<eq>P3(T|F,F)</eq><init>0.6550</init><param>guess</param>
+					<eq>P3(T|T,F)</eq><init>0.9441</init><param>scaffolding</param>
+					<eq>P3(F|F,T)</eq><init>0.0578</init><param>slip_N</param>
+					<eq>P3(F|T,T)</eq><init>0.0087</init><param>slip_Y</param>
+					<eq>P3(F|F,F)</eq><init>1-P3(T|F,F)</init><param>null</param>
+					<eq>P3(F|T,F)</eq><init>1-P3(T|T,F)</init><param>null</param>
+					<eq>P3(T|F,T)</eq><init>1-P3(F|F,T)</init><param>null</param>
+					<eq>P3(T|T,T)</eq><init>1-P3(F|T,T)</init><param>null</param>
+				</cpd>
+			</eclass>
+
+			<eclass>
+				<id>4</id>
+				<formula>P4(knowledge|knowledge,help)</formula>
+				<type>discrete</type>
+				<clamp>no</clamp>
+				<cpd>
+					<eq>P4(T|F,F)</eq><init>0.0828</init><param>t</param>
+					<eq>P4(T|F,T)</eq><init>0.0878</init><param>learning</param>
+					<eq>P4(F|T,F)</eq><init>0.0024</init><param>forget_N</param>
+					<eq>P4(F|T,T)</eq><init>0.0733</init><param>forget_Y</param>
+					<eq>P4(F|F,F)</eq><init>1-P4(T|F,F)</init><param>null</param>
+					<eq>P4(F|F,T)</eq><init>1-P4(T|F,T)</init><param>null</param>
+					<eq>P4(T|T,F)</eq><init>1-P4(F|T,F)</init><param>null</param>
+					<eq>P4(T|T,T)</eq><init>1-P4(F|T,T)</init><param>null</param>
+				</cpd>
+			</eclass>
+		</eclasses>
+	</structure>
+</property>

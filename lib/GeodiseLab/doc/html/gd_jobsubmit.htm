@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_jobsubmit</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279216" id="_Toc104279216"></a><a name=
+
+"_Toc83110256" id="_Toc83110256"></a><a name="_gd_jobsubmit" id=
+
+"_gd_jobsubmit"></a>gd_jobsubmit</h3>
+
+</div>
+
+<p class="MsoNormal">Submits a compute job to a Globus GRAM job
+
+manager.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">jobhandle = gd_jobsubmit(RSL,host)</p>
+
+<p class="codesyntax">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="MsoNormal">This command submits the compute job described
+
+by a Resource Specification Language (RSL) string to a Globus
+
+server running a GRAM job manager. Upon a successful submission the
+
+command returns a job handle that may be used to query the status
+
+of, or terminate, the job.</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>jobhandle = gd_jobsubmit(RSL,host)</span></span>
+
+where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>RSL</span></span> is a string describing the
+
+submitted job, <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span> is the name of the Globus
+
+server, and <span class="codeinline"><span style=
+
+'font-size:11.0pt'>jobhandle</span></span> is the handle for a
+
+successfully submitted job. An error is thrown if job submission is
+
+unsuccessful.</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;</p>
+
+<h4>Example</h4>
+
+<p class="codeexample">jobhandle =
+
+gd_jobsubmit('&amp;(executable=/bin/date)','server.domain.com')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to
+
+submit a GRAM job. For more information about RSL see <span class=
+
+"MsoHyperlink"><a href=
+
+"http://www.globus.org/gram/">http://www.globus.org/gram/</a></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_jobkill.htm#_gd_jobkill">gd_jobkill</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_jobstatus.htm#_gd_jobstatus">gd_jobstatus</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_jobstatus.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_jobstatus</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_listdir.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+gd_listdir</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

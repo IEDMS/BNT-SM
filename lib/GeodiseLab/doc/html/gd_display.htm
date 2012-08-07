@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_display</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279245" id="_Toc104279245"></a><a name=
+
+"_Toc82943629" id="_Toc82943629"></a><a name="_gd_display_2" id=
+
+"_gd_display_2"></a>gd_display</h3>
+
+</div>
+
+<p class="MsoNormal">Displays the results of a query (a cell of
+
+structures), or a single structure.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">gd_display(qresults)</p>
+
+<p class="codesyntax">gd_display(qresults{i})</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_display(qresults)</span></span> can be used
+
+to display a cell array of structures, e.g. the results of a call
+
+to the <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span> or
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_querydeleted.htm#_gd_querydeleted">gd_querydeleted</a></span></span>
+
+function. This is a convenient way of viewing structures to get an
+
+overview of their contents.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_display(qresults{i})</span></span> displays
+
+the contents of a structure, e.g. a single result from a query
+
+where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>i</span></span> is the index of a structure in
+
+the cell array.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Example</h4>
+
+<p class="MsoNormal">Display all the results from a query.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">r = gd_query('iterations = 9000');</p>
+
+<p class="codeexample">gd_display(r);</p>
+
+<p class="MsoNormal" align="left" style='text-align:left'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>*** Content of structure r{1} (Total structures: 2) ***</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; standard.ID:
+
+file_dat_66830074-e749-4de0-b976-61f4d32</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; standard.localName: file.dat</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; standard.byteSize: 245</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; standard.format: dat</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; standard.createDate: 2004-08-23 10:40:33</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; standard.archiveDate: 2004-09-03 15:25:45</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; standard.userID: jlw</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; standard.comment: Comment about file</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; standard.datagroups:</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; model.name: test_design</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; params:</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp;&nbsp;&nbsp; 1.0000&nbsp;&nbsp;&nbsp;
+
+4.7000&nbsp;&nbsp;&nbsp; 5.3000</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>&nbsp; iterations: 9000</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+<i>Press ENTER to continue ..., q to quit:</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">To display just one result from a query use
+
+that result&rsquo;s index.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">gd_display(r{1});</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="MsoNormal"><span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>, <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_querydeleted.htm#_gd_querydeleted">gd_querydeleted</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href="gd_db_.htm"><img src=
+
+"nav_bar/arrow_left.gif" alt="" /><br />
+
+gd_db_</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_markfordeletion.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_markfordeletion</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_getfile</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279212" id="_Toc104279212"></a><a name=
+
+"_gd_getfile_1" id="_gd_getfile_1"></a>gd_getfile</h3>
+
+</div>
+
+<p class="MsoNormal">Retrieves a remote file using GridFTP.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">gd_getfile(host,remotefile,localfile)</p>
+
+<p class="codesyntax">
+
+gd_getfile(host,remotefile,localfile,filetype)</p>
+
+<p class="codesyntax">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="MsoNormal">This command retrieves a file from a remote
+
+server using GridFTP. The user must specify the remote file
+
+location on a remote server and the local destination for the file.
+
+The user can also specify the file type.&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_getfile(host,remotefile,localfile)</span></span>
+
+transfers the remote ASCII file <span class=
+
+"codeinline"><span style=
+
+'font-size: 11.0pt'>remotefile</span></span> from the machine
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span>. The file is saved to the
+
+path and file specified by the string <span class=
+
+"codeinline"><span style=
+
+'font-size: 11.0pt'>localfile</span></span>.&nbsp;</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_getfile(host,remotefile,localfile,filetype)</span></span>
+
+as above except the string <span class="codeinline"><span style=
+
+'font-size:11.0pt'>filetype</span></span> sets the file transfer
+
+type. When <span class="codeinline"><span style=
+
+'font-size:11.0pt'>filetype</span></span> = 'ASCII' the file
+
+transfer type will be ASCII (this is the default setting),
+
+alternatively when <span class="codeinline"><span style=
+
+'font-size:11.0pt'>filetype</span></span> = 'binary' the file
+
+transfer type is set to binary.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">The following command copies the file
+
+'data2.dat' from the users home directory on the remote host
+
+'server' to the local file 'C:\data1.dat'. The file is transferred
+
+as a binary file type.</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">
+
+gd_getfile('server.domain.com','data2.dat','C:\data1.dat',
+
+'binary'<code><span style='font-size:11.0pt'>);</span></code></p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>&nbsp;</p>
+
+<p class="MsoNormal">This example behaves as above except the file
+
+is copied from the subdirectory 'tmp' in the users home
+
+directory.</p>
+
+<p class="MsoNormal"><span style=
+
+'font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class="codeexample">
+
+gd_getfile('server.domain.com','tmp/data2.dat','C:\data1.dat',
+
+'binary');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The following example is similar to the first
+
+example except the file is copied from the subdirectory 'tmp' of
+
+the root directory on the remote machine.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">
+
+gd_getfile('server.domain.com','/tmp/data2.dat','C:\data1.dat','binary');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to use
+
+GridFTP. Suitable credentials may be required to transfer files
+
+from a remote server.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal"><b>See also</b></p>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_putfile.htm#_gd_putfile">gd_putfile</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_fileexists.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_fileexists</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_jobkill.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+gd_jobkill</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

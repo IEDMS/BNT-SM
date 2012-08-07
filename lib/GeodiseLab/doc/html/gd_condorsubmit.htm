@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_condorsubmit</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279207" id=
+
+"_Toc104279207">gd_condorsubmit</a></h3>
+
+</div>
+
+<p class="MsoNormal">Submits a job through a Globus resource to a
+
+Condor pool.</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">handle =
+
+gd_condorsubmit(classAD,RSLstruct,host)</p>
+
+<p class="codesyntax">handle =
+
+gd_condorsubmit(classAD,RSLstruct,host,filesystem)</p>
+
+<p class="codesyntax">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>handle =
+
+gd_condorsubmit(classAD,RSLstruct,host)</span></span> returns a
+
+string <span class="codeinline"><span style=
+
+'font-size:11.0pt'>handle</span></span> containing the Globus job
+
+handle for a successfully submitted job. Where <span class=
+
+"codeinline"><span style='font-size:11.0pt'>classAD</span></span>
+
+is a structure describing the job to be submitted to the Condor
+
+pool, the structure, <span class="codeinline"><span style=
+
+'font-size:11.0pt'>RSLstruct</span></span> describes the command
+
+used to submit the job to the Condor pool, and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>host</span></span> is a
+
+string describing the Globus resource to be used. The argument
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span> can have one of the following
+
+formats:</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+- hostname</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+- hostname:port</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+- hostname/service</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+- hostname:port/service</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>handle =
+
+gd_condorsubmit(classAD,RSL,host,filesystem)</span></span> as above
+
+where the argument <span class="codeinline"><span style=
+
+'font-size:11.0pt'>filesystem</span></span> defines the filesystem
+
+on <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span>. When <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>filesystem</span></span> = 'NFS' a shared
+
+filesystem is assumed, otherwise a non-NFS filesystem is
+
+assumed.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Input arguments</h4>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>classAD</span></span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The <span class=
+
+"codeinline"><span style='font-size:11.0pt'>classAD</span></span>
+
+structure contains a description of the requirements of the job to
+
+be submitted to the Condor pool. The fields of the structure
+
+specify the attributes of the Condor classAD file that is used to
+
+submit the job. The valid fields include:</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;</p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="456" style=
+
+'width:342.0pt;margin-left:74.85pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="180" valign="top" style=
+
+'width:134.9pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>executable</span></span></p>
+
+</td>
+
+<td width="276" valign="top" style=
+
+'width:207.1pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The name of the
+
+executable to be submitted to the Condor pool</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="180" valign="top" style=
+
+'width:134.9pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>requirements</span></span></p>
+
+</td>
+
+<td width="276" valign="top" style=
+
+'width:207.1pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>A string
+
+specifying the requirements from the machine upon which to the job
+
+should be run. These requirements may include:</p>
+
+<ul style='margin-top:0cm' type="disc">
+
+<li class="MsoNormal" style='margin-right:2.85pt'>Operating system:
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>OpSys</span></span></li>
+
+<li class="MsoNormal" style='margin-right:2.85pt'>Architecture:
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>Arch</span></span></li>
+
+<li class="MsoNormal" style='margin-right:2.85pt'>Memory:
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>Memory</span></span></li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="180" valign="top" style=
+
+'width:134.9pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>arguments</span></span></p>
+
+</td>
+
+<td width="276" valign="top" style=
+
+'width:207.1pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The arguments to
+
+the executable</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="180" valign="top" style=
+
+'width:134.9pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>transfer_input_files</span></span></p>
+
+</td>
+
+<td width="276" valign="top" style=
+
+'width:207.1pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>A string
+
+containing a comma separated list of files to be submitted with
+
+executable</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="180" valign="top" style=
+
+'width:134.9pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>output</span></span></p>
+
+</td>
+
+<td width="276" valign="top" style=
+
+'width:207.1pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The filename to
+
+pipe the output from the job</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="180" valign="top" style=
+
+'width:134.9pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>error</span></span></p>
+
+</td>
+
+<td width="276" valign="top" style=
+
+'width:207.1pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The filename to
+
+pipe the error from the job</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="180" valign="top" style=
+
+'width:134.9pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>log</span></span></p>
+
+</td>
+
+<td width="276" valign="top" style=
+
+'width:207.1pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The filename to
+
+which to write the Condor log</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="180" valign="top" style=
+
+'width:134.9pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>universe</span></span></p>
+
+</td>
+
+<td width="276" valign="top" style=
+
+'width:207.1pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>A string
+
+specifying the type of Condor job to be run. Possible values
+
+include:</p>
+
+<ul style='margin-top:0cm' type="disc">
+
+<li class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>STANDARD</span></span></li>
+
+<li class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>VANILLA</span></span></li>
+
+<li class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>MPI</span></span></li>
+
+<li class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>JAVA</span></span></li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal" style='margin-left:72.0pt'>Other possible
+
+fields in the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>classAD</span></span> structure include all of
+
+the valid classADs attributes. These attributes are documented at
+
+the Condor project homepage (<a href=
+
+"http://www.cs.wisc.edu/condor/">http://www.cs.wisc.edu/condor/</a>).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>RSLstruct</span></span>
+
+&nbsp;&nbsp; The <span class="codeinline"><span style=
+
+'font-size:11.0pt'>RSLstruct</span></span> structure contains the
+
+RSL attributes which specifies the command used to submit the job
+
+to the Condor pool. The required fields include:</p>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="456" style=
+
+'width:342.0pt;margin-left:74.85pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>executable</span></span></p>
+
+</td>
+
+<td width="336" valign="top" style=
+
+'width:252.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The path to the
+
+'condor_submit' executable on <span class="codeinline"><span style=
+
+'font-size: 11.0pt'>host</span></span></p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>arguments</span></span></p>
+
+</td>
+
+<td width="336" valign="top" style=
+
+'width:252.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The name of the
+
+Condor classAD file produced by <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>gd_condorsubmit</span></span></p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="120" valign="top" style=
+
+'width:90.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>directory</span></span></p>
+
+</td>
+
+<td width="336" valign="top" style=
+
+'width:252.0pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The name of the
+
+working directory on <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span></p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" style=
+
+'margin-left:72.0pt;text-indent:-72.0pt'>&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">The following example demonstrates the
+
+submission of a Linux and a Windows job to a Condor pool via the
+
+Globus server 'server.domain.com'. The Linux job is described by
+
+the structure <span class="codeinline"><span style=
+
+'font-size:11.0pt'>classAD_Linux</span></span>, and the Windows job
+
+is described by the structure <span class="codeinline"><span style=
+
+'font-size:11.0pt'>classAD_Windows</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">%Specify classAD_Linux</p>
+
+<p class="codeexample">classAD_Linux.requirements = 'Arch ==
+
+"INTEL" &amp;&amp; OpSys == "LINUX"';</p>
+
+<p class="codeexample">classAD_Linux.executable = 'sleep.sh';</p>
+
+<p class="codeexample">classAD_Linux.output = 'sleep.output';</p>
+
+<p class="codeexample">classAD_Linux.error = 'sleep.error';</p>
+
+<p class="codeexample">classAD_Linux.log = 'sleep.log';</p>
+
+<p class="codeexample">classAD_Linux.universe = 'VANILLA';</p>
+
+<p class="codeexample">classAD_Linux.transferfiles = 'ONEXIT';</p>
+
+<p class="codeexample">classAD_Linux.should_transfer_files =
+
+'YES';</p>
+
+<p class="codeexample">classAD_Linux.when_to_transfer_output =
+
+'ON_EXIT';</p>
+
+<p class="codeexample">classAD_Linux.arguments = '1m';</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">% Specify classAD_Windows</p>
+
+<p class="codeexample">classAD_Windows.requirements = 'Arch ==
+
+"INTEL" &amp;&amp; OpSys == "WINNT51"';</p>
+
+<p class="codeexample">classAD_Windows.environment =
+
+'path=c:\windows\system32';</p>
+
+<p class="codeexample">classAD_Windows.executable =
+
+'printname.bat';</p>
+
+<p class="codeexample">classAD_Windows.output =
+
+'printname.output';</p>
+
+<p class="codeexample">classAD_Windows.error =
+
+'printname.error';</p>
+
+<p class="codeexample">classAD_Windows.log = 'printname.log';</p>
+
+<p class="codeexample">classAD_Windows.universe = 'VANILLA';</p>
+
+<p class="codeexample">classAD_Windows.transferfiles =
+
+'ALWAYS';</p>
+
+<p class="codeexample">classAD_Windows.should_transfer_files =
+
+'YES';</p>
+
+<p class="codeexample">classAD_Windows.when_to_transfer_output =
+
+'ON_EXIT';</p>
+
+<p class="codeexample">classAD_Windows.transfer_input_files =
+
+'file1.txt, file2.txt, file3.txt';</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">% Specify RSL</p>
+
+<p class="codeexample">rsl.executable =
+
+'/usr/local/condor/bin/condor_submit';</p>
+
+<p class="codeexample">rsl.arguments = 'myJob.sub';</p>
+
+<p class="codeexample">rsl.directory = '/home/&lt;USER&gt;/';</p>
+
+<p class="codeexample">rsl.stdout = 'myJob.stdout';</p>
+
+<p class="codeexample">rsl.stderr = 'myJob.stderr';</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">% Make the Condor job submission</p>
+
+<p class="codeexample">handle_Linux =
+
+gd_condorsubmit(classAD_Linux,rsl,'server.domain.com');</p>
+
+<p class="codeexample">handle_Windows =
+
+gd_condorsubmit(classAD_Windows,rsl,'server.domain.com');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to use
+
+this function.</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>&nbsp;</p>
+
+<p class="MsoNormal">The field names of the ClassAD and RSL
+
+structures should be lower case characters. &nbsp;ClassAD string
+
+variables should be in upper case characters, e.g. 'LINUX' not
+
+'Linux', or 'WINNT51' not WinNT51'.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4><a name="_gd_createproxy" id="_gd_createproxy"></a>See
+
+also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_jobsubmit.htm#_gd_jobsubmit">gd_jobsubmit</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_submitunique.htm#_gd_submitunique">gd_submitunique</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_chmod.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+gd_chmod</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_compute_version.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_compute_version</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_submitunique</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279226" id="_Toc104279226"></a><a name=
+
+"_gd_submitunique" id="_gd_submitunique"></a>gd_submitunique</h3>
+
+</div>
+
+<p class="MsoNormal">Submits a GRAM job to a unique working
+
+directory.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">[jobhandle,uniquedir] =
+
+gd_submitunique(RSL,host)</p>
+
+<p class="codesyntax">[jobhandle,uniquedir] =
+
+gd_submitunique(RSL,host,files)</p>
+
+<p class="codesyntax">[jobhandle,uniquedir] =
+
+gd_submitunique(RSL,host,files, remotedir)</p>
+
+<h4>&nbsp;</h4>
+
+<h4>Description</h4>
+
+<p class="MsoNormal">This command creates a unique working
+
+directory on a Globus server, transferring files as required, and
+
+submits the compute job to the GRAM job manager. Upon a successful
+
+submission the command returns a job handle and the name of the
+
+unique directory.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>[jobhandle,uniquedir] =
+
+gd_submitunique(RSL,host)</span></span> where <span class=
+
+"codeinline"><span style='font-size:11.0pt'>RSL</span></span> is a
+
+string describing the submitted job, and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>host</span></span> is
+
+the name of the Globus server. <span class=
+
+"codeinline"><span style='font-size:11.0pt'>jobhandle</span></span>
+
+is the handle for a successfully submitted job and <span class=
+
+"codeinline"><span style=
+
+'font-size: 11.0pt'>uniquedir</span></span> is the location of the
+
+working directory created on <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span>.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>[jobhandle,uniquedir] =
+
+gd_submitunique(RSL,host,files)</span></span></p>
+
+<p class="NormalDescription">as above, where <span class=
+
+"codeinline"><span style='font-size:11.0pt'>files</span></span> is
+
+a cell array containing a list of the files to be transferred to
+
+the working directory on the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span>.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>[jobhandle,uniquedir] =
+
+gd_submitunique(RSL,host,files, remotedir)</span></span> as above,
+
+where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>remotedir</span></span> is the directory on the
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span> within which the unique
+
+working directory is created. <span class="codeinline"><span style=
+
+'font-size:11.0pt'>files</span></span> can be empty if no files are
+
+required.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Example</h4>
+
+<p class="MsoNormal">This command creates a directory
+
+'20040427T130607_643492' in the user's home directory on the
+
+machine <span class="codeinline"><span style=
+
+'font-size:11.0pt'>host</span></span>. The working directory in the
+
+user supplied RSL string is set to the unique directory.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">[jobhandle,dirname] =
+
+gd_submitunique('&amp;(executable=/bin/date)
+
+(stdout="test.out")',host)</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>jobhandle
+
+=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+https://host.domain.com:40001/15678/1083067567/</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>dirname =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+20040427T130607_643492/</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to
+
+submit a GRAM job. &nbsp;For more information about RSL see
+
+<a href="http://www.globus.org/gram/">http://www.globus.org/gram/</a>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_jobsubmit.htm#_gd_jobsubmit">gd_jobsubmit</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_jobkill.htm#_gd_jobkill">gd_jobkill</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_jobstatus.htm#_gd_jobstatus">gd_jobstatus</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_servermetrics.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_servermetrics</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_testauthentication.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_testauthentication</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

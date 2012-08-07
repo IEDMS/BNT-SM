@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_datagroup</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279240" id="_Toc104279240"></a><a name=
+
+"_gd_datagroup_1" id="_gd_datagroup_1"></a>gd_datagroup</h3>
+
+</div>
+
+<p class="MsoNormal">Creates a new datagroup, used to group
+
+together archived files, variables and subdatagroups.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">datagroupID = gd_datagroup(datagroupname)</p>
+
+<p class="codesyntax">datagroupID =
+
+gd_datagroup(datagroupname,metadata)</p>
+
+<p class="codesyntax">datagroupID =
+
+gd_datagroup(datagroupname,metadata, 'monitor')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description&nbsp;&nbsp;&nbsp;</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID =
+
+gd_datagroup(datagroupname)</span></span> creates a new, empty
+
+datagroup&nbsp; with a datagroup name. The <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>datagroupname</span></span> argument can act as
+
+a user defined identifier for the datagroup, although it does not
+
+have to be unique. Some standard information about the datagroup
+
+(metadata) is also generated which can be later queried with
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>. A unique
+
+identifier (<span class="codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID</span></span>) is returned which can
+
+then be used to add files and variables to the datagroup while they
+
+are being archived with <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_archive.htm#_gd_archive_1">gd_archive</a></span></span>. Files,
+
+variables and other datagroups already in the archive can be added
+
+to a datagroup with <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_datagroupadd.htm#_gd_datagroupadd_1">gd_datagroupadd</a></span></span>.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID =
+
+gd_datagroup(datagroupname,metadata)</span></span> creates a new,
+
+empty datagroup with a datagroup name and some user defined
+
+metadata which can later be queried with <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>. Standard
+
+metadata about the datagroup is also generated.</p>
+
+<p class="NormalDescription" style='text-indent:0cm'>&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>datagroupID =
+
+gd_datagroup(datagroupname,metadata,</span></span></p>
+
+<p class="NormalDescription" style='text-indent:0cm'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>'monitor')</span></span> is useful for
+
+monitoring a group of data produced by a computational job. It is
+
+similar to an ordinary datagroup but stores extra index information
+
+that allows a user of <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span> to easily
+
+find the datagroup associated with their most recent job, or the
+
+most recent job meeting certain metadata criteria. This
+
+functionality is provided for convenience so that the user does not
+
+have to remember any particular field names, values, or what time
+
+the datagroup was created.</p>
+
+<h4>&nbsp;</h4>
+
+<h4>Input Arguments&nbsp;&nbsp;</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:72.0pt;text-align:left; text-indent:-72.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+The <span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span> structure can contain any
+
+combination of named variables, matrices and substructures (char,
+
+double, complex, struct, sparse, cell or logical) necessary to
+
+describe the datagroup. However, there are two special
+
+substructures, <span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard</span></span> and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>access</span></span>,
+
+which may only contain certain values.<br />
+
+<br />
+
+Some metadata is automatically generated (even when no metadata is
+
+passed to the function) and stored in the <span class=
+
+"codeinline"><span style='font-size: 11.0pt'>standard</span></span>
+
+substructure of<span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span>. For datagroups this
+
+consists of <span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>userID</span></span>
+
+and <span class="codeinline"><span style=
+
+'font-size:11.0pt'>archiveDate</span></span>. Optional <span class=
+
+"codeinline"><span style='font-size:11.0pt'>comment</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>version</span></span> and <span class=
+
+"codeinline"><span style='font-size:11.0pt'>tree</span></span>
+
+fields can also be added to <span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard</span></span>. The <span class=
+
+"codeinline"><span style='font-size:11.0pt'>tree</span></span>
+
+field is a string which can be used to represent a user defined
+
+hierarchy for the data, similar to a directory path, e.g.
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>'myuserID/designs/testmodel'</span></span>. See
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span> for further
+
+information on these fields. Any other fields set in the
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard</span></span> substructure will be
+
+overwritten or removed.<br />
+
+<br />
+
+The <span class="codeinline"><span style=
+
+'font-size:11.0pt'>access</span></span> substructure of
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata</span></span> controls who may query
+
+the datagroup. The person who created the datagroup automatically
+
+has access to it and does not need to be added. <span class=
+
+"codeinline"><span style='font-size:11.0pt'>access</span></span>
+
+can contain two fields, each of which can be a single string or a
+
+cell array of strings:<br />
+
+<br /></p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" style='margin-left:77.4pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="90" valign="top" style=
+
+'width:67.35pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>users</span></span></p>
+
+</td>
+
+<td width="368" valign="top" style=
+
+'width:275.95pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>User ID strings specifying
+
+which users may access the datagroup.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="90" valign="top" style=
+
+'width:67.35pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>groups</span></span></p>
+
+</td>
+
+<td width="368" valign="top" style=
+
+'width:275.95pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Group ID strings specifying
+
+which groups of users may access the datagroup (currently a user
+
+group must be created in the database by an administrator).</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal">Create a datagroup with some metadata,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>m</span></span> (user defined metadata and a
+
+standard comment), and give access permission to user1 and
+
+user2.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">m.expnum = 123;</p>
+
+<p class="codeexample">m.standard.comment = 'Data for experiment
+
+123';</p>
+
+<p class="codeexample">m.access.users = {'user1','user2'};</p>
+
+<p class="codeexample">datagroupID = gd_datagroup('design opt
+
+2004-09-03',m)</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>datagroupID
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+dg_ce868f40-8ds0-455e-9ae5-36c05epc25a9</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Add a file to the datagroup when it is
+
+archived.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">gd_archive('C:\file.dat', [],
+
+datagroupID);</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="MsoNormal">Add a variable to the datagroup after it has
+
+been archived.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">v.width = 12;</p>
+
+<p class="codeexample">varID = gd_archive(v);</p>
+
+<p class="codeexample">gd_datagroupadd(datagroupID,varID);</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Create a monitored datagroup and find it with
+
+a query.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">monID = gd_datagroup('design opt 2004-09-03
+
+job',[],'monitor')</p>
+
+<p class="codeexample">gd_datagroupadd(monID,varID);</p>
+
+<p class="codeexample">gd_query('standard.jobIndex =
+
+max','monitor');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Further examples are given in <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_datagroupadd.htm#_gd_datagroupadd_1">gd_datagroupadd</a></span></span>
+
+and <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required (see
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>
+
+from the Geodise Compute Toolbox).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Your certificate subject must have been added
+
+to the authorisation database.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_datagroupadd.htm#_gd_datagroupadd_1">gd_datagroupadd</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_archive.htm#_gd_archive_1">gd_archive</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_retrieve.htm#_gd_retrieve_1">gd_retrieve</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>, <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_archive.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+gd_archive</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_datagroupadd.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_datagroupadd</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

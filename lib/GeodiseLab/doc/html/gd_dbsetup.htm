@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_dbsetup</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279242" id="_Toc104279242">gd_dbsetup</a></h3>
+
+</div>
+
+<p class="MsoNormal">Creates and populates the .geodise directory
+
+with configuration files.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">gd_dbsetup</p>
+
+<p class="codesyntax">gd_dbsetup(hostprompt)</p>
+
+<p class="codesyntax">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_dbsetup</span></span> creates a .geodise
+
+directory in the user&rsquo;s home directory if one does not exist
+
+then copies the necessary configuration files into it. The user is
+
+prompted to configure the name of the Globus server and directory
+
+where gd_archive will store data files and this information is
+
+saved in .geodise/ClientConfig.xml.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription">Example locations for the .geodise
+
+directory are:</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="558" style=
+
+'width:418.15pt;margin-left:36.0pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="112" valign="top" style=
+
+'width:83.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>
+
+Windows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+</td>
+
+<td width="446" valign="top" style=
+
+'width:334.3pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>C:\Documents and
+
+Settings\your_username\.geodise</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="112" valign="top" style=
+
+'width:83.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>Linux</p>
+
+</td>
+
+<td width="446" valign="top" style=
+
+'width:334.3pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-right:2.85pt;text-align:left'>$HOME/.geodise</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" style='text-indent:36.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>gd_dbsetup(0)</span></span> creates a .geodise
+
+directory as above but does not prompt for the name of the Globus
+
+server and directory where gd_archive will store data files, using
+
+default values instead. The default settings are either taken from
+
+a previous copy of ClientConfig.xml in .geodise or from
+
+ClientConfig.xml in the distribution.</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">The file .geodise/ClientConfig.xml can be
+
+edited to manually configure settings such as which Globus file
+
+store to archive files on, see installation document for more
+
+information.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_datagroupadd.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_datagroupadd</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_db_help.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+gd_db_help</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

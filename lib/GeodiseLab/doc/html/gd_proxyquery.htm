@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_proxyquery</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279220" id="_Toc104279220"></a><a name=
+
+"_gd_proxyquery" id="_gd_proxyquery"></a>gd_proxyquery</h3>
+
+</div>
+
+<p class="MsoNormal">Queries whether a valid proxy certificate
+
+exists.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">isvalid = gd_proxyquery</p>
+
+<p class="codesyntax">isvalid = gd_proxyquery(<span class=
+
+"codeinline">proxyattrib</span>,minvalue)</p>
+
+<p class="codesyntax">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="MsoNormal">This command determines whether a valid proxy
+
+certificate exists for user's certificate. The strength or time
+
+remaining for the proxy certificate may also be queried. The
+
+location of the user's proxy certificate is specified by the
+
+cog.properties file.&nbsp;&nbsp;</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>isvalid = gd_proxyquery</span></span> where
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>isvalid</span></span> is 1 if a valid proxy
+
+certificate exists at the default location, otherwise 0.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>isvalid =
+
+gd_proxyquery(proxyattrib,minvalue)</span></span> where
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>isvalid</span></span> is 1 if the proxy
+
+certificate meets the requirements of remaining lifetime or
+
+cryptographic strength, otherwise 0. If <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>proxyattrib</span></span> = 'time' the time
+
+remaining for the proxy certificate is queried against <span class=
+
+"codeinline"><span style='font-size:11.0pt'>minvalue</span></span>
+
+hours. If <span class="codeinline"><span style=
+
+'font-size:11.0pt'>proxyattrib</span></span> = 'strength' the
+
+cryptographic strength of the proxy certificate is queried against
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>minvalue</span></span> bits.</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;</p>
+
+<h4>Example</h4>
+
+<p class="MsoNormal">The following example returns <span class=
+
+"codeinline"><span style='font-size:11.0pt'>isvalid</span></span> =
+
+0 for a proxy certificate of strength 512.</p>
+
+<p class="codeexample" style='margin-left:0cm'>&nbsp;</p>
+
+<p class="codeexample">isvalid = gd_proxyquery('strength',1024)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>isvalid =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; 0</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_proxyinfo.htm#_gd_proxyinfo">gd_proxyinfo</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_certinfo.htm#_gd_certinfo">gd_certinfo</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_destroyproxy.htm#_gd_destroyproxy">gd_destroyproxy</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_proxyinfo.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_proxyinfo</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_putfile.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+gd_putfile</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

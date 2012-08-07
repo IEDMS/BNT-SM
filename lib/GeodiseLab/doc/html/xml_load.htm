@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>xml_load</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279258" id="_Toc104279258"></a><a name=
+
+"_Toc81196950" id="_Toc81196950"></a><a name="_xml_load_1" id=
+
+"_xml_load_1"></a>xml_load</h3>
+
+</div>
+
+<p class="MsoNormal">Loads an XML file and converts its content
+
+into a Matlab structure or variable.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">v = xml_load(filename)</p>
+
+<p class="codesyntax">v = xml_load(filename,attswitch)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_load</span></span> reads the file given in
+
+parameter filename and uses <span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_parse</span></span> to convert it into a
+
+Matlab data structure or variable. If the file cannot be found, an
+
+error will be displayed.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Input Arguments</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>filename</span></span>&nbsp;&nbsp; filename of
+
+xml file to load (if extension .xml is omitted, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>xml_load</span></span>
+
+tries to append it if the file cannot be found).</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+&nbsp;</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>attswitch</span></span> optional,
+
+default='on':</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left'>'on' takes into account
+
+attributes <span class="codeinline"><span style=
+
+'font-size:11.0pt'>idx</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>size</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>type</span></span> for creating corresponding
+
+Matlab data types;</p>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left'>'off' ignores attributes in
+
+XML element headers.</p>
+
+<p class="MsoNormal" align="left" style='text-align:left'>
+
+&nbsp;</p>
+
+<h4>&nbsp;Output Arguments</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:99.0pt;text-align:left; text-indent:-63.0pt'>
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>v</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Matlab structure or variable.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left; text-indent:-36.0pt'>
+
+&nbsp;</p>
+
+<p class="MsoNormal">This example simply loads the sample file from
+
+the given location and converts its contents to a Matlab data
+
+structure. (The file has previously been created using <span class=
+
+"codeinline"><span style=
+
+'font-size: 11.0pt'>xml_save</span></span>).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">v = xml_load('c:/data/myfavourite.xml')</p>
+
+<p class="code">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>v =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name: 'Google'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url:
+
+'http://www.google.com'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; rating: 5</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;page-break-after: auto;background:#F3F3F3'>
+
+description: 'Great search functionality for the web'</p>
+
+</div>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left; text-indent:-36.0pt'>
+
+&nbsp;</p>
+
+<p class="MsoNormal">In the following example, we perform the same
+
+action, however, as we are specifying the additional parameter
+
+'off' for attributes, the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>idx</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>size</span></span>, and
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>type</span></span> attributes are ignored and
+
+the result is slightly different: v.rating in this case is returned
+
+as a Matlab string variable, <span class="codeinline"><span style=
+
+'font-size:11.0pt'>'5'</span></span>.</p>
+
+<p class="code">&nbsp;</p>
+
+<p class="codeexample">v =
+
+xml_load('c:/data/myfavourite.xml','off')</p>
+
+<p class="code">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>v =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name: 'Google'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url:
+
+'http://www.google.com'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; rating: '5'</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>description:
+
+'Great search functionality for the web'</p>
+
+</div>
+
+<p class="MsoNormal" style='margin-left:36.0pt'>&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:10.0pt'><a href=
+
+"xml_parseany.htm#_xml_parseany">xml_parseany</a>, <a href=
+
+"xml_formatany.htm#_xml_formatany">xml_formatany</a>, <a href=
+
+"xml_format.htm#_xml_format_1">xml_format</a>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_parse.htm#_xml_parse_1">xml_parse</a></span></span><span class="codeinline">
+
+<span style='font-size:10.0pt'>,</span></span> <span class=
+
+"codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_save.htm#_xml_save_1">xml_save</a></span></span><span class=
+
+"codeinline"><span style='font-size:10.0pt'>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_help.htm#_xml_help_1">xml_help</a></span></span></p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"xml_help.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+xml_help</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"xml_parse.htm"><img src="nav_bar/arrow_right.gif" alt="" /><br />
+
+xml_parse</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

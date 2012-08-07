@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_servermetrics</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279225" id=
+
+"_Toc104279225">gd_servermetrics</a></h3>
+
+</div>
+
+<p class="MsoNormal">Performs a number of tests upon a list of
+
+Globus resources.</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">testresults = gd_servermetrics(servers)</p>
+
+<p class="codesyntax">testresults =
+
+gd_servermetrics(servers,filename)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>testresults =
+
+gd_servermetrics(servers)</span></span> will perform a suite of
+
+diagnostic tests on the Globus servers specified by <span class=
+
+"codeinline"><span style='font-size:11.0pt'>servers</span></span>.
+
+Where <span class="codeinline"><span style=
+
+'font-size:11.0pt'>servers</span></span> is a structure defining
+
+Grid resources which has the following mandatory fields:</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>&nbsp;</p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="465" style=
+
+'width:348.7pt;margin-left:72.0pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="136" valign="top" style=
+
+'width:101.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>name</span></span></p>
+
+</td>
+
+<td width="329" valign="top" style=
+
+'width:246.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>Name of the Globus
+
+server.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="136" valign="top" style=
+
+'width:101.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>directory</span></span></p>
+
+</td>
+
+<td width="329" valign="top" style=
+
+'width:246.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>Name of the
+
+directory on the server in which the tests should be performed.
+
+This may be empty if no directory is specified.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>&nbsp;</p>
+
+<p class="MsoNormal">The output structure <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>testresults</span></span> contains the following
+
+fields:</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'>&nbsp;</p>
+
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding=
+
+"0" width="465" style=
+
+'width:348.7pt;margin-left:72.0pt;border-collapse:collapse'>
+
+<tr>
+
+<td width="136" valign="top" style=
+
+'width:101.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>name</span></span></p>
+
+</td>
+
+<td width="329" valign="top" style=
+
+'width:246.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>Name of the Globus
+
+server.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="136" valign="top" style=
+
+'width:101.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>directory</span></span></p>
+
+</td>
+
+<td width="329" valign="top" style=
+
+'width:246.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>Name of the
+
+directory on the server.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="136" valign="top" style=
+
+'width:101.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>authentication</span></span></p>
+
+</td>
+
+<td width="329" valign="top" style=
+
+'width:246.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The elapsed time
+
+in milliseconds required for authentication, or -1 if failed.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="136" valign="top" style=
+
+'width:101.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>jobsubmission</span></span></p>
+
+</td>
+
+<td width="329" valign="top" style=
+
+'width:246.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The elapsed time
+
+in milliseconds required for job submission, or -1 if failed.</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="136" valign="top" style=
+
+'width:101.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>filetransfer</span></span></p>
+
+</td>
+
+<td width="329" valign="top" style=
+
+'width:246.85pt;padding:0cm 0cm 5.65pt 2.85pt'>
+
+<p class="MsoNormal" style='margin-right:2.85pt'>The elapsed time
+
+in milliseconds required for file transfer, or -1 if failed.</p>
+
+</td>
+
+</tr>
+
+</table>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'><span class=
+
+"codeinline"><span style='font-size:11.0pt'>results =
+
+gd_servermetrics(servers)</span></span> as above where the results
+
+of the tests are output to the file specified by the string
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>filename</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Example</h4>
+
+<p class="MsoNormal">The following example will run the diagnostic
+
+tests upon the servers 'server1.domain.com' and
+
+'server2.domain.com'. The results of the tests will be output to
+
+the structure <span class="codeinline"><span style=
+
+'font-size: 11.0pt'>testresults</span></span>, and to the file
+
+'metrics.dat' in the current directory on the local machine.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">servers(1).name = 'server1.domain.com';</p>
+
+<p class="codeexample">servers(1).directory =
+
+'/home/&lt;USER&gt;/';</p>
+
+<p class="codeexample">servers(2).name = 'server2.domain.com';</p>
+
+<p class="codeexample">servers(2).directory = '';</p>
+
+<p class="codeexample">testresults =
+
+gd_servermetrics(servers,'metrics.dat')</p>
+
+<p class="codeexample">disp(testresults(1))</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>testresults
+
+=</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>1x2 struct
+
+array with fields:</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; name</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; directory</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; authentication</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; jobsubmission</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; filetransfer</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>&nbsp;</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+name: 'server1.domain.com'</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; directory:
+
+'/home/&lt;USER&gt;/'</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+<i>&nbsp;&nbsp;&nbsp; authentication: 141</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+<i>&nbsp;&nbsp;&nbsp;&nbsp; jobsubmission: 375</i></p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filetransfer: 4234</i></p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to use
+
+this function.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_testauthentication.htm#_gd_testAuthentication">gd_testauthentication</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_testfiletransfer.htm#_gd_testfiletransfer_1">gd_testfiletransfer</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_testjobsubmission.htm#_gd_testjobsubmission_1">gd_testjobsubmission</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_timeauthentication.htm#_gd_timeauthentication_1">gd_timeauthentication</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_timefiletransfer.htm#_gd_timeFileTransfer">gd_timefiletransfer</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_timejobsubmission.htm#_gd_timeJobSubmission">gd_timejobsubmission</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_rmuniquedir.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_rmuniquedir</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_submitunique.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_submitunique</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

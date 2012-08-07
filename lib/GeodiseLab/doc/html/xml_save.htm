@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>xml_save</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279261" id="_Toc104279261"></a><a name=
+
+"_Toc81196952" id="_Toc81196952"></a><a name="_xml_save_1" id=
+
+"_xml_save_1"></a>xml_save</h3>
+
+</div>
+
+<p class="MsoNormal">Stores XML representation of Matlab variable
+
+or structure in XML format in a file.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">xml_save(filename,v)</p>
+
+<p class="codesyntax">xml_save(filename,v,attswitch)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_save</span></span> stores a Matlab variable
+
+in plain text XML format into the file specified by the user.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Input Arguments</h4>
+
+<p class="MsoNormal">The Matlab variable <span class=
+
+"codeinline"><span style='font-size:11.0pt'>v</span></span> can be
+
+any of the types supported by <span class="codeinline"><span style=
+
+'font-size:11.0pt'>xml_format</span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; filename</span></span>
+
+&nbsp;&nbsp;&nbsp;&nbsp; full filename (including path and
+
+extension).</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;
+
+v</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Matlab variable or structure to store in file.</p>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;
+
+attswitch</span></span>&nbsp;&nbsp;&nbsp; optional, 'on' stores XML
+
+type attributes</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>idx</span></span>, <span class=
+
+"codeinline"><span style='font-size:11.0pt'>size</span></span>,
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>type</span></span> (default),</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+'off' doesn't store XML type attributes.</p>
+
+<h4>&nbsp;</h4>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal" align="left" style=
+
+'margin-left:36.0pt;text-align:left; text-indent:-36.0pt'>
+
+&nbsp;</p>
+
+<p class="MsoNormal">This example saves a Matlab structure as XML
+
+in a file at a given location.</p>
+
+<p class="codeexample">&nbsp;</p>
+
+<p class="codeexample">v.name = 'Google'</p>
+
+<p class="codeexample">v.url = 'http://www.google.com'</p>
+
+<p class="codeexample">v.rating = 5</p>
+
+<p class="codeexample">v.description = 'Great search functionality
+
+for the web'</p>
+
+<p class="codeexample">xml_save('c:/data/myfavourite.xml', v)</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="MsoNormal"><span class="codeinline"><span style=
+
+'font-size:10.0pt'><a href=
+
+"xml_formatany.htm#_xml_formatany">xml_formatany</a>, <a href=
+
+"xml_format.htm#_xml_format_1">xml_format</a>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_parse.htm#_xml_parse_1">xml_parse</a></span></span><span class="codeinline">
+
+<span style='font-size:10.0pt'>,</span></span> <span class=
+
+"codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_load.htm#_xml_load_1">xml_load</a></span></span><span class=
+
+"codeinline"><span style='font-size:10.0pt'>,</span></span>
+
+<span class="codeHyperlink"><span style='font-size:10.0pt'><a href=
+
+"xml_help.htm#_xml_help_1">xml_help</a></span></span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+</div>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"xml_parseany.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+xml_parseany</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"introduction.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+introduction</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</body>
+
+</html>
+

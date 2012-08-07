@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>The Geodise Toolboxes</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<h1><a name="_Toc104279196" id=
+
+"_Toc104279196">Introduction</a></h1>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The Geodise Toolboxes provide a collection of
+
+functions that extend the capability of the Matlab<sup>&reg;</sup>
+
+technical computing environment. The Geodise Compute, Database and
+
+XML toolboxes contain routines that facilitate many aspects of Grid
+
+computing and data management including:</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<ul style='margin-top:0cm' type="disc">
+
+<li class="MsoNormal">The submission and management of
+
+computational jobs on remote compute resources via the Globus GRAM
+
+service.</li>
+
+<li class="MsoNormal">File transfer and remote directory management
+
+using the GridFTP protocol.</li>
+
+<li class="MsoNormal">Single sign-on to the Grid with Globus proxy
+
+certificates.</li>
+
+<li class="MsoNormal">Storage and grouping of files and variables,
+
+annotated with user defined metadata, in an archive.</li>
+
+<li class="MsoNormal">Graphical and programmatic interfaces for
+
+querying the metadata to easily locate stored files and
+
+variables.</li>
+
+<li class="MsoNormal">Sharing and reuse of data among distributed
+
+users. Users may grant access to their data to other members of a
+
+<i>Virtual Organisation</i>.</li>
+
+<li class="MsoNormal">Conversion of Matlab structures and variables
+
+into a non-proprietary, plain text format (XML) which can be stored
+
+and used by other tools.</li>
+
+<li class="MsoNormal">Conversion of almost any type of XML document
+
+including WSDL descriptions of Web Services into Matlab's struct
+
+format or cell data type.</li>
+
+</ul>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Grid computing provides the infrastructure for
+
+the collaborative use of computers, networks, data, storage and
+
+applications across distributed organisations. A computational job
+
+can be run on the Grid to make use of resources unavailable on the
+
+user&rsquo;s desktop, for example to exploit software licenses or
+
+greater computational power. The Geodise Compute Toolbox provides
+
+Matlab functions for submitting and monitoring jobs on the Grid,
+
+transferring files to and from remote compute resources, and
+
+managing the certificates used to identify users and authorise use
+
+of the resources.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Compute intensive applications often use and
+
+produce many data files and data structures. It can become
+
+difficult to find, reuse and share data from various applications
+
+that have been run repeatedly with different parameters. The
+
+Geodise Database Toolbox can be used to store additional
+
+user-defined information (called metadata) describing files and
+
+Matlab variables, so that they can be located and retrieved more
+
+easily with metadata queries. Files and variables can also be
+
+grouped together, and data can be shared with other users by
+
+granting access permissions.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">XML is a flexible standard data format that is
+
+widely used to structure and store information, and to exchange
+
+data between various computer applications. The XML Toolbox
+
+functions convert and store Matlab variables and structures from
+
+the internal format into XML and vice versa. This allows parameter
+
+structures, variables and results from computational applications
+
+to be stored in a non-proprietary file format, or in XML-capable
+
+databases, and can be used to transfer Matlab data across the Grid.
+
+Comparing arbitrary Matlab structures was not previously possible,
+
+but this can be now achieved by comparing their XML representation.
+
+The XML toolbox also enables the transparent exchanges of data
+
+between the Matlab technical computing environment and the Jython
+
+scripting environment.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">This user guide introduces the reader to the
+
+Compute, Database and XML toolboxes, with tutorials that give an
+
+overview of the functionality provided by each of the toolboxes.
+
+The function reference for each toolbox contains detailed
+
+information about the syntax of its functions.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h2><a name="_Toc104279197" id="_Toc104279197">Use Cases</a></h2>
+
+<p class="MsoNormal">The GeodiseLab toolboxes have applications in
+
+a wide range of scenarios. Here we will outline three use cases
+
+that describe the potential benefits of Grid computing to the daily
+
+practice of the scientist or engineer.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The use cases that we will discuss are:</p>
+
+<ul style='margin-top:0cm' type="disc">
+
+<li class="MsoNormal">Engineering Design Search and
+
+Optimisation</li>
+
+<li class="MsoNormal">Data management in computational
+
+electromagnetics</li>
+
+<li class="MsoNormal">Transparent collaboration between Problem
+
+Solving Environments</li>
+
+</ul>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Engineering Design Search and Optimisation</h4>
+
+<p class="MsoNormal">Engineering Design Search and Optimisation
+
+(EDSO) is a compute and data intensive task which is well matched
+
+to Grid computing. Optimisation algorithms are used to search the
+
+parameter space of an engineering problem to discover an optimal
+
+design subject to certain criteria. During EDSO the optimisation
+
+algorithm must repeatedly evaluate some measure of the quality of a
+
+design; this may involve one or more lengthy numerical
+
+calculations. For example, an engineer wishing to improve the
+
+aerodynamic performance of a wing design may configure an optimiser
+
+to vary key design parameters, whilst invoking simulations of
+
+Computational Fluid Dynamics (CFD) to determine the <i>quality</i>
+
+of alternative geometries.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Depending upon the complexity of the numerical
+
+calculations and the number of evaluations required to determine
+
+the optimum design, EDSO may be a lengthy and computationally
+
+intensive task. When the evaluation of the objective function
+
+involves complex simulations (i.e. CFD) numerous large data files
+
+may be required, or produced, by the numerous calculations. The
+
+Grid client functionality makes it straightforward for the engineer
+
+to leverage computational resources available on the Grid to
+
+perform EDSO.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">When undertaking EDSO using one of the many
+
+optimisation algorithms available in the Matlab environment the
+
+engineer may use the Geodise Compute toolbox to automate the
+
+transfer of files, and the submission and management of
+
+computational jobs required during the evaluation of a design. By
+
+exploiting Grid resources not only is the engineer able to leverage
+
+the greater computational power available, but he can also drive
+
+any applications that he requires on a multitude of platforms from
+
+the comfort of his desktop PSE.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Data management in computational electromagnetics</h4>
+
+<p class="MsoNormal">Data management is an issue in a number of
+
+scientific and engineering application domains, including that of
+
+computational electromagnetics. For example, when performing
+
+simulations of electromagnetic phenomena a large volume of data may
+
+be generated, typically in the form of the input and output files.
+
+It is a non-trivial problem for the researcher to store, manage and
+
+reuse this data. The investment associated with the computationally
+
+expensive Finite Difference Time Domain modelling technique used to
+
+explore the properties of electromagnetic devices require that
+
+simulation results are suitably managed for reuse at a later
+
+data.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">At present the most common solution for this
+
+problem is to store these flat files within a hierarchical
+
+directory structure on a local file system. As the volume of data
+
+grows over time this solution is frequently inadequate for long
+
+term storage since it may become increasingly difficult to locate
+
+and reuse data within the collection. The Geodise Database toolbox
+
+provides a solution as a client to a managed data archive on the
+
+Grid.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The Geodise Database Toolbox allows the
+
+researcher to archive data files to a managed repository from the
+
+Matlab environment and annotate these files with metadata. In
+
+addition to standard metadata the user may define custom metadata
+
+specific to the problem. The researcher can then query the metadata
+
+to find these files using straightforward syntax within the Matlab
+
+environment. In addition the Geodise Database Toolbox supports the
+
+archiving of variables from the Matlab environment. Items in stored
+
+the repository can be associated together into datagroups, allowing
+
+the creation of annotated hierarchies within which the user's
+
+results can be organised.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Transparent collaboration between Problem Solving
+
+Environments</h4>
+
+<p class="MsoNormal">The Geodise XML toolbox provides a collection
+
+of straight-forward functions which convert variables in the Matlab
+
+environment to and from the external XML format. Variables in the
+
+Matlab workspace can be saved to and loaded from an XML file with
+
+minimal effort on the part of the researcher. XML is a structured
+
+format that can be interpreted by third party applications. By
+
+encoding the Matlab variables in the XML format there are a number
+
+of benefits.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The provision of the Geodise XML toolbox for
+
+Jython allows the transparent exchange of variables between the
+
+Matlab technical computing environment and Jython scripting
+
+environment. Variables are mapped to the appropriate built-in
+
+datatypes in the two languages. This allows researchers working
+
+with these two Problem Solving Environments to collaborate on
+
+shared datasets.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">The Geodise XML toolbox is also leveraged by
+
+the Geodise Database Toolbox to store variables and metadata in a
+
+database. The contents of variables and metadata in the database
+
+can then be queried and searched across. The Geodise Database
+
+toolbox may be used to share variables stored in the managed
+
+repository between members of a virtual organisation because
+
+researchers can authorise other users to access their data. When
+
+variables are retrieved from the repository they will be
+
+transparently converted into the built-in datatypes of that
+
+PSE.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear="all"
+
+style='page-break-before:""' /></span></b><br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"xml_save.htm"><img src="nav_bar/arrow_left.gif" alt="" /><br />
+
+xml_save</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"functionarguments.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+functionarguments</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

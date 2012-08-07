@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>gd_retrieve</title>
+
+<link href="geodisemanual.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang="EN-GB" link="blue" vlink="purple" xml:lang="EN-GB">
+
+<div class="Section1">
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<h3><a name="_Toc104279249" id="_Toc104279249"></a><a name=
+
+"_gd_retrieve_1" id="_gd_retrieve_1"></a>gd_retrieve</h3>
+
+</div>
+
+<p class="MsoNormal">Retrieves a file, variable or metadata from
+
+the archive to the local machine.</p>
+
+<p class="MsoNormal">&nbsp;&nbsp;&nbsp;</p>
+
+<h4>Syntax</h4>
+
+<p class="codesyntax">filename = gd_retrieve(ID,filename)</p>
+
+<p class="codesyntax">filename = gd_retrieve(ID,directory)</p>
+
+<p class="codesyntax">filename =
+
+gd_retrieve(ID,filename,[],'overwrite')</p>
+
+<p class="codesyntax">filename =
+
+gd_retrieve(ID,directory,[],'overwrite')</p>
+
+<p class="codesyntax">v = gd_retrieve(ID)</p>
+
+<p class="codesyntax">metadata = gd_retrieve(ID,[],'metadata')</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Description</h4>
+
+<p class="MsoNormal">The <span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID</span></span> needed to retrieve some data
+
+can be found in its metadata as <span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>standard.ID</span></span>, and is also returned
+
+by <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_archive.htm#_gd_archive_1">gd_archive</a></span></span>.</p>
+
+<h4>&nbsp;</h4>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>filename =
+
+gd_retrieve(ID,filename)</span></span> retrieves a file from the
+
+archive based on its unique identifier (<span class=
+
+"codeinline"><span style='font-size: 11.0pt'>ID</span></span>) and
+
+saves it to a local file specified by the <span class=
+
+"codeinline"><span style='font-size:11.0pt'>filename</span></span>
+
+string. The function returns the retrieved file&rsquo;s new
+
+location as a string, which is equal to the <span class=
+
+"codeinline"><span style='font-size:11.0pt'>filename</span></span>
+
+argument in this case. If a file exists with the same name a prompt
+
+will appear asking whether to overwrite it.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>filename =
+
+gd_retrieve(ID,directory)</span></span> retrieves a file from the
+
+archive based on its unique identifier (<span class=
+
+"codeinline"><span style='font-size: 11.0pt'>ID</span></span>) and
+
+saves it to a local directory specified by the directory string.
+
+The original name of the file will be used, which is determined by
+
+the <span class="codeinline"><span style=
+
+'font-size:11.0pt'>standard.localName</span></span> property in the
+
+file&rsquo;s metadata, see <span class="codeHyperlink"><span style=
+
+'font-size:11.0pt'><a href=
+
+"gd_archive.htm#_gd_archive_1">gd_archive</a></span></span> and
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>. The function
+
+returns the retrieved file&rsquo;s new location as a string.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>filename =
+
+gd_retrieve(ID,filename,[],'overwrite')</span></span> retrieves a
+
+file and saves it to the local file system. If a file exists with
+
+the same name it will be overwritten without prompting. This is
+
+also the case when a <span class="codeinline"><span style=
+
+'font-size:11.0pt'>directory</span></span> is given as the second
+
+argument.</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>v = gd_retrieve(ID)</span></span> returns a
+
+variable from the archive to the Matlab workspace based on its
+
+unique identifier (<span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID</span></span>).</p>
+
+<p class="NormalDescription">&nbsp;</p>
+
+<p class="NormalDescription"><span class="codeinline"><span style=
+
+'font-size:11.0pt'>metadata = gd_retrieve
+
+(ID,[],'metadata')</span></span> will return a metadata structure
+
+which corresponds to the file, variable or datagroup identified by
+
+<span class="codeinline"><span style=
+
+'font-size:11.0pt'>ID</span></span>. This is a shortcut, as the
+
+same result can be achieved using <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Examples</h4>
+
+<p class="MsoNormal" style='margin-left:36.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<p class="MsoNormal">Retrieve a file and save it with a specific
+
+file name.</p>
+
+<p class="MsoNormal">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p class="codeexample">fileID = gd_archive('C:\file.dat');</p>
+
+<p class="codeexample">
+
+gd_retrieve(fileID,'C:\filesdir\myfile.dat')</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>ans =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+C:\filesdir\myfile.dat</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Retrieve a file to a directory and use its
+
+original name.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">gd_retrieve(fileID,'C:\filesdir')</p>
+
+<p class="MsoNormal" style='text-indent:36.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>ans =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+C:\filesdir\file.dat</p>
+
+</div>
+
+<h4>&nbsp;</h4>
+
+<p class="MsoNormal">Retrieve a variable to the Matlab
+
+workspace.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">v.width = 12;</p>
+
+<p class="codeexample">v.height = 6;</p>
+
+<p class="codeexample">varID = gd_archive(v);</p>
+
+<p class="codeexample">x = gd_retrieve(varID)</p>
+
+<p class="MsoNormal" style='margin-left:36.0pt'><span class=
+
+"codeinline"><span style=
+
+'font-size:11.0pt'>&nbsp;</span></span></p>
+
+<div style=
+
+'border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#F3F3F3;margin-left:42.55pt;margin-right:8.5pt'>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>x =</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp;&nbsp; width: 12</p>
+
+<p class="codeoutput" style=
+
+'margin:0cm;margin-bottom:.0001pt;background:#F3F3F3'>
+
+&nbsp;&nbsp;&nbsp; height: 6</p>
+
+</div>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">Retrieve some metadata about a file.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="codeexample">m = gd_retrieve(fileID,[],'metadata');</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>Notes</h4>
+
+<p class="MsoNormal">You can only retrieve data that you archived
+
+or that someone else has given you permission to access.</p>
+
+<h4>&nbsp;</h4>
+
+<p class="MsoNormal">A valid proxy certificate is required to
+
+retrieve a file, variable or metadata (see <span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span>
+
+from the Geodise Compute Toolbox).</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal">You must have access to the host machine the
+
+files will be retrieved from. Your certificate subject must be
+
+added to the gridmap file on the host and to the authorisation
+
+database.</p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<h4>See also</h4>
+
+<p class="codeHyperlinkpara"><span class=
+
+"codeHyperlink"><span style='font-size: 11.0pt'><a href=
+
+"gd_archive.htm#_gd_archive_1">gd_archive</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_datagroup.htm#_gd_datagroup_1">gd_datagroup</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_datagroupadd.htm#_gd_datagroupadd_1">gd_datagroupadd</a></span></span>,
+
+<span class="codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_query.htm#_gd_query_1">gd_query</a></span></span>, <span class=
+
+"codeHyperlink"><span style='font-size:11.0pt'><a href=
+
+"gd_createproxy.htm#_gd_createproxy_1">gd_createproxy</a></span></span></p>
+
+<br />
+
+<div style=
+
+'border-top:solid windowtext 1.0pt;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;padding:1.0pt 0cm 1.0pt 0cm;background:#CCECFF'>
+
+<table width="100%">
+
+<tr>
+
+<td align="left" valign="middle"><b><a href=
+
+"gd_querydeleted.htm"><img src="nav_bar/arrow_left.gif" alt=
+
+"" /><br />
+
+gd_querydeleted</a></b></td>
+
+<td align="center" valign="middle"><b><a href="index.htm"><img src=
+
+"nav_bar/arrow_up.gif" alt="" /><br />
+
+contents</a></b></td>
+
+<td align="right" valign="middle"><b><a href=
+
+"gd_unmarkfordeletion.htm"><img src="nav_bar/arrow_right.gif" alt=
+
+"" /><br />
+
+gd_unmarkfordeletion</a></b></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<p align="center"><font size="-1">Copyright &copy; 2005, <a href=
+
+"http://www.geodise.org/">The Geodise Project</a>, University of
+
+Southampton</font></p>
+
+</div>
+
+</body>
+
+</html>
+

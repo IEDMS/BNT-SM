@@ -1,0 +1,45 @@
+head	1.1;
+access;
+symbols;
+locks
+	deventer:1.1; strict;
+comment	@// @;
+
+
+1.1
+date	2003.03.11.11.27.54;	author deventer;	state Exp;
+branches;
+next	;
+
+
+desc
+@Correct call to the function complement_pot instead of complement
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@function pot = recursive_combine_pots(pot1, pot2)
+% RECURSIVE_COMBINE_POTS recursive combine two potentials
+% pot = recursive_combine_pots(pot1, pot2)
+
+% recursive combine was defined under condition that the setdiff(heads of pot1, domain of pot2) or
+% setdiff(head of pot2, domain of pot1) if not empty
+
+D12 = mysubset(pot1.cheaddom, pot2.domain);
+D21 = mysubset(pot2.cheaddom, pot1.domain);
+
+if isempty(D12) & isempty(D21)
+    return;
+end
+
+if ~isempty(D12)
+    [margpot, comppot] = complement(pot1,D12);
+    pot = direct_combine_pots( recursive_combine_pots(margpot, pot2), comppot);
+elseif ~isempty(D21)
+    [margpot, comppot] = complement(pot2,D21);
+    pot = direct_combine_pots( recursive_combine_pots(pot1, margpot), comppot);
+end@
